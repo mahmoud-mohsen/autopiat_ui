@@ -1,0 +1,121 @@
+<div class="contaner hid">
+    <div class="row">
+        <div class="col-md-1">
+            <h6>تقريرالفحص</h6>
+        </div>
+        <div class="col-md-1">
+            <h6>اجراء سريع</h6>
+        </div>
+        <div class="col-md-1">
+            <h6>خدمة عملاء</h6>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-1">
+            <h6>سلع جديدة</h6>
+        </div>
+        <div class="col-md-1">
+            <h6>سلع موجودة</h6>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-1">
+            <h6>طريقةالتقسيط</h6>
+        </div>
+        <div class="col-md-1">
+            <h6>الخصومات</h6>
+        </div>
+        <div class="col-md-1">
+            <h6>بيع معنا</h6>
+        </div>
+        <div class="col-md-1">
+            <h6>عملية حجز</h6>
+        </div>
+        <div class="col-md-1">
+            <h6>عربي</h6>
+        </div>
+
+    </div>
+</div>
+
+<div class="contaner">
+    <div class="row log-bar">
+        <div class="col-md-1">
+            <h5>المفضلة </h5>
+        </div>
+        <div class="col-md-1">
+            <h5>محفظتي </h5>
+        </div>
+        <div class="col-md-2">
+            <h5>التسجيل الان </h5>
+        </div>
+
+        <div class="col-md-4">
+            <button type="submit" (click)="generalCategorySearch()" class="btn btn-primary"><span
+                    class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            <input [(ngModel)]="generalSearchText" #generalSearchT="ngModel" class="search-bar" type="text" name="generalSearch" id="generalSearch">
+        </div>
+
+        <div class="col-md-2 bt-ser">
+            <div class="row">
+                <div class="col">
+                    <select *ngIf="lookups" [(ngModel)]="generalSearchCategory" #generalSearchCate="ngModel" class="btn btn-outline-danger form-control form-control-lg dropdownBasic1">
+                        <option value="all">جميع الفئات</option>
+                        <option *ngFor="let category of lookups.categories;" value="{{category}}">{{category}}</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-1 logo-img">
+            <a routerLink="/">
+                <img src="../assets/img/logo.PNG" class="logo-img">
+            </a>
+        </div>
+    </div>
+</div>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-2 box-gen">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-12 boll">
+                            <h6 class="nav-tex">شوهدت مؤخرا</h6>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-10 but1 ">
+                                <div class="col-md-10 px-sid">
+
+                                </div>
+                                <div class="col-md-10 px-sid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-12 boll">
+                            <h6 class="nav-tex">مقترحة لك</h6>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-10 but1 ">
+                                <a href="#">
+                                    <img *ngFor="let car of suggestedCars" src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 box-gen">
+                <ng-content select=".container-body">
+                </ng-content>
+            </div>
+        </div>
+
+    </div>
+</div>

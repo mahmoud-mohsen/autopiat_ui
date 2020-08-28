@@ -1,0 +1,283 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="col-md-12 boll">
+                    <h6 class="nav-tex">تسجيل الدخول</h6>
+                </div>
+                <div class="row ">
+                    <div class="col-md-10 but1 ">
+                        <div class="row ">
+                            <div class="col-md-4 ">
+                                <button type="submit" class="btn btn-info btn-boll">تسجيل الدخول</button>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control " placeholder="Username" value="Username">
+                                <input type="text" class="form-control " placeholder="Username" value="password">
+                            </div>
+
+
+                            <div class="col-md-9 ">
+                                <h6 class="paas-word">تذكر اسم المستخدم و كلمة المرور</h6>
+                            </div>
+                            <div class="col-md-1">
+                                <input type="checkbox">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <div class="log-box">
+                                    <h6 class="log-tet">هل نسيت كلمة المرور</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="log-box">
+                                    <h6 class="log-tet">هل نسيت اسم المستخدم </h6>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="log-box">
+                                    <h6 class="log-tet">تسجيل الدخول
+                                    </h6>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-11">
+                <div class="col-md-12 boll">
+                    <h6 class="nav-tex">بحث سريع</h6>
+                </div>
+                <form #fastSearchForm="ngForm" class="row ">
+                    <div class="col-md-10 but1 ">
+                        <div class="row">
+                            <div class="col-md-11">
+                                <div class="d-inline-block">
+                                    <select [(ngModel)]="fastSearchCategory" *ngIf="lookups" name="category" class="btn mr-5 btn-outline-danger bt-ser-box-head dropdownBasic1">
+                                        <option value=null>الفئة</option>
+                                        <option *ngFor="let category of lookups.categories;" value="{{category}}">
+                                            {{category}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5">
+                                <div class="d-inline-block">
+                                    <select [(ngModel)]="fastSearchModel" *ngIf="lookups" name="model" class="btn btn-outline-danger bt-ser-box">
+                                        <option value=null>الموديل</option>
+                                        <option *ngFor="let model of lookups.models;" value="{{model}}">
+                                            {{model}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="d-inline-block">
+                                    <select [(ngModel)]="fastSearchType" *ngIf="lookups" name="type" class="btn btn-outline-danger bt-ser-box">
+                                        <option value=null>النوع</option>
+                                        <option *ngFor="let type of lookups.types;" value="{{type}}">
+                                            {{type}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="d-inline-block">
+                                    <select [(ngModel)]="fastSearchYearFrom" name="yearFrom" class="btn btn-outline-danger bt-ser-box">
+                                        <option value=null>السنة من</option>
+                                        <option *ngFor='let year of years' value="{{year}}">{{year}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div ngbDropdown class="d-inline-block">
+                                    <select [(ngModel)]="fastSearchYearTo" name="yearTo" class="btn btn-outline-danger bt-ser-box">
+                                        <option value=null>السنةالى</option>
+                                        <option *ngFor='let year of years' value="{{year}}">{{year}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="d-inline-block">
+                                    <select [(ngModel)]="fastSearchPriceFrom" name="priceFrom" class="btn btn-outline-danger bt-ser-box">
+                                        <option value=null>السعر من</option>
+                                        <option value="5000">5,000</option>
+                                        <option value="10000">10,000</option>
+                                        <option value="20000">20,000</option>
+                                        <option value="30000">30,000</option>
+                                        <option value="40000">40,000</option>
+                                        <option value="50000">50,000</option>
+                                        <option value="60000">60,000</option>
+                                        <option value="70000">70,000</option>
+                                        <option value="80000">80,000</option>
+                                        <option value="90000">90,000</option>
+                                        <option value="100000">100,000</option>
+                                        <option value="200000">200,000</option>
+                                        <option value="300000">300,000</option>
+                                        <option value="400000">400,000</option>
+                                        <option value="500000">500,000</option>
+                                        <option value="600000">600,000</option>
+                                        <option value="700000">700,000</option>
+                                        <option value="800000">800,000</option>
+                                        <option value="900000">900,000</option>
+                                        <option value="1000000">1,000,000</option>
+                                        <option value="1500000">1,500,000</option>
+                                        <option value="2000000">2,000,000</option>
+                                        <option value="2500000">2,500,000</option>
+                                        <option value="3000000">3,000,000</option>
+                                        <option value="3500000">3,500,000</option>
+                                        <option value="4000000">4,000,000</option>
+                                        <option value="4500000">4,500,000</option>
+                                        <option value="5000000">5,000,000</option>
+                                        <option value="5500000">5,500,000</option>
+                                        <option value="6000000">6,000,000</option>
+                                        <option value="6500000">6,500,000</option>
+                                        <option value="7000000">7,000,000</option>
+                                        <option value="7500000">7,500,000</option>
+                                        <option value="8000000">8,000,000</option>
+                                        <option value="8500000">8,500,000</option>
+                                        <option value="9000000">9,000,000</option>
+                                        <option value="9500000">9,500,000</option>
+                                        <option value="10000000">10,000,000</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="d-inline-block">
+                                    <select [(ngModel)]="fastSearchPriceTo" name="priceTo" class="btn btn-outline-danger bt-ser-box">
+                                        <option value=null>السعر الى</option>
+                                        <option value="10000">10,000</option>
+                                        <option value="20000">20,000</option>
+                                        <option value="30000">30,000</option>
+                                        <option value="40000">40,000</option>
+                                        <option value="50000">50,000</option>
+                                        <option value="60000">60,000</option>
+                                        <option value="70000">70,000</option>
+                                        <option value="80000">80,000</option>
+                                        <option value="90000">90,000</option>
+                                        <option value="100000">100,000</option>
+                                        <option value="200000">200,000</option>
+                                        <option value="300000">300,000</option>
+                                        <option value="400000">400,000</option>
+                                        <option value="500000">500,000</option>
+                                        <option value="600000">600,000</option>
+                                        <option value="700000">700,000</option>
+                                        <option value="800000">800,000</option>
+                                        <option value="900000">900,000</option>
+                                        <option value="1000000">1,000,000</option>
+                                        <option value="1500000">1,500,000</option>
+                                        <option value="2000000">2,000,000</option>
+                                        <option value="2500000">2,500,000</option>
+                                        <option value="3000000">3,000,000</option>
+                                        <option value="3500000">3,500,000</option>
+                                        <option value="4000000">4,000,000</option>
+                                        <option value="4500000">4,500,000</option>
+                                        <option value="5000000">5,000,000</option>
+                                        <option value="5500000">5,500,000</option>
+                                        <option value="6000000">6,000,000</option>
+                                        <option value="6500000">6,500,000</option>
+                                        <option value="7000000">7,000,000</option>
+                                        <option value="7500000">7,500,000</option>
+                                        <option value="8000000">8,000,000</option>
+                                        <option value="8500000">8,500,000</option>
+                                        <option value="9000000">9,000,000</option>
+                                        <option value="9500000">9,500,000</option>
+                                        <option value="10000000">10,000,000</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-11">
+                                <button type="submit" (click)="fastSearch()" class="btn mr-5 btn-outline-danger bt-ser-box-head dropdownBasic1">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 main-box" [ngClass]="{'main-box':false,'main-type-box':true}">
+        <div *ngIf="categoryId=='0'" class="row">
+            <div class="col-md-4 but">
+                <h6 class="nav-barr">خطوات حجزالسيارة</h6>
+            </div>
+            <div class="col-md-4 but">
+                <h6 class="nav-barr">كيفية الشراء..؟</h6>
+
+            </div>
+            <div class="col-md-4 but">
+                <h6 class="nav-barr">ما هوا اوتوبايت..؟</h6>
+            </div>
+
+        </div>
+
+        <div *ngIf="categoryId=='1'">
+            <typeView-newcar class="row" [categoryId]=categoryId></typeView-newcar>
+        </div>
+        <div *ngIf="categoryId=='2'">
+            <typeView-newcar class="row" [categoryId]=categoryId></typeView-newcar>
+        </div>
+        <div *ngIf="categoryId=='3'">
+            <typeView-newcar class="row" [categoryId]=categoryId></typeView-newcar>
+        </div>
+        <div *ngIf="categoryId=='4' ">
+            <typeView-newcar class="row" [categoryId]=categoryId></typeView-newcar>
+        </div>
+        <div *ngIf="categoryId=='5'">
+            <typeView-newcar class="row" [categoryId]=categoryId></typeView-newcar>
+        </div>
+        <div *ngIf="categoryId=='6'">
+            <typeView-newcar class="row" [categoryId]=categoryId></typeView-newcar>
+        </div>
+        <div *ngIf="categoryId=='7'">
+            <typeView-newcar class="row" [categoryId]=categoryId></typeView-newcar>
+        </div>
+        <div *ngIf="categoryId=='8'">
+            <typeView-newcar class="row" [categoryId]=categoryId></typeView-newcar>
+        </div>
+
+
+    </div>
+    <div class="col-md-2 ">
+        <div class=" ">
+            <ul class="list-unstyled components mb-5 ">
+                <li class="active nav-but1 ">
+                    أختر الفئة
+                </li>
+                <li [ngClass]="{ 'active nav-but1':categoryId=='1' , 'nav-but':categoryId!='1' } ">
+                    <a (click)="getCarTyps(1) " class="nav-tex btn "> السيارات الجديدة</a>
+                </li>
+                <li [ngClass]="{ 'active nav-but1':categoryId=='2' , 'nav-but':categoryId!='2' } ">
+                    <a (click)="getCarTyps(2) " class="nav-tex btn "> السيارات المستعملة</a>
+                </li>
+                <li [ngClass]="{ 'active nav-but1':categoryId=='3' , 'nav-but':categoryId!='3' } ">
+                    <a (click)="getCarTyps(3) " class="nav-tex btn ">سيارات متحدي الاعاقة</a>
+                </li>
+                <li [ngClass]="{ 'active nav-but1':categoryId=='4' , 'nav-but':categoryId!='4' } ">
+                    <a (click)="getCarTyps(4) " class="nav-tex btn ">شاحنات</a>
+                </li>
+                <li [ngClass]="{ 'active nav-but1':categoryId=='5' , 'nav-but':categoryId!='5' } ">
+                    <a (click)="getCarTyps(5) " class="nav-tex btn "> اوتوبيسات</a>
+                </li>
+                <li [ngClass]="{ 'active nav-but1':categoryId=='6' , 'nav-but':categoryId!='6' } ">
+                    <a (click)="getCarTyps(6) " class="nav-tex btn "> معدات ثقيلة</a>
+                </li>
+                <li [ngClass]="{ 'active nav-but1':categoryId=='7' , 'nav-but':categoryId!='7' } ">
+                    <a (click)="getCarTyps(7) " class="nav-tex btn "> قطع غيار و اكسسوارات</a>
+                </li>
+                <li [ngClass]="{ 'active nav-but1':categoryId=='8' , 'nav-but':categoryId!='8' } ">
+                    <a (click)="getCarTyps(8) " class="nav-tex btn "> اطارات</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

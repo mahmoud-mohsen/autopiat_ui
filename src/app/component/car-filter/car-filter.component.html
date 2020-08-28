@@ -1,0 +1,358 @@
+<div class="row">
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="ser-tex">نتائج البحث</h3>
+
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div *ngIf="category" class="box-ser">
+                            <h6 class="ser-txt-box">الفئة:{{category}}</h6>
+                        </div>
+                        <div *ngIf="type" class="box-ser">
+                            <h6 class="ser-txt-box">الماركة:{{type}}</h6>
+                        </div>
+                        <div *ngIf="model" class="box-ser">
+                            <h6 class="ser-txt-box">موديل:{{model}}</h6>
+                        </div>
+                        <div *ngIf="motionVector" class="box-ser">
+                            <h6 class="ser-txt-box">ناقل الحركة:{{motionVector}}</h6>
+                        </div>
+                        <div *ngIf="numberOfDoors" class="box-ser">
+                            <h6 class="ser-txt-box">عدد الأبواب:{{numberOfDoors}}</h6>
+                        </div>
+                        <div *ngIf="priceFrom" class="box-ser">
+                            <h6 class="ser-txt-box">السعر من:{{priceFrom}}</h6>
+                        </div>
+                        <div *ngIf="priceTo" class="box-ser">
+                            <h6 class="ser-txt-box">السعر الى:{{priceTo}}</h6>
+                        </div>
+                        <div *ngIf="yearFrom" class="box-ser">
+                            <h6 class="ser-txt-box">السنة من:{{yearFrom}}</h6>
+                        </div>
+                        <div *ngIf="yearTo" class="box-ser">
+                            <h6 class="ser-txt-box">السنة الى:{{yearTo}}</h6>
+                        </div>
+                        <div *ngIf="luxuries" class="box-ser">
+                            <h6 class="ser-txt-box">الكماليات:{{luxuries}}</h6>
+                        </div>
+                        <div *ngIf="design" class="box-ser">
+                            <h6 class="ser-txt-box">النوع:{{design}}</h6>
+                        </div>
+                        <div *ngIf="color" class="box-ser">
+                            <h6 class="ser-txt-box">اللون:{{color}}</h6>
+                        </div>
+                        <div *ngIf="status" class="box-ser">
+                            <h6 class="ser-txt-box">الحالة:{{status}}</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="ser-tex">:تطبيق الفلتر </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <hr class="hr-ser">
+            </div>
+            <div class="col-md-12">
+                <h3 class="ser-tex">ترشيحات اوتوبيات لك</h3>
+
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+
+                    <div *ngFor="let car of suggestedCars" class="col-md-3 seg-box">
+                        <a href="#">
+                            <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid img-responsive">
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-12">
+                <hr class="hr-ser">
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="">
+                            <h6 class="">نتيجة البحث <span *ngIf="filterdCars">{{filterdCars.numberOfElements}}</span> وحدة
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="areng-box">
+                            <div ngbDropdown class="d-inline-block">
+                                <select (change)="sortCars()" [(ngModel)]="sort" name="sort" class="btn btn-outline-secondary">
+                                    <option selected value=null>الترتيب</option>
+                                    <option value="asc" >تصاعدى</option>
+                                    <option value="desc" >تنازلى</option>
+                                </select>
+                            </div>
+                            <div ngbDropdown class="d-inline-block">
+                                <select (change)="sortCars()" [(ngModel)]="sortVariable" name="sortVariable" class="btn btn-outline-secondary">
+                                    <option selected value=null>الصنف</option>
+                                    <option value="asc" >السعر</option>
+                                    <option value="desc" >التاريخ</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="filterdCars" class="col-md-12">
+                <div *ngFor="let car of filterdCars.content" class="row">
+                    <div class="col-md-1 box-ser-res">
+                        <h6> السعر {{car.price}} جنيه مصري</h6>
+                    </div>
+                    <div class="col-md-7 box-ser-res d-flex flex-column">
+                        <h6> الاسم: <span> {{car.name}}</span></h6>
+                        <h6> الوصف: <span> {{car.description}}</span></h6>
+                        <h6> تاريخ العرض: <span> {{car.creationDate|date}}</span></h6>
+                    </div>
+                    <div class="col-md-1 ">
+                        <div class="row">
+                            <div class="col-md-11 smm-box">
+                                <img src="{{car.images.split(',')[1]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                            </div>
+                            <div class="col-md-11 smm-box">
+                                <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2 box-car-im">
+                        <a [routerLink]="['/car',car.id]">
+                            <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="col-md-3">
+        <div class="">
+            <ul class="list-unstyled components mb-5">
+                <li class="active nav-but1">
+                    <a href="#" class="nav-tex"> اختر الفئة</a>
+                </li>
+                <li class="">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <select (click)="updateFilter()" [(ngModel)]="category" name="category" class="btn btn-outline-secondary">
+                                <option [ngValue]="null">الفئة</option>
+                                <option *ngFor="let category of filterValues.categories" value="{{category}}">
+                                    {{category}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <select (click)="updateFilter()" [(ngModel)]="type" name="type" class="btn btn-outline-secondary">
+                                <option [ngValue]="null">الماركة</option>
+                                <option *ngFor="let type of filterValues.types" value="{{type}}">{{type}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <select (click)="updateFilter()" [(ngModel)]="model" name="model" class="btn btn-outline-secondary">
+                                <option [ngValue]="null">الموديل</option>
+                                <option *ngFor="let model of filterValues.models" value="{{model}}">{{model}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <select (click)="updateFilter()" [(ngModel)]="motionVector" name="motionVector" class="btn btn-outline-secondary">
+                                <option [ngValue]="null">ناقل الحركة</option>
+                                <option *ngFor="let motionVector of filterValues.motionVector" value="{{motionVector}}">
+                                    {{motionVector}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <select (click)="updateFilter()" [(ngModel)]="status" name="status" class="btn btn-outline-secondary">
+                                <option [ngValue]="null">الحالة</option>
+                                <option *ngFor="let status of filterValues.status" value="{{status}}">{{status}}
+                                </option>
+
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <select (click)="updateFilter()" [(ngModel)]="numberOfDoors" name="numberOfDoors" class="btn btn-outline-secondary">
+                                <option [ngValue]="null">عدد الأبواب</option>
+                                <option *ngFor="let numberOfDoors of filterValues.numberOfDoors"
+                                    value="{{numberOfDoors}}">{{numberOfDoors}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div ngbDropdown class="d-inline-block">
+                                <select (click)="updateFilter()" [(ngModel)]="priceFrom" name="priceFrom" class="btn btn-outline-secondary">
+                                    <option [ngValue]="null">السعر من</option>
+                                    <option value="5000">5,000</option>
+                                    <option value="10000">10,000</option>
+                                    <option value="20000">20,000</option>
+                                    <option value="30000">30,000</option>
+                                    <option value="40000">40,000</option>
+                                    <option value="50000">50,000</option>
+                                    <option value="60000">60,000</option>
+                                    <option value="70000">70,000</option>
+                                    <option value="80000">80,000</option>
+                                    <option value="90000">90,000</option>
+                                    <option value="100000">100,000</option>
+                                    <option value="200000">200,000</option>
+                                    <option value="300000">300,000</option>
+                                    <option value="400000">400,000</option>
+                                    <option value="500000">500,000</option>
+                                    <option value="600000">600,000</option>
+                                    <option value="700000">700,000</option>
+                                    <option value="800000">800,000</option>
+                                    <option value="900000">900,000</option>
+                                    <option value="1000000">1,000,000</option>
+                                    <option value="1500000">1,500,000</option>
+                                    <option value="2000000">2,000,000</option>
+                                    <option value="2500000">2,500,000</option>
+                                    <option value="3000000">3,000,000</option>
+                                    <option value="3500000">3,500,000</option>
+                                    <option value="4000000">4,000,000</option>
+                                    <option value="4500000">4,500,000</option>
+                                    <option value="5000000">5,000,000</option>
+                                    <option value="5500000">5,500,000</option>
+                                    <option value="6000000">6,000,000</option>
+                                    <option value="6500000">6,500,000</option>
+                                    <option value="7000000">7,000,000</option>
+                                    <option value="7500000">7,500,000</option>
+                                    <option value="8000000">8,000,000</option>
+                                    <option value="8500000">8,500,000</option>
+                                    <option value="9000000">9,000,000</option>
+                                    <option value="9500000">9,500,000</option>
+                                    <option value="10000000">10,000,000</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div ngbDropdown class="d-inline-block">
+                                <select (click)="updateFilter()" [(ngModel)]="priceTo" name="priceTo" class="btn btn-outline-secondary">
+                                    <option [ngValue]="null">السعر الى</option>
+                                    <option value="10000">10,000</option>
+                                    <option value="20000">20,000</option>
+                                    <option value="30000">30,000</option>
+                                    <option value="40000">40,000</option>
+                                    <option value="50000">50,000</option>
+                                    <option value="60000">60,000</option>
+                                    <option value="70000">70,000</option>
+                                    <option value="80000">80,000</option>
+                                    <option value="90000">90,000</option>
+                                    <option value="100000">100,000</option>
+                                    <option value="200000">200,000</option>
+                                    <option value="300000">300,000</option>
+                                    <option value="400000">400,000</option>
+                                    <option value="500000">500,000</option>
+                                    <option value="600000">600,000</option>
+                                    <option value="700000">700,000</option>
+                                    <option value="800000">800,000</option>
+                                    <option value="900000">900,000</option>
+                                    <option value="1000000">1,000,000</option>
+                                    <option value="1500000">1,500,000</option>
+                                    <option value="2000000">2,000,000</option>
+                                    <option value="2500000">2,500,000</option>
+                                    <option value="3000000">3,000,000</option>
+                                    <option value="3500000">3,500,000</option>
+                                    <option value="4000000">4,000,000</option>
+                                    <option value="4500000">4,500,000</option>
+                                    <option value="5000000">5,000,000</option>
+                                    <option value="5500000">5,500,000</option>
+                                    <option value="6000000">6,000,000</option>
+                                    <option value="6500000">6,500,000</option>
+                                    <option value="7000000">7,000,000</option>
+                                    <option value="7500000">7,500,000</option>
+                                    <option value="8000000">8,000,000</option>
+                                    <option value="8500000">8,500,000</option>
+                                    <option value="9000000">9,000,000</option>
+                                    <option value="9500000">9,500,000</option>
+                                    <option value="10000000">10,000,000</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div ngbDropdown class="d-inline-block">
+                                <select (click)="updateFilter()" [(ngModel)]="yearFrom" name="yearFrom" class="btn btn-outline-secondary">
+                                    <option [ngValue]="null">السنة من</option>
+                                    <option *ngFor='let year of years' value="{{year}}">{{year}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div ngbDropdown class="d-inline-block">
+                                <select (click)="updateFilter()" [(ngModel)]="yearTo" name="yearTo" class="btn btn-outline-secondary">
+                                    <option [ngValue]="null">السنة الى</option>
+                                    <option *ngFor='let year of years' value="{{year}}">{{year}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li hidden class="">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <select (click)="updateFilter()" [(ngModel)]="luxuries" name="luxuries" class="btn btn-outline-secondary">
+                                <option [ngValue]="null">الكماليات</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <select (click)="updateFilter()" [(ngModel)]="design" name="design" class="btn btn-outline-secondary">
+                                <option [ngValue]="null">نوع السيارة</option>
+                                <option *ngFor="let design of filterValues.designs" value="{{design}}">{{design}}
+                                </option>
+
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <select (click)="updateFilter()" [(ngModel)]="color" name="color" class="btn btn-outline-secondary">
+                                <option [ngValue]="null">اللون</option>
+                                <option *ngFor="let color of filterValues.color" value="{{color}}">{{color}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

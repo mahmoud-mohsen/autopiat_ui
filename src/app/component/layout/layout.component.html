@@ -44,7 +44,7 @@
             <h5>المفضلة </h5>
         </div>
         <div class="col-md-1">
-            <h5>محفظتي </h5>
+            <h5>طلباتى </h5>
         </div>
         <div class="col-md-2">
             <h5>التسجيل الان </h5>
@@ -103,8 +103,8 @@
                         </div>
                         <div class="row ">
                             <div class="col-md-10 but1 ">
-                                <a href="#">
-                                    <img *ngFor="let car of suggestedCars" src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                                <a *ngFor="let car of suggestedCars" [routerLink]="['/car',car.id]">
+                                    <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
                                 </a>
                             </div>
                         </div>

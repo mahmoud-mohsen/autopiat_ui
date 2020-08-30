@@ -64,7 +64,7 @@
                 <div class="row">
 
                     <div *ngFor="let car of suggestedCars" class="col-md-3 seg-box">
-                        <a href="#">
+                        <a [routerLink]="['/car',car.id]">
                             <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid img-responsive">
                         </a>
                     </div>

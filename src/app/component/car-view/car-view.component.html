@@ -3,15 +3,25 @@
 
         <div class="col-md-12">
             <div class="row">
+                <div class="col-md-12 d-flex justify-content-end">
+                    <div class="col-md-12">
+                        <h6 class="dar-der"> {{car.category}}>{{car.type}}>{{car.mainDescription.model}}</h6>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="dar-der"> <span>{{car.viewsNumber}}</span>عدد المشاهدات</h6>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="dar-der"> <span>{{car.code}}</span>كود السيارة</h6>
+                    </div>
+                    <div class="col-md-3">
+                        <h6 class="dar-der"> <span>{{car.creationDate|date}}</span>تاريخ العرض</h6>
+                    </div>
+                </div>
                 <div class="col-md-12">
                     <hr class="hr-ser">
                 </div>
                 <div class="col-md-2">
-                    <h4 class="dar-der"> سعر السيارة</h4>
-
-                </div>
-                <div class="col-md-2">
-                    <h4 class="dar-der"> اجمالي السيارة</h4>
+                    <h4 class="dar-der"> <span>{{car.price}}</span> السعر</h4>
 
                 </div>
                 <div class="col-md-8">
@@ -28,58 +38,65 @@
                         <ul ngbNav #nav="ngbNav" class="nav-tabs">
                             <li ngbNavItem class="nv-tb">
                                 <a ngbNavLink>تقريرالفحص</a>
-
+                                <ng-template ngbNavContent>
+                                    <div class="col-6 justify-content-center">
+                                        <img class="img-fluid rounded mx-auto d-block" src="{{car.carStatus.examinationReport}}">
+                                    </div>
+                                </ng-template>
                             </li>
                             <li ngbNavItem class="nv-tb">
                                 <a ngbNavLink>التجهيزات</a>
                                 <ng-template ngbNavContent>
-                                    <div class="row">
-                                        <div class="col-md-3 bill-box">
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-
+                                    <div class="row d-flex justify-content-start">
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.antiLockBrakeSystem" class="dil-box">
+                                            <h6><span>{{car.luxuries.antiLockBrakeSystem}}</span>|Anti Lock Brake System
+                                            </h6>
                                         </div>
-                                        <div class="col-md-3 bill-box">
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.cdPlayer" class="dil-box">
+                                            <h6><span>{{car.luxuries.cdPlayer}}</span>|مشغل أسطوانات</h6>
                                         </div>
-                                        <div class="col-md-3 bill-box">
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.driverAirbags" class="dil-box">
+                                            <h6><span>{{car.luxuries.driverAirbags}}</span>|وسائد هوائية للسائق</h6>
                                         </div>
-
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.electricPowerSteering" class="dil-box">
+                                            <h6><span>{{car.luxuries.electricPowerSteering}}</span>|Electric Power Steering
+                                            </h6>
+                                        </div>
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.flexibleSteeringWheel" class="dil-box">
+                                            <h6><span>{{car.luxuries.flexibleSteeringWheel}}</span>|عجلة قيادة مرنة</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.foldableMirror" class="dil-box">
+                                            <h6><span>{{car.luxuries.foldableMirror}}</span>|مرأه قابلة للطي</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.leatherSeats" class="dil-box">
+                                            <h6><span>{{car.luxuries.leatherSeats}}</span>|مقاعد جلد</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.multipleSteeringWheel" class="dil-box">
+                                            <h6><span>{{car.luxuries.multipleSteeringWheel}}</span>|عجلة قيادة متعددة
+                                            </h6>
+                                        </div>
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.parkingAssistantSensor" class="dil-box">
+                                            <h6><span>{{car.luxuries.parkingAssistantSensor}}</span>|مستشعر مساعد الركن
+                                            </h6>
+                                        </div>
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.passengerAirbags" class="dil-box">
+                                            <h6><span>{{car.luxuries.passengerAirbags}}</span>|وسائد هوائية للركاب</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.rearViewCamera" class="dil-box">
+                                            <h6><span>{{car.luxuries.rearViewCamera}}</span>|كاميرا الرئية الخلفية</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.sideAirbags" class="dil-box">
+                                            <h6><span>{{car.luxuries.sideAirbags}}</span>|وسائد هوائية جانبية</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.smartKey" class="dil-box">
+                                            <h6><span>{{car.luxuries.smartKey}}</span>|مفتاح ذكي</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.sunroof" class="dil-box">
+                                            <h6><span>{{car.luxuries.sunroof}}</span>|فتحة سقف</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.luxuries&&car.luxuries.touchConditioning" class="dil-box">
+                                            <h6><span>{{car.luxuries.touchConditioning}}</span>|تكييف تاتش</h6>
+                                        </div>
                                     </div>
                                 </ng-template>
 
@@ -87,105 +104,97 @@
                             <li ngbNavItem class="nv-tb">
                                 <a ngbNavLink>تقرير حالة المركبة</a>
                                 <ng-template ngbNavContent>
-                                    <div class="row">
-                                        <div class="col-md-3 bill-box">
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-
+                                    <div class="row d-flex justify-content-start">
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.airConditioned" class="dil-box">
+                                            <h6><span>{{car.carStatus.airConditioned}}</span>|مكيف الهواء</h6>
                                         </div>
-                                        <div class="col-md-3 bill-box">
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.brakeSystem" class="dil-box">
+                                            <h6><span>{{car.carStatus.brakeSystem}}</span>|نظام المكابح</h6>
                                         </div>
-                                        <div class="col-md-3 bill-box">
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.collision" class="dil-box">
+                                            <h6><span>{{car.carStatus.collision}}</span>|التصادم</h6>
                                         </div>
-
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.engineSuit" class="dil-box">
+                                            <h6><span>{{car.carStatus.engineSuit}}</span>|حالة المحرك</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.externalBodyCase" class="dil-box">
+                                            <h6><span>{{car.carStatus.externalBodyCase}}</span>|حالة الجسم الخارجى</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.externalLights" class="dil-box">
+                                            <h6><span>{{car.carStatus.externalLights}}</span>|الاضائة الخارجية</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.generalBodyCondition" class="dil-box">
+                                            <h6><span>{{car.carStatus.generalBodyCondition}}</span>|حالة الجسم العامة
+                                            </h6>
+                                        </div>
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.heaters" class="dil-box">
+                                            <h6><span>{{car.carStatus.heaters}}</span>|السخانات</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.internalBodyCondition" class="dil-box">
+                                            <h6><span>{{car.carStatus.internalBodyCondition}}</span>|حالة الجسم الداخلى
+                                            </h6>
+                                        </div>
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.motionVector" class="dil-box">
+                                            <h6><span>{{car.carStatus.motionVector}}</span>|ناقل الحركة</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.rustRate" class="dil-box">
+                                            <h6><span>{{car.carStatus.rustRate}}</span>|نسبة الصدأ</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.theFourDoors" class="dil-box">
+                                            <h6><span>{{car.carStatus.theFourDoors}}</span>|الأبواب الأربعة</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.carStatus&&car.carStatus.windows" class="dil-box">
+                                            <h6><span>{{car.carStatus.windows}}</span>|النوافز</h6>
+                                        </div>
                                     </div>
                                 </ng-template>
                             </li>
                             <li ngbNavItem class="nv-tb">
                                 <a ngbNavLink>معلومات المركبة</a>
                                 <ng-template ngbNavContent>
-                                    <div class="row">
-                                        <div class="col-md-3 bill-box">
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-
+                                    <div class="row d-flex justify-content-start">
+                                        <div *ngIf="car&&car.type" class="dil-box">
+                                            <h6><span>{{car.type}}</span>|الماركة</h6>
                                         </div>
-                                        <div class="col-md-3 bill-box">
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-
+                                        <div *ngIf="car&&car.mainDescription&&car.mainDescription.design" class="dil-box">
+                                            <h6><span>{{car.mainDescription.design}}</span>|نوع السيارة</h6>
                                         </div>
-                                        <div class="col-md-3 bill-box">
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-                                            <div class="dil-box">
-                                                <h6>مقاعد جلد</h6>
-                                            </div>
-
+                                        <div *ngIf="car&&car.mainDescription&&car.mainDescription.model" class="dil-box">
+                                            <h6><span>{{car.mainDescription.model}}</span>|الموديل</h6>
                                         </div>
+                                        <div *ngIf="car&&car.mainDescription&&car.mainDescription.year" class="dil-box">
+                                            <h6><span>{{car.mainDescription.year}}</span>|سنة الموديل</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.mainDescription&&car.mainDescription.color" class="dil-box">
+                                            <h6><span>{{car.mainDescription.color}}</span>|اللون</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.mainDescription&&car.mainDescription.engineCapacity" class="dil-box">
+                                            <h6><span>{{car.mainDescription.engineCapacity}}</span>|سعة المحرك</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.mainDescription&&car.mainDescription.fuelType" class="dil-box">
+                                            <h6><span>{{car.mainDescription.fuelType}}</span>|نوع الوقود</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.mainDescription&&car.mainDescription.meterReading" class="dil-box">
+                                            <h6><span>{{car.mainDescription.meterReading}}</span>|قراءة العداد</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.mainDescription&&car.mainDescription.motionVector" class="dil-box">
+                                            <h6><span>{{car.mainDescription.motionVector}}</span>|ناقل الحركة</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.mainDescription&&car.mainDescription.numberOfCylinders" class="dil-box">
+                                            <h6><span>{{car.mainDescription.numberOfCylinders}}</span>|عدد الإسطوانات
+                                            </h6>
+                                        </div>
+                                        <div *ngIf="car&&car.mainDescription&&car.mainDescription.numberOfDoors" class="dil-box">
+                                            <h6><span>{{car.mainDescription.numberOfDoors}}</span>|عدد الأبواب</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.mainDescription&&car.mainDescription.numberOfPassengers" class="dil-box">
+                                            <h6><span>{{car.mainDescription.numberOfPassengers}}</span>|عدد الركاب</h6>
+                                        </div>
+                                        <div *ngIf="car&&car.mainDescription&&car.mainDescription.status" class="dil-box">
+                                            <h6><span>{{car.mainDescription.status}}</span>|الحالة</h6>
+                                        </div>
+
+
 
                                     </div>
                                 </ng-template>
@@ -200,7 +209,7 @@
                         </div>
                         <div class="4">
                             <div class="p-box">
-                                <h5>سعر السيارة</h5>
+                                <h5> <span>{{car.price}}</span>سعر السيارة</h5>
                                 <button type="button" class="btn btn-danger">احجز الان</button>
 
                             </div>
@@ -215,24 +224,13 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="car-im-bg">
-
+                                <img *ngIf="carImages" src="{{carImages[0]}}" alt="{{car.name}}" class="col-md-10 px-sid img-responsive">
                             </div>
                         </div>
-
-                        <div class="col-md-2 ca-sm-pic">
-
-                        </div>
-                        <div class="col-md-2 ca-sm-pic">
-
-                        </div>
-                        <div class="col-md-2 ca-sm-pic">
-
-                        </div>
-                        <div class="col-md-2 ca-sm-pic">
-
-                        </div>
-                        <div class="col-md-2 ca-sm-pic">
-
+                        <div class="d-flex">
+                            <div *ngFor="let image of carImages" class="col-md-2 ca-sm-pic">
+                                <img *ngIf="carImages" src="{{image}}" alt="{{car.name}}" class="col-md-10 px-sid img-responsive">
+                            </div>
                         </div>
                     </div>
 

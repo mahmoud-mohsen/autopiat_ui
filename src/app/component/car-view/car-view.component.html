@@ -2,7 +2,7 @@
     <div class="row">
 
         <div class="col-md-12">
-            <div class="row">
+            <div *ngIf="car" class="row">
                 <div class="col-md-12 d-flex justify-content-end">
                     <div class="col-md-12">
                         <h6 class="dar-der"> {{car.category}}>{{car.type}}>{{car.mainDescription.model}}</h6>
@@ -40,7 +40,7 @@
                                 <a ngbNavLink>تقريرالفحص</a>
                                 <ng-template ngbNavContent>
                                     <div class="col-6 justify-content-center">
-                                        <img class="img-fluid rounded mx-auto d-block" src="{{car.carStatus.examinationReport}}">
+                                        <img *ngIf="car.carStatus" class="img-fluid rounded mx-auto d-block" src="{{car.carStatus.examinationReport}}">
                                     </div>
                                 </ng-template>
                             </li>
@@ -210,7 +210,8 @@
                         <div class="4">
                             <div class="p-box">
                                 <h5> <span>{{car.price}}</span>سعر السيارة</h5>
-                                <button type="button" class="btn btn-danger">احجز الان</button>
+                                <button (click)="reserveCar(car.id)" type="button" class="btn btn-danger">احجز
+                                    الان</button>
 
                             </div>
 

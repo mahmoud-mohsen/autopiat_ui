@@ -1,0 +1,48 @@
+<div class="col-md-11">
+    <div class="col-md-12 boll">
+        <h6 class="nav-tex">تسجيل الدخول</h6>
+    </div>
+    <div class="row ">
+        <div class="col-md-10 but1 ">
+            <div class="row ">
+                <div class="col-md-4 ">
+                    <button (click)="login()" type="submit" class="btn btn-info btn-boll">تسجيل الدخول</button>
+                </div>
+                <div class="col-md-8">
+                    <input [(ngModel)]="username" #generalSearchT="ngModel" type="text" class="form-control " placeholder="Username">
+                    <input [(ngModel)]="password" #generalSearchT="ngModel" type="password" class="form-control " placeholder="Password">
+                </div>
+
+
+                <div class="col-md-9 ">
+                    <h6 class="paas-word">ليس لديك حساب؟ <a [routerLink]="['/registration']" id="signup">انشاء حساب
+                            جديد</a></h6>
+                </div>
+                <div hidden class="col-md-1">
+                    <input type="checkbox">
+                </div>
+            </div>
+            <div class="row ">
+                <div hidden class="col-md-6">
+                    <div class="log-box">
+                        <h6 class="log-tet">هل نسيت كلمة المرور</h6>
+                    </div>
+                </div>
+                <div hidden class="col-md-6">
+                    <div class="log-box">
+                        <h6 class="log-tet">هل نسيت اسم المستخدم </h6>
+                    </div>
+
+                </div>
+                <div class="col-md-12">
+                    <div class="log-box">
+                        <button (click)="login()" class="log-tet">تسجيل الدخول
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

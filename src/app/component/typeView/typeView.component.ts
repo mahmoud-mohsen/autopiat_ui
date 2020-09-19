@@ -32,8 +32,6 @@ export class TypeViewComponent implements OnInit {
     let url = `category/${this.categoryId}/carType`;
     this.backendService.ViewEntities(url).subscribe((response: any) => {
       this.carTypeList = response;
-    }, (error: any) => {
-      alert(error.error.message);
     });
   }
 }

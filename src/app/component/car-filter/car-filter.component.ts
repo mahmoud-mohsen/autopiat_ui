@@ -152,8 +152,6 @@ export class CarFilterComponent implements OnInit {
 
     this.backendService.ViewEntities(url, param).subscribe((response: any) => {
       this.filterdCars = response;
-    }, (error: any) => {
-      alert(error.error.message);
     });
   }
 
@@ -214,15 +212,13 @@ export class CarFilterComponent implements OnInit {
   sortCars() {
     console.log(this.filterdCars.content);
 
-    this.filterdCars.content=this.filterdCars.content.sort(function(a,b){
-      return Number(a.price) > Number(b.price) ?1:Number(a.price) < Number(b.price)?-1:0
-     })
-console.log(this.filterdCars.content);
+    this.filterdCars.content = this.filterdCars.content.sort(function (a, b) {
+      return Number(a.price) > Number(b.price) ? 1 : Number(a.price) < Number(b.price) ? -1 : 0
+    })
 
-     this.filterdCars.content=this.filterdCars.content.sort(function(b,a){
-      return Number(a.price) > Number(b.price) ?1:Number(a.price) < Number(b.price)?-1:0
-     })
-     console.log(this.filterdCars.content);
+    this.filterdCars.content = this.filterdCars.content.sort(function (b, a) {
+      return Number(a.price) > Number(b.price) ? 1 : Number(a.price) < Number(b.price) ? -1 : 0
+    })
 
 
   }

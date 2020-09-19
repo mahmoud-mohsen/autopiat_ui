@@ -1,0 +1,17 @@
+.but {
+    background-color: #494848;
+    text-align: center;
+    border: honeydew 1px solid;
+    border-radius: 5px;
+    /* height: 55px; */
+    padding: 14px;
+}
+
+.nav-but1 {
+    padding: 15px;
+    background-color: #d30010;
+    width: 200px;
+    margin: 1px;
+    border-radius: 5px;
+    text-align: center;
+}

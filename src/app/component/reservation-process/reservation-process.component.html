@@ -1,0 +1,113 @@
+<div dir="rtl" class="row">
+    <div [ngClass]="{ 'nav-but1':step >= 1}" class="col-md-2 but ">
+        <h6 class="nav-barr">الاستفسار</h6>
+    </div>
+    <div [ngClass]="{ 'nav-but1':step >= 2}" class="col-md-2 but ">
+        <h6 class="nav-barr">المتابعة والحجز</h6>
+    </div>
+    <div [ngClass]="{ 'nav-but1':step >= 3}" class="col-md-2 but">
+        <h6 class="nav-barr">التعاقد</h6>
+    </div>
+    <div [ngClass]="{ 'nav-but1':step == 4}" class="col-md-2 but">
+        <h6 class="nav-barr">اتمام الاستلام</h6>
+    </div>
+</div>
+<div dir="rtl" class="row">
+    <div *ngIf="reservationStatus" class="col">
+        <div *ngIf="reservationStatus.isExist==null && step==1" class="row">
+            <div class="d-flex flex-column bd-highlight mb-3">
+                <h6 class="p-2 bd-highlight">
+                    الاستفسار
+                </h6>
+                <p class="p-2 bd-highlight">سيقوم إحدى موظفينا بتأكيد توفر السلعة خلال يوم عمل .</p>
+            </div>
+        </div>
+        <div *ngIf="reservationStatus.isExist!=null&&!reservationStatus.isExist && step==2" class="row">
+            <div class="d-flex flex-column bd-highlight mb-3">
+                <h6 class="p-2 bd-highlight">
+                    السلعة غير متوفرة الان
+                </h6>
+                <p class="p-2 bd-highlight">
+                    نأسف لاخباركم ان السلعة رقم ({{reservationStatus.carReservationResponse.code}}) غير متوفرة حتى الان لاحدى الاسباب الآتية </p>
+                <p class="p-2 bd-highlight">
+                    - السلعة تم بيعها عن طريق البائع خارج المنصة
+                </p>
+                <p class="p-2 bd-highlight">
+                    - طلب البائع بوقف عرض السلعة
+                </p>
+                <p class="p-2 bd-highlight">
+                    - طلب البائع بوقف عرض السلعة
+                </p>
+
+            </div>
+        </div>
+        <div *ngIf="reservationStatus.isExist!=null&&reservationStatus.isExist && step==2" class="row">
+            <div class="row">
+                <div class="d-flex flex-column bd-highlight mb-3">
+                    <h6 class="p-2 bd-highlight">
+                        السلعة متوفرة يمكنك حجز موعد التعاقد
+                    </h6>
+                    <p class="p-2 bd-highlight">عليك حجز موعد التعاقد خلال 48 ساعة القادمة حتى لا يتم الغاء حجز السلعةالخاصة بك برقم ({{reservationStatus.carReservationResponse.code}}) وعرضها مرة اخري على الموقع
+                    </p>
+                </div>
+            </div>
+            <div *ngIf="step=='2'" class="row">
+                <h6> المتابعة والحجز</h6>
+                <div>
+                    <p>جب عليك إختيار موعد التعاقد من دليل التقويم الموضح وسيقوم إحدى موظفى مبيعات الشركة بالتواصل معك لتأكيد حجز الموعد والرد على أى إستفسار تحب أن تسأل عنه</p>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Choose a date</mat-label>
+                        <input [(ngModel)]="agreementDate" name="agreementDate" matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="step==3" class="row">
+            <div class="row">
+                <div class="d-flex flex-column bd-highlight mb-3">
+                    <h3> لقد تم تأكيد حجز الطلب وسوف يتم التواصل معكم من قبل خدمة العملاء فى اليوم المحدد ( {{reservationStatus.isAgreedDate|date}} )</h3>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="step==4" class="row">
+            <div class="row">
+                <div class="d-flex flex-column bd-highlight mb-3">
+                    <h3> تمت العملية</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="reservationStatus && reservationStatus.carReservationResponse" class="col-md-6 ord-box">
+        <div class="row">
+            <div class="col-md-1 pr-pn">
+                <h6 class="prrr-txt">السعر {{reservationStatus.carReservationResponse.price}}</h6>
+            </div>
+            <div class="col-md-3">
+                <h4 class="discr-txt">
+                    {{reservationStatus.carReservationResponse.name}}
+                </h4>
+                <h6 class="discr-txt">
+                    {{reservationStatus.carReservationResponse.code}} + {{reservationStatus.carReservationResponse.status}} + {{reservationStatus.carReservationResponse.type}} +{{reservationStatus.carReservationResponse.engineCapacity}} + {{reservationStatus.carReservationResponse.design}}
+                </h6>
+
+            </div>
+            <div class="2">
+                <img src="{{reservationStatus.carReservationResponse.image}}" class="ord-img">
+            </div>
+
+        </div>
+        <hr>
+        <div *ngIf="step==2 &&reservationStatus.isExist" class="row">
+            <div class="col-md-4">
+            </div>
+            <button (click)="submitAgreementdate(reservationStatus.carReservationResponse.id)" class="col-md-2">
+                تأكيد الحجز
+            </button>
+        </div>
+    </div>
+</div>

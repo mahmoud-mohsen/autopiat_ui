@@ -1,53 +1,7 @@
 <div class="row">
     <div class="col-md-3">
-        <div class="row">
-            <div class="col-md-11">
-                <div class="col-md-12 boll">
-                    <h6 class="nav-tex">تسجيل الدخول</h6>
-                </div>
-                <div class="row ">
-                    <div class="col-md-10 but1 ">
-                        <div class="row ">
-                            <div class="col-md-4 ">
-                                <button type="submit" class="btn btn-info btn-boll">تسجيل الدخول</button>
-                            </div>
-                            <div class="col-md-8">
-                                <input type="text" class="form-control " placeholder="Username" value="Username">
-                                <input type="text" class="form-control " placeholder="Username" value="password">
-                            </div>
-
-
-                            <div class="col-md-9 ">
-                                <h6 class="paas-word">تذكر اسم المستخدم و كلمة المرور</h6>
-                            </div>
-                            <div class="col-md-1">
-                                <input type="checkbox">
-                            </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col-md-6">
-                                <div class="log-box">
-                                    <h6 class="log-tet">هل نسيت كلمة المرور</h6>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="log-box">
-                                    <h6 class="log-tet">هل نسيت اسم المستخدم </h6>
-                                </div>
-
-                            </div>
-                            <div class="col-md-12">
-                                <div class="log-box">
-                                    <h6 class="log-tet">تسجيل الدخول
-                                    </h6>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+        <div *ngIf="!isAuthenticated()" class="row">
+            <app-login></app-login>
         </div>
         <div class="row">
             <div class="col-md-11">
@@ -206,14 +160,14 @@
     </div>
     <div class="col-md-6 main-box" [ngClass]="{'main-box':false,'main-type-box':true}">
         <div *ngIf="categoryId=='0'" class="row">
-            <div class="col-md-4 but">
-                <h6 class="nav-barr">خطوات حجزالسيارة</h6>
+            <div (click)="openAboutPage(3)" class="col-md-4 but">
+                <h6 class="nav-barr">خدمة البيع</h6>
             </div>
-            <div class="col-md-4 but">
+            <div (click)="openAboutPage(2)" class="col-md-4 but">
                 <h6 class="nav-barr">كيفية الشراء..؟</h6>
 
             </div>
-            <div class="col-md-4 but">
+            <div (click)="openAboutPage(1)" class="col-md-4 but">
                 <h6 class="nav-barr">ما هوا اوتوبايت..؟</h6>
             </div>
 

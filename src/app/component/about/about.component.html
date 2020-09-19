@@ -1,0 +1,130 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9 ">
+                <div class="row">
+                    <div (click)="OpenSellServiceMenue()" [ngClass]="{ 'nav-but1':sellServiceMenue}" class="col-md-4 but">
+                        <h6 class="nav-barr">خدمة البيع</h6>
+                    </div>
+                    <div (click)="OpenHowToBuyMenue()" [ngClass]="{ 'nav-but1':howToBuyMenue}" class="col-md-4 but">
+                        <h6 class="nav-barr">كيفية الشراء..؟</h6>
+                    </div>
+                    <div (click)="OpenWhatAutopiatMenue()" [ngClass]="{ 'nav-but1':whatAutopiatMenue}" class="col-md-4 but ">
+                        <h6 class="nav-barr">ما هوا اوتوبايت..؟</h6>
+                    </div>
+                    <div *ngIf="whatAutopiatMenue && whatAutopiatMenueItemNumber=='1'">
+                        <div class="col-md-12">
+                            <h2 class="tex-ord">ﻋﻦ أﺗﻮﺑﻴﺎت ..؟ </h2><br><br>
+                            <h6 class="tex-abo">ﻫﺬا ﻫﻮ اﻟﻤﻜﺎن اﻟﺬى ﺗﺒﺤﺚ ﻋﻨﻪ .. أﺗﻮﺑﻴﺎت ﻫﻮ ﻣﻨﺼﺔ ﻟﺘﺪاول اﻟﻤﺮﻛﺒﺎت ﺑﺠﻤﻴﻊ أﻧﻮاﻋﻬﺎ وﻗﻄﻊ اﻟﻐﻴﺎر واﻟﻜﻤﺎﻟﻴﺎت ﺑﻜﻞ ﺳﻬﻮﻟﺔ و ﺳﺮﻳﻌﺔ و أﻣﻨﺔ باضافة ﻟﻠﻌﺪﻳﺪ ﻣﻦ ﻃﺮق اﻟﺘﻌﺎﻗﺪ اﻟﻤﺨﺘﻠﻔﺔ واﻟﺴﺮﻳﻌﺔ واﻟﺴﻬﻠﺔ
+                            </h6>
+
+                        </div>
+                        <div class="col-md-12">
+                            <img src="../../assets/img/about.png" class="abo-im">
+                        </div>
+                    </div>
+                    <div *ngIf="whatAutopiatMenue && whatAutopiatMenueItemNumber=='2'">
+                        <div class="col-md-12">
+                            <img src="../../assets/img/whyAutoPiatImage.png" class="why-img">
+                        </div>
+                    </div>
+                    <div *ngIf="whatAutopiatMenue && whatAutopiatMenueItemNumber=='3'">
+                        <div class="col-md-12">
+                            <img src="../../assets/img/howWorkIsImage.png" class="why-img">
+                        </div>
+                    </div>
+                    <div *ngIf="howToBuyMenue && howToBuyMenueItemNumber=='1'">
+                        <div class="col-md-12">
+                            <img src="../../assets/img/dalel.png" class="why-img">
+                        </div>
+                    </div>
+                    <div *ngIf="howToBuyMenue && howToBuyMenueItemNumber=='2'">
+                        <div class="col-md-12">
+                            <img src="../../assets/img/stepres.png" class="why-img">
+                        </div>
+                        <hr>
+                        <div class="col-md-12">
+                            <img src="../../assets/img/concret.png" class="why-img">
+                        </div>
+                        <hr>
+                        <div class="col-md-12">
+                            <img src="../../assets/img/astlam.png" class="why-img">
+                        </div>
+                    </div>
+
+                    <div *ngIf="sellServiceMenue && sellServiceMenueItemNumber=='1'">
+                        <div class="col-md-12">
+                            <img src="../../assets/img/itemRegistration.png" class="why-img">
+                        </div>
+                    </div>
+
+                    <div *ngIf="sellServiceMenue && sellServiceMenueItemNumber=='2'">
+                        <div class="col-md-12">
+                            <img src="../../assets/img/member1.png" class="why-img">
+                        </div>
+                        <hr>
+                        <div class="col-md-12">
+                            <img src="../../assets/img/member2.png" class="why-img">
+                        </div>
+                        <hr>
+                        <div class="col-md-12">
+                            <img src="../../assets/img/member3.png" class="why-img">
+                        </div>
+                    </div>
+                    <div *ngIf="sellServiceMenue && sellServiceMenueItemNumber=='3'">
+                        <div class="col-md-12">
+                            <img src="../../assets/img/advertise.png" class="why-img">
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="">
+                    <ul *ngIf="whatAutopiatMenue" class="list-unstyled components mb-5">
+                        <li (click)="changeWhatAutopiatItemNumber(1)" [ngClass]="{ 'nav-but1':whatAutopiatMenue && whatAutopiatMenueItemNumber=='1'}" class="nav-but">
+                            <h6 class="nav-tex">عن اوتوبيات..؟</h6>
+                        </li>
+                        <li (click)="changeWhatAutopiatItemNumber(2)" [ngClass]="{ 'nav-but1':whatAutopiatMenue && whatAutopiatMenueItemNumber=='2'}" class="nav-but">
+                            <h6 class="nav-tex">لماذا اوتوبيات ..؟</h6>
+                        </li>
+                        <li (click)="changeWhatAutopiatItemNumber(3)" [ngClass]="{ 'nav-but1':whatAutopiatMenue && whatAutopiatMenueItemNumber=='3'}" class="nav-but">
+                            <h6 class="nav-tex"> كيف يتم العمل </h6>
+                        </li>
+                    </ul>
+
+                    <ul *ngIf="howToBuyMenue" class="list-unstyled components mb-5">
+                        <li (click)="changeHowToBuyItemNumber(1)" [ngClass]="{ 'nav-but1':howToBuyMenue && howToBuyMenueItemNumber=='1'}" class="nav-but">
+                            <h6 class="nav-tex">دليل شراء مركبة</h6>
+                        </li>
+                        <li (click)="changeHowToBuyItemNumber(2)" [ngClass]="{ 'nav-but1':howToBuyMenue && howToBuyMenueItemNumber=='2'}" class="nav-but">
+                            <h6 class="nav-tex">خطوات الشراء</h6>
+                        </li>
+                        <li (click)="changeHowToBuyItemNumber(3)" [ngClass]="{ 'nav-but1':howToBuyMenue && howToBuyMenueItemNumber=='3'}" class="nav-but">
+                            <h6 class="nav-tex">الشراء الآمن S.B</h6>
+                        </li>
+                    </ul>
+
+                    <ul *ngIf="sellServiceMenue" class="list-unstyled components mb-5">
+                        <li (click)="changeSellServiceItemNumber(1)" [ngClass]="{ 'nav-but1':sellServiceMenue && sellServiceMenueItemNumber=='1'}" class="nav-but">
+                            <h6 class="nav-tex">تسجيل العناصر</h6>
+                        </li>
+                        <li (click)="changeSellServiceItemNumber(2)" [ngClass]="{ 'nav-but1':sellServiceMenue && sellServiceMenueItemNumber=='2'}" class="nav-but">
+                            <h6 class="nav-tex">العضويات</h6>
+                        </li>
+                        <li (click)="changeSellServiceItemNumber(3)" [ngClass]="{ 'nav-but1':sellServiceMenue && sellServiceMenueItemNumber=='3'}" class="nav-but">
+                            <h6 class="nav-tex">ضع اعلانا</h6>
+                        </li>
+                    </ul>
+                    <img src="../../assets/img/contac.png" class="con-img">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<router-outlet></router-outlet>

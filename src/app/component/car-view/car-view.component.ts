@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class CarViewComponent implements OnInit {
   carId;
   car: Car;
-  carImages:string[];
+  carImages: string[];
 
 
   constructor(private activeRouter: ActivatedRoute, private backendService: BackendService) { }
@@ -26,10 +26,51 @@ export class CarViewComponent implements OnInit {
   getCar() {
     let url = `car/${this.carId}`;
     this.backendService.ViewEntities(url).subscribe((response: any) => {
-      this.car = response; 
-      this.carImages=this.car.images.split(',');     
-    }, (error: any) => {
-      alert(error.error.message);
+      this.car = response;
+      this.carImages = this.car.images.split(',');
+
+      this.addCarInLastSeen();
+
     });
+  }
+
+  reserveCar(carId) {
+    let url = `reservations`;
+    let param = { "carId": carId };
+
+    this.backendService.post(param, url).subscribe((response: any) => {
+      alert("تم الحجز")
+    });
+  }
+
+  addCarInLastSeen() {
+    let car = { "carId": this.car.id, "image": this.carImages[0] };
+    let localStorageLastSeenCarsAsString = localStorage.getItem("lastSeenCars");
+    if (localStorageLastSeenCarsAsString) {
+      let localStorageLastSeenCars = Array<{ carId: string, image: string }>();
+
+      localStorageLastSeenCars = JSON.parse(localStorageLastSeenCarsAsString);
+
+      //check car in localstorage
+      let found: Boolean = false;
+      for (let i = 0; i < localStorageLastSeenCars.length; i++) {
+        if (localStorageLastSeenCars[i].carId == this.car.id) {
+          found = true;
+          break;
+        }
+      }
+
+      //Add car if not in local storage
+      if (!found) {
+        if (localStorageLastSeenCars.length >= 2) {
+          localStorageLastSeenCars.splice(-1, 1);
+        }
+        localStorage.setItem("lastSeenCars", JSON.stringify([car].concat(localStorageLastSeenCars)));
+      }
+    } else {
+      let lastSeenCars = [];
+      lastSeenCars.push(car);
+      localStorage.setItem("lastSeenCars", JSON.stringify(lastSeenCars));
+    }
   }
 }

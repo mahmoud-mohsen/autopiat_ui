@@ -1,0 +1,181 @@
+.hid {
+    background-color: #FFE3E3;
+    text-align: center;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #ffffff;
+    padding: 1rem 1.3rem;
+    border-radius: 0.6rem;
+    color: #fff;
+    width: 35vw;
+    margin: 0 auto;
+    cursor: text;
+    height: 2.2rem;
+    border: #ec1010 1px solid;
+}
+
+.bt-ser {
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+.log-bar {
+    margin-top: 30px;
+}
+
+.logo-img {
+    width: 250px;
+    right: 100px;
+}
+
+.but {
+    background-color: #494848;
+    text-align: center;
+    border: honeydew 1px solid;
+    border-radius: 5px;
+    /* height: 55px; */
+    padding: 14px;
+}
+
+.main-box {
+    background-color: lightsteelblue;
+    height: 500px;
+    border-radius: 10px;
+    border: honeydew 1px solid;
+}
+
+.boll {
+    background-color: #d30010;
+    margin: 5px;
+    padding: 12px;
+    border-radius: 10px 0px 10px 0;
+    text-align: center;
+}
+
+.but1 {
+    background-color: #494848;
+    padding: 5px;
+    height: 180px;
+    margin-left: 20px;
+}
+
+.butto {
+    width: 150px;
+}
+
+.tex-log {
+    width: 20%;
+}
+
+.nav-but {
+    padding: 15px;
+    background-color: #494848;
+    width: 190px;
+    margin: 1px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.nav-tex {
+    color: honeydew;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.nav-but1 {
+    padding: 15px;
+    background-color: #d30010;
+    width: 200px;
+    margin: 1px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.nav-barr {
+    color: honeydew;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.px-sid {
+    background-color: honeydew;
+    height: 80px;
+    margin: 5px;
+    width: 300px;
+    margin-left: 15px;
+}
+
+.bt-ser-box {
+    margin: 5px;
+    background-color: honeydew;
+    width: 85px;
+    font-size: 15px;
+}
+
+.bt-ser-box-head {
+    background-color: honeydew;
+    width: 175px;
+    font-size: 15px;
+}
+
+.btn-boll {
+    height: 78px;
+    width: 60px;
+    font-size: 15px;
+    background-color: #d30010;
+    border: #d30010 1px solid;
+}
+
+.paas-word {
+    font-size: 10px;
+    padding-left: 10px;
+}
+
+.log-box {
+    padding: 1px;
+    background-color: lightgray;
+    border: red 1px solid;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.log-tet {
+    font-size: 11px;
+    color: red;
+}
+
+.tex-ord {
+    color: #d30010;
+    float: right;
+}
+
+.ord-box {
+    height: 220px;
+    background-color: #f08484;
+    margin: 5px;
+}
+
+.pr-pn {
+    background-color: red;
+    height: 40px;
+    border-radius: 0px 20px 0px 20px;
+    margin: 10px;
+}
+
+.prrr-txt {
+    color: #fff;
+}
+
+.discr-txt {
+    float: right;
+}
+
+.ord-img {
+    width: 120px;
+    height: 120px;
+    margin: 15px;
+}

@@ -44,10 +44,17 @@
             <h5>المفضلة </h5>
         </div>
         <div class="col-md-1">
-            <h5>طلباتى </h5>
+            <a routerLink="/reservation">
+                <h5>طلباتى </h5>
+            </a>
         </div>
         <div class="col-md-2">
-            <h5>التسجيل الان </h5>
+            <a *ngIf="!isAuthenticated()" routerLink="/login">
+                <h5>التسجيل الان </h5>
+            </a>
+            <a *ngIf="isAuthenticated()" routerLink="/login">
+                <button (click)="logout()">تسجيل الخروج </button>
+            </a>
         </div>
 
         <div class="col-md-4">
@@ -86,11 +93,9 @@
                         </div>
                         <div class="row ">
                             <div class="col-md-10 but1 ">
-                                <div class="col-md-10 px-sid">
-
-                                </div>
-                                <div class="col-md-10 px-sid">
-                                </div>
+                                <a *ngFor="let car of localStorageLastSeenCars" [routerLink]="['/car',car.carId]">
+                                    <img src="{{car.image}}" alt="{{car.carId}}" class="col-md-10 px-sid">
+                                </a>
                             </div>
                         </div>
                     </div>

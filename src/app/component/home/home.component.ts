@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth-service.service';
 import { CarTypeList } from './../../models/CarTypeList.model';
 import { BackendService } from './../../services/backend.service';
 import { FilterCar } from './../../models/FilterCar.model';
@@ -34,7 +35,7 @@ export class HomeComponent implements OnInit {
 
   categoryId: string;
 
-  constructor(private router: Router, private backendService: BackendService) {
+  constructor(private router: Router, private backendService: BackendService, private authService: AuthService) {
     this.categoryId = "0";
     this.fastSearchModel = null;
     this.fastSearchType = null;
@@ -49,6 +50,7 @@ export class HomeComponent implements OnInit {
     this.getLookUps();
     this.prepareYearsDropDownList();
     this.getSuggestedCars();
+
   }
 
   getLookUps() {
@@ -56,8 +58,6 @@ export class HomeComponent implements OnInit {
     this.backendService.ViewEntities(url).subscribe((response: any) => {
       this.lookups = response;
 
-    }, (error: any) => {
-      alert(error.error.message);
     });
   }
 
@@ -68,25 +68,8 @@ export class HomeComponent implements OnInit {
 
     this.backendService.ViewEntities(url, param).subscribe((response: any) => {
       this.suggestedCars = response;
-    }, (error: any) => {
-      alert(error.error.message);
     });
 
-  }
-
-  generalCategorySearch() {
-    if (this.generalSearchCategory) {
-      let url = `category/car/generalSearch`;
-
-      let param = { "category": this.generalSearchCategory, "text": this.generalSearchText }
-
-      this.backendService.ViewEntities(url, param).subscribe((response: any) => {
-        console.log(response);
-
-      }, (error: any) => {
-        alert(error.error.message);
-      });
-    }
   }
 
   prepareYearsDropDownList() {
@@ -101,8 +84,6 @@ export class HomeComponent implements OnInit {
     let url = `category/${this.categoryId}/carType`;
     this.backendService.ViewEntities(url).subscribe((response: any) => {
       this.carTypeList = response;
-    }, (error: any) => {
-      alert(error.error.message);
     });
   }
 
@@ -134,6 +115,15 @@ export class HomeComponent implements OnInit {
 
 
     this.router.navigate(['filter'], { queryParams: param });
+
+  }
+
+  isAuthenticated() {
+    return this.authService.isTokenExistAndNotExipired();
+  }
+
+  openAboutPage(menueNumber) {
+    this.router.navigateByUrl('/about', { state: { menueNumber: menueNumber } });
 
   }
 }

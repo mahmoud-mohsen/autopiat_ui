@@ -23,11 +23,6 @@ export class BackendService {
     return this.http.post(this.baseUrl + url, JSON.stringify(entity), this.options);
   }
 
-  signIn(entity: any) {
-    this.options = { headers: this.httpHeaders };
-    return this.http.post(this.baseUrl + "signUp", JSON.stringify(entity), this.options);
-  }
-
   putEntity(entity: any, url: String) {
 
     this.options = { headers: this.httpHeaders };

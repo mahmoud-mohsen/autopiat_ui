@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
   fastSearchPriceFrom;
   fastSearchPriceTo;
   fastSearchCategory
+  
+  latestCars:FilterCar[];
 
   lookups: Lookups;
   years: number[] = [];
@@ -50,6 +52,7 @@ export class HomeComponent implements OnInit {
     this.getLookUps();
     this.prepareYearsDropDownList();
     this.getSuggestedCars();
+    this.getLatestCars('all');
 
   }
 
@@ -125,5 +128,14 @@ export class HomeComponent implements OnInit {
   openAboutPage(menueNumber) {
     this.router.navigateByUrl('/about', { state: { menueNumber: menueNumber } });
 
+  }
+  getLatestCars(category){
+    let params={"category":category};
+    let url = `category/car/latest`;
+    this.backendService.ViewEntities(url,params).subscribe((response: any) => {
+      this.latestCars = response;
+      console.log(this.latestCars);
+      
+    });
   }
 }

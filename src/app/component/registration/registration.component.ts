@@ -18,7 +18,11 @@ export class RegistrationComponent implements OnInit {
   phone2: string;
   rolesAccept: Boolean;
   image;
-  constructor(private backendService: BackendService, private router: Router) { }
+  imgURL: any;
+
+  constructor(private backendService: BackendService, private router: Router) { 
+    this.imgURL="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg";
+  }
 
   ngOnInit(): void {
   }
@@ -46,7 +50,9 @@ export class RegistrationComponent implements OnInit {
 
   prepareImage(image) {
     var file: File = image.files[0];
-    // this.imageName=file.name;
+    if(file){
+      this.preview(file)
+    }
     var myReader: FileReader = new FileReader();
 
     myReader.onloadend = (e) => {
@@ -56,4 +62,11 @@ export class RegistrationComponent implements OnInit {
 
   }
 
+  preview(file) {
+     var reader = new FileReader();
+    reader.readAsDataURL(file); 
+    reader.onload = (_event) => { 
+      this.imgURL = reader.result; 
+    }
+  }
 }

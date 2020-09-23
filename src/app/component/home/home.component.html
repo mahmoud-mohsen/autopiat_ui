@@ -234,4 +234,73 @@
         </div>
 
     </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 lass-di">
+                <nav ngbNav #nav="ngbNav" class="nav-tabs">
+
+                    <ng-container ngbNavItem>
+                        <a ngbNavLink (click)="getLatestCars('all')">الكل</a>
+                        <ng-template ngbNavContent class="">
+                            <div class="row">
+                                <div class="col-md-5 rudo-box">
+
+                                </div>
+                                <div class="col-md-2 ">
+                                    <div class="col-md-11 rnd-box">
+
+                                    </div>
+                                    <div class="col-md-11 rnd-box">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2 ">
+                                    <div class="col-md-11 rnd-box">
+
+                                    </div>
+                                    <div class="col-md-11 rnd-box">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2 ">
+                                    <div class="col-md-11 rnd-box">
+
+                                    </div>
+                                    <div class="col-md-11 rnd-box">
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </ng-template>
+                    </ng-container>
+                    <ng-container *ngFor="let category of lookups.categories;" ngbNavItem>
+                        <a ngbNavLink (click)="getLatestCars(category)">{{category}}</a>
+                        <ng-template ngbNavContent class="">
+                            <div class="row">
+                                <div *ngFor="let car of latestCars" class="col-md-3 rudo-box">
+                                    <a [routerLink]="['/car',car.id]">
+                                        <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </ng-template>
+                    </ng-container>
+                </nav>
+
+                <div [ngbNavOutlet]="nav" class="mt-2"></div>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-danger bi">وصل حديثا</button>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
 </div>

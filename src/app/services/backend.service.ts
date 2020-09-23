@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class BackendService {
 
-  baseUrl: string = 'http://localhost:8080/';
+  baseUrl: string = 'https://autopiaback.herokuapp.com/';
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'Accept': 'application/json',

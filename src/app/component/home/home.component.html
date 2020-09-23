@@ -243,34 +243,12 @@
                         <a ngbNavLink (click)="getLatestCars('all')">الكل</a>
                         <ng-template ngbNavContent class="">
                             <div class="row">
-                                <div class="col-md-5 rudo-box">
+                                <div *ngFor="let car of latestCars" class="col-md-3 rudo-box">
+                                    <a [routerLink]="['/car',car.id]">
+                                        <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                                    </a>
 
                                 </div>
-                                <div class="col-md-2 ">
-                                    <div class="col-md-11 rnd-box">
-
-                                    </div>
-                                    <div class="col-md-11 rnd-box">
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 ">
-                                    <div class="col-md-11 rnd-box">
-
-                                    </div>
-                                    <div class="col-md-11 rnd-box">
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2 ">
-                                    <div class="col-md-11 rnd-box">
-
-                                    </div>
-                                    <div class="col-md-11 rnd-box">
-
-                                    </div>
-                                </div>
-
                             </div>
 
                         </ng-template>

@@ -42,8 +42,8 @@
 }
 
 .main-box {
-    background-color: lightsteelblue;
-    height: 500px;
+    background-color: #d30010;
+    height: 400px !important;
     border-radius: 10px;
     border: honeydew 1px solid;
 }
@@ -59,7 +59,7 @@
 .but1 {
     background-color: #494848;
     padding: 5px;
-    height: 180px;
+    height: 210px;
     margin-left: 20px;
 }
 
@@ -83,11 +83,24 @@
 .nav-tex {
     color: honeydew;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.nav-tex2 {
+    color: honeydew;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.nav-tex3 {
+    color: honeydew;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .nav-but1 {
-    padding: 15px;
+    padding: 17px;
     background-color: #d30010;
     width: 200px;
     margin: 1px;
@@ -98,13 +111,18 @@
 .nav-barr {
     color: honeydew;
     font-weight: bold;
+    font-size: 20px;
+}
+
+.nav-barr2 {
+    color: honeydew;
+    font-weight: bold;
     font-size: 15px;
 }
 
 .px-sid {
-    background-color: honeydew;
-    height: 80px;
-    margin: 5px;
+    height: 110px;
+    margin: 30px;
     width: 300px;
     margin-left: 15px;
 }
@@ -131,8 +149,9 @@
 }
 
 .paas-word {
-    font-size: 10px;
+    font-size: 15px;
     padding-left: 10px;
+    color: #fff;
 }
 
 .log-box {
@@ -155,8 +174,14 @@
 
 .rudo-box {
     height: 210px;
+    background-color: #d30010;
+    margin: 10;
+}
+
+.rid-box {
     background-color: #494848;
-    margin: 20px;
+    font-size: 20px;
+    color: #fff;
 }
 
 .rnd-box {
@@ -171,4 +196,87 @@
 
 .bi2 {
     top: 650px;
+}
+
+.col-md-6 {
+    background-color: #d30010;
+    height: 620px;
+}
+
+.new-arr {
+    background-color: #d30010;
+    height: 60px;
+    width: 100%;
+    border-radius: 0px 10px 0px 0px;
+    margin-left: 30px;
+    text-align: center;
+}
+
+.didi-bill {
+    margin: 30px;
+}
+
+.n-vtxt {
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.abo-tt {
+    margin-top: 540px;
+}
+
+.aa-txt {
+    font-size: 50px;
+    float: right;
+    color: #d30010;
+}
+
+.aa-txt2 {
+    font-size: 30px;
+    float: right;
+    color: #d30010;
+}
+
+.ddds-tx {
+    text-align: right;
+}
+
+.bin-box {
+    height: 150px;
+    background-color: #494848;
+    margin: 10px;
+    border-radius: 0px 0px 10px 0px;
+    padding: 5px;
+}
+
+.adv-box {
+    background-color: lightgray;
+    height: 90px;
+}
+
+.an-dd {
+    float: right;
+    color: #fff;
+    font-size: 20px;
+}
+
+.contact-im {
+    width: 100%;
+}
+
+.contact-im2 {
+    width: 100%;
+}
+
+.contact-im3 {
+    width: 90%;
+}
+
+.faa-im {
+    width: 30px;
+}
+
+.dfd {
+    top: 270px;
 }

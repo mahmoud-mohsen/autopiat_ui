@@ -1,0 +1,60 @@
+[Fri Jun 19 00:16:32.259371 2020] [ssl:warn] [pid 2384:tid 624] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 19 00:16:32.769346 2020] [ssl:warn] [pid 2384:tid 624] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 19 00:16:32.819317 2020] [mpm_winnt:notice] [pid 2384:tid 624] AH00455: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.7 configured -- resuming normal operations
+[Fri Jun 19 00:16:32.819317 2020] [mpm_winnt:notice] [pid 2384:tid 624] AH00456: Apache Lounge VC15 Server built: Apr 22 2020 11:11:00
+[Fri Jun 19 00:16:32.819317 2020] [core:notice] [pid 2384:tid 624] AH00094: Command line: 'C:\\xampp\\apache\\bin\\httpd.exe -d C:/xampp/apache'
+[Fri Jun 19 00:16:32.824314 2020] [mpm_winnt:notice] [pid 2384:tid 624] AH00418: Parent: Created child process 6236
+[Fri Jun 19 00:16:33.482918 2020] [ssl:warn] [pid 6236:tid 648] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 19 00:16:33.565892 2020] [ssl:warn] [pid 6236:tid 648] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 19 00:16:33.594876 2020] [mpm_winnt:notice] [pid 6236:tid 648] AH00354: Child: Starting 150 worker threads.
+[Fri Jun 19 00:17:36.374894 2020] [ssl:warn] [pid 12352:tid 676] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 19 00:17:37.518817 2020] [ssl:warn] [pid 12352:tid 676] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 19 00:17:37.561794 2020] [mpm_winnt:notice] [pid 12352:tid 676] AH00455: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.7 configured -- resuming normal operations
+[Fri Jun 19 00:17:37.561794 2020] [mpm_winnt:notice] [pid 12352:tid 676] AH00456: Apache Lounge VC15 Server built: Apr 22 2020 11:11:00
+[Fri Jun 19 00:17:37.561794 2020] [core:notice] [pid 12352:tid 676] AH00094: Command line: 'c:\\xampp\\apache\\bin\\httpd.exe -d C:/xampp/apache'
+[Fri Jun 19 00:17:37.567790 2020] [mpm_winnt:notice] [pid 12352:tid 676] AH00418: Parent: Created child process 1300
+[Fri Jun 19 00:17:38.307366 2020] [ssl:warn] [pid 1300:tid 684] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 19 00:17:38.390318 2020] [ssl:warn] [pid 1300:tid 684] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 19 00:17:38.422300 2020] [mpm_winnt:notice] [pid 1300:tid 684] AH00354: Child: Starting 150 worker threads.
+[Fri Jun 19 00:28:38.613750 2020] [ssl:warn] [pid 13956:tid 580] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 19 00:28:39.815445 2020] [core:warn] [pid 13956:tid 580] AH00098: pid file C:/xampp/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Jun 19 00:28:39.839438 2020] [ssl:warn] [pid 13956:tid 580] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 19 00:28:39.892399 2020] [mpm_winnt:notice] [pid 13956:tid 580] AH00455: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.7 configured -- resuming normal operations
+[Fri Jun 19 00:28:39.892399 2020] [mpm_winnt:notice] [pid 13956:tid 580] AH00456: Apache Lounge VC15 Server built: Apr 22 2020 11:11:00
+[Fri Jun 19 00:28:39.892399 2020] [core:notice] [pid 13956:tid 580] AH00094: Command line: 'c:\\xampp\\apache\\bin\\httpd.exe -d C:/xampp/apache'
+[Fri Jun 19 00:28:39.898394 2020] [mpm_winnt:notice] [pid 13956:tid 580] AH00418: Parent: Created child process 11636
+[Fri Jun 19 00:28:40.514488 2020] [ssl:warn] [pid 11636:tid 676] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 19 00:28:40.626793 2020] [ssl:warn] [pid 11636:tid 676] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Jun 19 00:28:40.676735 2020] [mpm_winnt:notice] [pid 11636:tid 676] AH00354: Child: Starting 150 worker threads.
+[Fri Jun 19 00:42:38.892651 2020] [access_compat:error] [pid 11636:tid 1888] [client ::1:52262] AH01797: client denied by server configuration: C:/xampp/htdocs/wordpress/wp-content/uploads/woocommerce_uploads/, referer: http://localhost/wordpress/wp-content/uploads/woocommerce_uploads/
+[Fri Jun 19 00:47:12.683550 2020] [php7:warn] [pid 11636:tid 1912] [client ::1:52445] PHP Warning:  chmod(): No such file or directory in C:\\xampp\\htdocs\\wordpress\\wp-admin\\includes\\class-wp-filesystem-direct.php on line 168, referer: http://localhost/wordpress/wp-admin/admin.php?page=wc-admin&step=business-details
+[Fri Jun 19 00:52:14.181582 2020] [php7:warn] [pid 11636:tid 1920] [client ::1:52688] PHP Warning:  Declaration of Automattic\\WooCommerce\\Admin\\Overrides\\ThemeUpgraderSkin::feedback($string) should be compatible with WP_Upgrader_Skin::feedback($string, ...$args) in C:\\xampp\\htdocs\\wordpress\\wp-content\\plugins\\woocommerce\\packages\\woocommerce-admin\\src\\Overrides\\ThemeUpgraderSkin.php on line 31, referer: http://localhost/wordpress/wp-admin/admin.php?page=wc-admin&step=theme
+[Fri Jun 19 00:53:55.341121 2020] [php7:warn] [pid 11636:tid 1920] [client ::1:52741] PHP Warning:  Declaration of Automattic\\WooCommerce\\Admin\\Overrides\\ThemeUpgraderSkin::feedback($string) should be compatible with WP_Upgrader_Skin::feedback($string, ...$args) in C:\\xampp\\htdocs\\wordpress\\wp-content\\plugins\\woocommerce\\packages\\woocommerce-admin\\src\\Overrides\\ThemeUpgraderSkin.php on line 31, referer: http://localhost/wordpress/wp-admin/admin.php?page=wc-admin&step=theme
+[Fri Jun 19 01:10:28.498022 2020] [php7:notice] [pid 11636:tid 1912] [client ::1:53365] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/
+[Sat Jun 20 21:12:57.842093 2020] [ssl:warn] [pid 5584:tid 604] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Sat Jun 20 21:12:57.981040 2020] [core:warn] [pid 5584:tid 604] AH00098: pid file C:/xampp/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sat Jun 20 21:12:57.988024 2020] [ssl:warn] [pid 5584:tid 604] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Sat Jun 20 21:12:59.981132 2020] [mpm_winnt:notice] [pid 5584:tid 604] AH00455: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.7 configured -- resuming normal operations
+[Sat Jun 20 21:12:59.981132 2020] [mpm_winnt:notice] [pid 5584:tid 604] AH00456: Apache Lounge VC15 Server built: Apr 22 2020 11:11:00
+[Sat Jun 20 21:12:59.981132 2020] [core:notice] [pid 5584:tid 604] AH00094: Command line: 'c:\\xampp\\apache\\bin\\httpd.exe -d C:/xampp/apache'
+[Sat Jun 20 21:12:59.984130 2020] [mpm_winnt:notice] [pid 5584:tid 604] AH00418: Parent: Created child process 5976
+[Sat Jun 20 21:13:00.494943 2020] [ssl:warn] [pid 5976:tid 640] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Sat Jun 20 21:13:00.620982 2020] [ssl:warn] [pid 5976:tid 640] AH01909: www.example.com:443:0 server certificate does NOT include an ID which matches the server name
+[Sat Jun 20 21:13:00.679871 2020] [mpm_winnt:notice] [pid 5976:tid 640] AH00354: Child: Starting 150 worker threads.
+[Sat Jun 20 21:13:35.892576 2020] [php7:notice] [pid 5976:tid 1896] [client ::1:52320] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/
+[Sat Jun 20 21:14:29.149591 2020] [php7:notice] [pid 5976:tid 1884] [client ::1:52429] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/
+[Sat Jun 20 21:14:30.074285 2020] [php7:notice] [pid 5976:tid 1864] [client ::1:52428] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/shop/
+[Sat Jun 20 21:29:56.781005 2020] [php7:notice] [pid 5976:tid 1864] [client ::1:53121] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/
+[Sat Jun 20 21:30:46.029993 2020] [php7:notice] [pid 5976:tid 1896] [client ::1:53177] Error 403 The request cannot be completed because you have exceeded your <a href="/youtube/v3/getting-started#quota">quota</a>. : quotaExceeded, referer: http://localhost/wordpress/
+[Sat Jun 20 21:31:51.551014 2020] [php7:notice] [pid 5976:tid 1892] [client ::1:53207] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/
+[Sat Jun 20 21:32:25.876423 2020] [php7:notice] [pid 5976:tid 1848] [client ::1:53237] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/shop/
+[Sat Jun 20 21:52:20.080525 2020] [php7:notice] [pid 5976:tid 1864] [client ::1:53796] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/?customize_changeset_uuid=f3f10684-c9b6-4cff-b439-0553e2a7e71b&customize_theme=estore&customize_messenger_channel=preview-0
+[Sat Jun 20 21:53:53.432736 2020] [php7:notice] [pid 5976:tid 1864] [client ::1:53833] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/
+[Sat Jun 20 21:56:31.609799 2020] [php7:notice] [pid 5976:tid 1892] [client ::1:53902] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/my-account/
+[Sat Jun 20 21:56:32.453510 2020] [php7:notice] [pid 5976:tid 1892] [client ::1:53902] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/my-account/
+[Sat Jun 20 21:57:24.594661 2020] [php7:notice] [pid 5976:tid 1880] [client ::1:53931] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/my-account/
+[Sat Jun 20 21:57:40.815360 2020] [php7:notice] [pid 5976:tid 1892] [client ::1:53940] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/
+[Sat Jun 20 21:57:42.969647 2020] [php7:notice] [pid 5976:tid 1892] [client ::1:53940] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/my-account/
+[Sat Jun 20 21:57:43.128145 2020] [php7:notice] [pid 5976:tid 1880] [client ::1:53950] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/%D9%85%D8%AB%D8%A7%D9%84-%D8%B9%D9%84%D9%89-%D8%B5%D9%81%D8%AD%D8%A9/
+[Sat Jun 20 23:19:05.532368 2020] [php7:notice] [pid 5976:tid 1880] [client ::1:54660] The WC_Cart::get_cart_url function is deprecated since version 2.5. Replace with wc_get_cart_url., referer: http://localhost/wordpress/my-account/
+[Sun Jun 21 00:19:46.961323 2020] [access_compat:error] [pid 5976:tid 1880] [client ::1:55515] AH01797: client denied by server configuration: C:/xampp/htdocs/wordpress/wp-content/uploads/woocommerce_uploads/, referer: http://localhost/wordpress/wp-content/uploads/woocommerce_uploads/

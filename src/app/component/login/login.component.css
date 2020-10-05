@@ -66,7 +66,7 @@
 .but1 {
     background-color: #494848;
     padding: 5px;
-    height: 180px;
+    height: 200px;
     margin-left: 20px;
 }
 
@@ -81,7 +81,7 @@
 .nav-but {
     padding: 15px;
     background-color: #494848;
-    width: 190px;
+    width: 200px;
     margin: 1px;
     border-radius: 5px;
     text-align: center;
@@ -90,7 +90,7 @@
 .nav-tex {
     color: honeydew;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 22px !important;
 }
 
 .nav-but1 {
@@ -138,8 +138,9 @@
 }
 
 .paas-word {
-    font-size: 10px;
+    font-size: 11px !important;
     padding-left: 10px;
+    color: #fff !important;
 }
 
 .log-box {
@@ -240,7 +241,7 @@
 .but1 {
     background-color: #494848;
     padding: 5px;
-    height: 180px;
+    height: 200px;
     margin-left: 20px;
 }
 

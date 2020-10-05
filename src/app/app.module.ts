@@ -1,3 +1,5 @@
+import { NewNewsComponent } from './component/new-news/new-news.component';
+import { NewCarComponent } from './component/new-car/new-car.component';
 import { AuthGuard } from './AuthGuard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,10 +24,11 @@ import { ReservationProcessComponent } from './component/reservation-process/res
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './component/registration/registration.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -42,6 +45,8 @@ import { RegistrationComponent } from './component/registration/registration.com
     AboutComponent,
     ReservationProcessComponent,
     RegistrationComponent,
+    NewCarComponent,
+    NewNewsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +56,7 @@ import { RegistrationComponent } from './component/registration/registration.com
     FormsModule,
     ReactiveFormsModule,
     NgxPermissionsModule.forRoot(),
+    MDBBootstrapModule.forRoot(),
     MatDatepickerModule,
     MatFormFieldModule,
     MatDatepickerModule,
@@ -59,7 +65,8 @@ import { RegistrationComponent } from './component/registration/registration.com
     MatNativeDateModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FontAwesomeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }, AuthGuard],

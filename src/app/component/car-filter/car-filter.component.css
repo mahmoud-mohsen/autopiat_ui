@@ -102,11 +102,14 @@
 }
 
 .px-sid {
-    background-color: honeydew;
-    height: 80px;
-    margin: 5px;
-    width: 300px;
+    height: 100%;
+    width: 100%;
     margin-left: 15px;
+}
+
+.px-sid2 {
+    width: 400px !important;
+    height: 100px;
 }
 
 .bt-ser-box {
@@ -151,6 +154,8 @@
 .ser-tex {
     color: #d30010;
     float: right;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .box-ser {
@@ -158,10 +163,12 @@
     padding: 5px;
     background-color: #d30010;
     border-radius: 5px;
+    margin: 5px;
 }
 
 .ser-txt-box {
     color: #fff;
+    font-weight: bold;
 }
 
 .hr-ser {
@@ -172,6 +179,7 @@
     background-color: grey;
     height: 200px;
     margin: 5px auto;
+    border-radius: 0px 10px 0px 10px;
 }
 
 .areng-box {
@@ -192,4 +200,28 @@
 
 .box-car-im {
     border: #d30010 solid 3px;
+}
+
+.ss-txt {
+    font-size: 20px;
+}
+
+.ff-boz {
+    margin: 10px;
+}
+
+.pp-tx {
+    font-size: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.bb-gg {
+    width: 165px;
+    margin: 2px;
+}
+
+.bb-gg2 {
+    width: 100px;
+    margin: 2px;
 }

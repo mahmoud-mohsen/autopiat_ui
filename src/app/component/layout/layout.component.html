@@ -1,38 +1,39 @@
+<script src="https://kit.fontawesome.com/a1a8aa7402.js" crossorigin="anonymous"></script>
 <div class="contaner hid">
     <div class="row">
         <div class="col-md-1">
-            <h6>تقريرالفحص</h6>
+            <h6 class="hed-fli">تقريرالفحص</h6>
         </div>
         <div class="col-md-1">
-            <h6>اجراء سريع</h6>
+            <h6 class="hed-fli">اجراء سريع</h6>
         </div>
         <div class="col-md-1">
-            <h6>خدمة عملاء</h6>
-        </div>
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-1">
-            <h6>سلع جديدة</h6>
-        </div>
-        <div class="col-md-1">
-            <h6>سلع موجودة</h6>
+            <h6 class="hed-fli">خدمة عملاء</h6>
         </div>
         <div class="col-md-1">
         </div>
         <div class="col-md-1">
-            <h6>طريقةالتقسيط</h6>
+            <h6 class="hed-fli">سلع جديدة</h6>
         </div>
         <div class="col-md-1">
-            <h6>الخصومات</h6>
+            <h6 class="hed-fli">سلع موجودة</h6>
         </div>
         <div class="col-md-1">
-            <h6>بيع معنا</h6>
         </div>
         <div class="col-md-1">
-            <h6>عملية حجز</h6>
+            <h6 class="hed-fli">طريقة التقسيط</h6>
         </div>
         <div class="col-md-1">
-            <h6>عربي</h6>
+            <h6 class="hed-fli">الخصومات</h6>
+        </div>
+        <div class="col-md-1">
+            <h6 class="hed-fli">بيع معنا</h6>
+        </div>
+        <div class="col-md-1">
+            <h6 class="hed-fli">عملية حجز</h6>
+        </div>
+        <div class="col-md-1">
+            <h6 class="hed-fli">عربي</h6>
         </div>
 
     </div>
@@ -41,32 +42,32 @@
 <div class="contaner">
     <div class="row log-bar">
         <div class="col-md-1">
-            <h5>المفضلة </h5>
+            <h5 class="fav-tx">المفضلة </h5>
         </div>
         <div class="col-md-1">
             <a routerLink="/reservation">
-                <h5>طلباتى </h5>
-            </a>
+                <h5 class="fav-tx"><img src="../../../assets/img/sd.PNG" class="cart-img">طلباتى</h5></a>
         </div>
         <div class="col-md-2">
             <a *ngIf="!isAuthenticated()" routerLink="/login">
-                <h5>التسجيل الان </h5>
+                <h5 class="fav-tx"><img src="../../../assets/img/ass.PNG" class="cart-img2">التسجيل الان </h5>
             </a>
             <a *ngIf="isAuthenticated()" routerLink="/login">
                 <button (click)="logout()">تسجيل الخروج </button>
             </a>
         </div>
-
-        <div class="col-md-4">
-            <button type="submit" (click)="generalCategorySearch()" class="btn btn-primary"><span
-                    class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+        <div class="col-md-1">
+            <button type="submit" (click)="generalCategorySearch()" class="btn btn-danger clsd"><span
+                class="glyphicon glyphicon-search" aria-hidden="true"></span><img src="../../../assets/img/sarsh.PNG" class="cart-img3"></button>
+        </div>
+        <div class="col-md-3">
             <input [(ngModel)]="generalSearchText" #generalSearchT="ngModel" class="search-bar" type="text" name="generalSearch" id="generalSearch">
         </div>
 
         <div class="col-md-2 bt-ser">
             <div class="row">
                 <div class="col">
-                    <select *ngIf="lookups" [(ngModel)]="generalSearchCategory" #generalSearchCate="ngModel" class="btn btn-outline-danger form-control form-control-lg dropdownBasic1">
+                    <select *ngIf="lookups" [(ngModel)]="generalSearchCategory" #generalSearchCate="ngModel" class="btn btn-outline-danger form-control form-control-lg dropdownBasic1 bix-bil">
                         <option value="all">جميع الفئات</option>
                         <option *ngFor="let category of lookups.categories;" value="{{category}}">{{category}}</option>
                     </select>
@@ -81,8 +82,8 @@
         </div>
     </div>
 </div>
-<div class="main-content">
-    <div class="container-fluid">
+<div class="main-content ">
+    <div class="container-fluid ">
         <div class="row">
 
             <div class="col-md-2 box-gen">

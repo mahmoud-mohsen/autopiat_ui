@@ -18,7 +18,10 @@ export class AboutComponent implements OnInit {
   sellServiceMenueItemNumber: string;
 
   constructor(private router: Router) {
-    let menueNumber = this.router.getCurrentNavigation().extras.state.menueNumber;
+    let menueNumber;
+    if(this.router.getCurrentNavigation().extras.state){
+      menueNumber = this.router.getCurrentNavigation().extras.state.menueNumber;
+    }
     if (menueNumber) {
       if (menueNumber == 2) {
         this.howToBuyMenue = true;

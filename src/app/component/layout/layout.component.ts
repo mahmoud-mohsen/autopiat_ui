@@ -4,6 +4,9 @@ import { FilterCar } from './../../models/FilterCar.model';
 import { Lookups } from './../../models/Lookups.model';
 import { BackendService } from './../../services/backend.service';
 import { Component, OnInit } from '@angular/core';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
+
 
 @Component({
   selector: 'app-layout',
@@ -11,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent implements OnInit {
-
+  faCoffee = faCoffee;
   generalSearchText: String;
   generalSearchCategory: String;
 

@@ -65,7 +65,7 @@
 
                     <div *ngFor="let car of suggestedCars" class="col-md-3 seg-box">
                         <a [routerLink]="['/car',car.id]">
-                            <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid img-responsive">
+                            <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid img-responsive trsh-img">
                         </a>
                     </div>
 
@@ -79,13 +79,13 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="">
-                            <h6 class="">نتيجة البحث <span *ngIf="filterdCars">{{filterdCars.numberOfElements}}</span> وحدة
+                            <h6 class="ss-txt">نتيجة البحث <span *ngIf="filterdCars">{{filterdCars.numberOfElements}}</span> وحدة
                             </h6>
                         </div>
                     </div>
                     <div class="col-md-9">
                         <div class="areng-box">
-                            <div ngbDropdown class="d-inline-block">
+                            <div ngbDropdown class="d-inline-block ff-boz">
                                 <select (change)="sortCars()" [(ngModel)]="sort" name="sort" class="btn btn-outline-secondary">
                                     <option selected value=null>الترتيب</option>
                                     <option value="asc" >تصاعدى</option>
@@ -106,27 +106,27 @@
             <div *ngIf="filterdCars" class="col-md-12">
                 <div *ngFor="let car of filterdCars.content" class="row">
                     <div class="col-md-1 box-ser-res">
-                        <h6> السعر {{car.price}} جنيه مصري</h6>
+                        <h6 class="pp-tx"> السعر {{car.price}} جنيه مصري</h6>
                     </div>
                     <div class="col-md-7 box-ser-res d-flex flex-column">
-                        <h6> الاسم: <span> {{car.name}}</span></h6>
-                        <h6> الوصف: <span> {{car.description}}</span></h6>
-                        <h6> تاريخ العرض: <span> {{car.creationDate|date}}</span></h6>
+                        <h6 class="pp-tx"> الاسم: <span> {{car.name}}</span></h6>
+                        <h6 class="pp-tx"> الوصف: <span> {{car.description}}</span></h6>
+                        <h6 class="pp-tx"> تاريخ العرض: <span> {{car.creationDate|date}}</span></h6>
                     </div>
                     <div class="col-md-1 ">
                         <div class="row">
                             <div class="col-md-11 smm-box">
-                                <img src="{{car.images.split(',')[1]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                                <img src="{{car.images.split(',')[1]}}" alt="{{car.name}}" class="col-md-10 px-sid2">
                             </div>
                             <div class="col-md-11 smm-box">
-                                <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                                <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid2">
                             </div>
                         </div>
 
                     </div>
                     <div class="col-md-2 box-car-im">
                         <a [routerLink]="['/car',car.id]">
-                            <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                            <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid2">
                         </a>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                 <li class="">
                     <div class="col">
                         <div ngbDropdown class="d-inline-block">
-                            <select (click)="updateFilter()" [(ngModel)]="type" name="type" class="btn btn-outline-secondary">
+                            <select (click)="updateFilter()" [(ngModel)]="type" name="type" class="btn btn-outline-secondary bb-gg">
                                 <option [ngValue]="null">الماركة</option>
                                 <option *ngFor="let type of filterValues.types" value="{{type}}">{{type}}</option>
                             </select>
@@ -166,7 +166,7 @@
                 <li class="">
                     <div class="col">
                         <div ngbDropdown class="d-inline-block">
-                            <select (click)="updateFilter()" [(ngModel)]="model" name="model" class="btn btn-outline-secondary">
+                            <select (click)="updateFilter()" [(ngModel)]="model" name="model" class="btn btn-outline-secondary bb-gg">
                                 <option [ngValue]="null">الموديل</option>
                                 <option *ngFor="let model of filterValues.models" value="{{model}}">{{model}}</option>
                             </select>
@@ -176,7 +176,7 @@
                 <li class="">
                     <div class="col">
                         <div ngbDropdown class="d-inline-block">
-                            <select (click)="updateFilter()" [(ngModel)]="motionVector" name="motionVector" class="btn btn-outline-secondary">
+                            <select (click)="updateFilter()" [(ngModel)]="motionVector" name="motionVector" class="btn btn-outline-secondary bb-gg">
                                 <option [ngValue]="null">ناقل الحركة</option>
                                 <option *ngFor="let motionVector of filterValues.motionVector" value="{{motionVector}}">
                                     {{motionVector}}</option>
@@ -187,7 +187,7 @@
                 <li class="">
                     <div class="col">
                         <div ngbDropdown class="d-inline-block">
-                            <select (click)="updateFilter()" [(ngModel)]="status" name="status" class="btn btn-outline-secondary">
+                            <select (click)="updateFilter()" [(ngModel)]="status" name="status" class="btn btn-outline-secondary bb-gg">
                                 <option [ngValue]="null">الحالة</option>
                                 <option *ngFor="let status of filterValues.status" value="{{status}}">{{status}}
                                 </option>
@@ -199,7 +199,7 @@
                 <li class="">
                     <div class="col">
                         <div ngbDropdown class="d-inline-block">
-                            <select (click)="updateFilter()" [(ngModel)]="numberOfDoors" name="numberOfDoors" class="btn btn-outline-secondary">
+                            <select (click)="updateFilter()" [(ngModel)]="numberOfDoors" name="numberOfDoors" class="btn btn-outline-secondary bb-gg">
                                 <option [ngValue]="null">عدد الأبواب</option>
                                 <option *ngFor="let numberOfDoors of filterValues.numberOfDoors"
                                     value="{{numberOfDoors}}">{{numberOfDoors}}</option>
@@ -211,7 +211,7 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div ngbDropdown class="d-inline-block">
-                                <select (click)="updateFilter()" [(ngModel)]="priceFrom" name="priceFrom" class="btn btn-outline-secondary">
+                                <select (click)="updateFilter()" [(ngModel)]="priceFrom" name="priceFrom" class="btn btn-outline-secondary bb-gg2">
                                     <option [ngValue]="null">السعر من</option>
                                     <option value="5000">5,000</option>
                                     <option value="10000">10,000</option>
@@ -256,7 +256,7 @@
                         </div>
                         <div class="col-md-5">
                             <div ngbDropdown class="d-inline-block">
-                                <select (click)="updateFilter()" [(ngModel)]="priceTo" name="priceTo" class="btn btn-outline-secondary">
+                                <select (click)="updateFilter()" [(ngModel)]="priceTo" name="priceTo" class="btn btn-outline-secondary bb-gg2">
                                     <option [ngValue]="null">السعر الى</option>
                                     <option value="10000">10,000</option>
                                     <option value="20000">20,000</option>
@@ -304,7 +304,7 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div ngbDropdown class="d-inline-block">
-                                <select (click)="updateFilter()" [(ngModel)]="yearFrom" name="yearFrom" class="btn btn-outline-secondary">
+                                <select (click)="updateFilter()" [(ngModel)]="yearFrom" name="yearFrom" class="btn btn-outline-secondary bb-gg2">
                                     <option [ngValue]="null">السنة من</option>
                                     <option *ngFor='let year of years' value="{{year}}">{{year}}</option>
                                 </select>
@@ -312,7 +312,7 @@
                         </div>
                         <div class="col-md-5">
                             <div ngbDropdown class="d-inline-block">
-                                <select (click)="updateFilter()" [(ngModel)]="yearTo" name="yearTo" class="btn btn-outline-secondary">
+                                <select (click)="updateFilter()" [(ngModel)]="yearTo" name="yearTo" class="btn btn-outline-secondary bb-gg2">
                                     <option [ngValue]="null">السنة الى</option>
                                     <option *ngFor='let year of years' value="{{year}}">{{year}}</option>
                                 </select>
@@ -323,7 +323,7 @@
                 <li hidden class="">
                     <div class="col">
                         <div ngbDropdown class="d-inline-block">
-                            <select (click)="updateFilter()" [(ngModel)]="luxuries" name="luxuries" class="btn btn-outline-secondary">
+                            <select (click)="updateFilter()" [(ngModel)]="luxuries" name="luxuries" class="btn btn-outline-secondary bb-gg">
                                 <option [ngValue]="null">الكماليات</option>
                             </select>
                         </div>
@@ -332,7 +332,7 @@
                 <li class="">
                     <div class="col">
                         <div ngbDropdown class="d-inline-block">
-                            <select (click)="updateFilter()" [(ngModel)]="design" name="design" class="btn btn-outline-secondary">
+                            <select (click)="updateFilter()" [(ngModel)]="design" name="design" class="btn btn-outline-secondary bb-gg">
                                 <option [ngValue]="null">نوع السيارة</option>
                                 <option *ngFor="let design of filterValues.designs" value="{{design}}">{{design}}
                                 </option>
@@ -344,7 +344,7 @@
                 <li class="">
                     <div class="col">
                         <div ngbDropdown class="d-inline-block">
-                            <select (click)="updateFilter()" [(ngModel)]="color" name="color" class="btn btn-outline-secondary">
+                            <select (click)="updateFilter()" [(ngModel)]="color" name="color" class="btn btn-outline-secondary bb-gg">
                                 <option [ngValue]="null">اللون</option>
                                 <option *ngFor="let color of filterValues.color" value="{{color}}">{{color}}</option>
                             </select>

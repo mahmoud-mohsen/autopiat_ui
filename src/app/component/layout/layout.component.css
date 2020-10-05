@@ -11,11 +11,12 @@
     padding: 1rem 1.3rem;
     border-radius: 0.6rem;
     color: #fff;
-    width: 35vw;
+    width: 25vw;
     margin: 0 auto;
     cursor: text;
     height: 2.2rem;
     border: #ec1010 1px solid;
+    color:  #ec1010;
 }
 
 .bt-ser {
@@ -66,7 +67,7 @@
 .but1 {
     background-color: #494848;
     padding: 5px;
-    height: 180px;
+    height: 200px;
     margin-left: 20px;
 }
 
@@ -90,7 +91,7 @@
 .nav-tex {
     color: honeydew;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 22px;
 }
 
 .nav-but1 {
@@ -158,6 +159,7 @@
 .newtet {
     float: right;
     color: #fff;
+    font-weight: bold;
 }
 
 .car-box {
@@ -177,4 +179,38 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
+}
+.hed-fli{
+    font-size: 15px;
+    font-size: large;
+
+}
+.fav-tx{
+    font-size: 50px;
+    font-size: large;
+    margin: 10px;
+    font-weight: bold;
+    color: #494848;
+}
+.bix-bil{
+    width: 100px;
+}
+.box-bor{
+    position: -webkit-sticky; /* Safari */
+    position: sticky !important;
+    top: 0;
+}
+.cart-img{
+    width: 42%;
+}
+.cart-img2{
+    width: 22%;
+}
+.cart-img3{
+    width: 70%;
+    border-radius: 10px;
+}
+.clsd{
+    background-color: #fff;
+    border: #fff;
 }

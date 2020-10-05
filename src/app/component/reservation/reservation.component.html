@@ -1,10 +1,8 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2">
 
-            </div>
-            <div class="col-md-9">
+            <div class="col-md-9 sdf">
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="tex-ord">طلباتي</h1>
@@ -19,7 +17,8 @@
                                     {{reservation.name}}
                                 </h4>
                                 <h6 class="discr-txt">
-                                    {{reservation.code}} + {{reservation.status}} + {{reservation.type}} +{{reservation.engineCapacity}} + {{reservation.design}}
+                                    {{reservation.code}} + {{reservation.status}} + {{reservation.type}}
+                                    +{{reservation.engineCapacity}} + {{reservation.design}}
                                 </h6>
 
                             </div>
@@ -33,13 +32,39 @@
                             <div class="col-md-4">
                             </div>
                             <div class="col-md-4">
-                                <a [routerLink]="['/reservation',reservation.id]">تابع عملية الحجز</a>
+                                <a [routerLink]="['/reservation',reservation.id]" class="tab-tex">تابع عملية الحجز</a>
                             </div>
-                            <button (click)="deleteReservation(reservation.id)" class="col-md-4">
+                            <button (click)="deleteReservation(reservation.id)" class="col-md-2 btn btn-secondary">
                                 مسح
                             </button>
                         </div>
                     </div>
+                </div>
+
+            </div>
+            <div class="col-md-2 ">
+                <div class=" ">
+                    <ul class="list-unstyled components mb-5 ">
+                        <li class="active nav-but1 nav-tex3"><img src="../../../assets/img/fv.PNG" class="faa-im">
+                            أختر الفئة
+                        </li>
+                        <li class="nav-tex btn "> السيارات الجديدة
+                        </li>
+                        <li class="nav-tex btn "> السيارات المستعملة
+                        </li>
+                        <li class="nav-tex btn ">سيارات متحدي الاعاقة
+                        </li>
+                        <li class="nav-tex btn ">شاحنات
+                        </li>
+                        <li class="nav-tex btn "> اوتوبيسات
+                        </li>
+                        <li class="nav-tex btn "> معدات ثقيلة
+                        </li>
+                        <li class="nav-tex btn "> قطع غيار و اكسسوارات
+                        </li>
+                        <li class="nav-tex btn "> اطارات
+                        </li>
+                    </ul>
                 </div>
 
             </div>

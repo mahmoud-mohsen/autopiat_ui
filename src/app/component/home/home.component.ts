@@ -1,3 +1,4 @@
+import { News } from './../../models/News.model';
 import { AuthService } from './../../services/auth-service.service';
 import { CarTypeList } from './../../models/CarTypeList.model';
 import { BackendService } from './../../services/backend.service';
@@ -5,6 +6,7 @@ import { FilterCar } from './../../models/FilterCar.model';
 import { Lookups } from './../../models/Lookups.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   suggestedCars: FilterCar[];
   carTypeList: CarTypeList[];
+  homeSuggestedCars: FilterCar[];
 
   fastSearchModel;
   fastSearchType;
@@ -30,6 +33,10 @@ export class HomeComponent implements OnInit {
   years: number[] = [];
   prices: number[] = [];
 
+  newsList:News[];
+
+  newsCategories:string[];
+
   @Input()
   generalSearchText: String;
   @Input()
@@ -37,7 +44,7 @@ export class HomeComponent implements OnInit {
 
   categoryId: string;
 
-  constructor(private router: Router, private backendService: BackendService, private authService: AuthService) {
+  constructor(private router: Router, private backendService: BackendService, private authService: AuthService,private sanitizer: DomSanitizer) {
     this.categoryId = "0";
     this.fastSearchModel = null;
     this.fastSearchType = null;
@@ -53,6 +60,9 @@ export class HomeComponent implements OnInit {
     this.prepareYearsDropDownList();
     this.getSuggestedCars();
     this.getLatestCars('all');
+    this.getHomeSuggestedCars('')
+    this.newsCategories=['اهم الاخبار','اهم السياسه العالمية','اهم اخبار الشركات','اهم العروض','اهم المعارض المقامة'];
+    this.getNews('');
 
   }
 
@@ -71,6 +81,17 @@ export class HomeComponent implements OnInit {
 
     this.backendService.ViewEntities(url, param).subscribe((response: any) => {
       this.suggestedCars = response;
+    });
+
+  }
+
+  getNews(category) {
+    let url = `news`;
+
+    let param = { "sort": 'creationDate,desc' ,'size':5,'category':category};
+
+    this.backendService.ViewEntities(url, param).subscribe((response: any) => {
+      this.newsList = response.content;
     });
 
   }
@@ -133,9 +154,16 @@ export class HomeComponent implements OnInit {
     let params={"category":category};
     let url = `category/car/latest`;
     this.backendService.ViewEntities(url,params).subscribe((response: any) => {
-      this.latestCars = response;
-      console.log(this.latestCars);
+      this.latestCars = response;      
+    });
+  }
+  getHomeSuggestedCars(category){
+    let params={"category":category,'count':5};
+    let url = `suggestedCar`;
+    this.backendService.ViewEntities(url,params).subscribe((response: any) => {
+      this.homeSuggestedCars = response;
       
     });
   }
+ 
 }

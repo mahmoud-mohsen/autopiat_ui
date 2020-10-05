@@ -1,0 +1,172 @@
+    ];
+			fpsMain = fps;
+			fpsChartList = $('#fps-chart .chart-bars ul')
+			fpsChartLegend = $('.axis-info ul')
+			fpsChartLegendLi = $('.axis-info ul li')
+			fpsChartLegendLi = Array.from(fpsChartLegendLi)
+			clicksCount = 0
+			zoomBtns = $('.zoom-btn')
+			plus = $('#zoom-out')
+			minus = $('#zoom-in')
+			
+
+		function screenshotChart() {
+			var ile = fpsMain.length;
+			    maxi = fpsMain.max();
+			    maxiRound = Math.ceil(maxi / 10) * 10
+			    myTotal = 0
+
+			    console.log(maxiRound);
+			    
+			    // console.log(maxi);
+			fpsChartLegend.empty()
+
+			fpsMain.forEach(function(el, i){
+			    var percent = el / maxi * 100;
+
+			    fpsChartList.append('<li class="bar ' +i+ '""><div class="bar-content" style="height: '+percent+'%" title="'+el+' FPS"></div></li>');
+ 
+			    // console.log(legend);
+				  
+			});
+
+			 console.log(fpsChartLegendLi);
+
+			allSizes = [];
+			allSizes = allSizes.reverse()
+
+			console.log(allSizes)
+
+
+			fpsChartLegendLi.forEach(function(el, i){
+			    var legendCount = maxi / 5
+			    	num = i + 1 
+			    	legend = legendCount * num
+
+			    allSizes.push(legend)		    
+				  
+			});
+
+			allSizes.reverse().forEach(function(el, i){
+			    var legendRound = el
+			    	legendRound = Math.ceil(legendRound )
+
+			    fpsChartLegend.append('<li class="line"><span class="title">'+ legendRound +'</span></li>')
+				  
+			});
+
+			if (clicksCount == 0) {
+				minus.addClass('off')
+			} else if ( clicksCount >= 36 && fpsMain.length > 3 ) {
+				plus.addClass('off')
+			} else {
+				minus.removeClass('off')
+				plus.removeClass('off')
+			}
+
+			function toolTip() {
+				$('li.bar').hover(function(){
+				        // Hover over code
+				        var that = $(this).find('.bar-content')
+				        var title = that.attr('title');
+				        
+				        $('<p class="tooltip"></p>')
+				        .text(title)
+				        .appendTo('body')
+				        .fadeIn(200);
+				}, function() {
+				        // Hover out code
+				        var that = $(this).find('.bar-content')
+				        that.attr('title', $(this).data('tipText'));
+				        $('.tooltip').remove();
+				}).mousemove(function(e) {
+				        var mousex = e.pageX + 10; //Get X coordinates
+				        var mousey = e.pageY - 65; //Get Y coordinates
+				        $('.tooltip')
+				        .css({ top: mousey, left: mousex })
+				});
+			}
+
+			toolTip()
+			
+		}
+
+		function scalePlus(values,number){
+		        fpsMain = new Array();
+
+
+	        for(i=0; i< values.length;i++) {
+	            if(i%number==0){
+	                value=(values[i]+values[i+1])/2
+	                if(!isNaN(value)){
+	                    fpsMain.push(value);
+	                }
+
+	                // console.log(values[i]);
+	                
+	            }
+	        }
+		  
+	    }
+
+
+
+		plus.on('click', function(){
+
+			if (clicksCount < 36 && fpsMain.length > 3  ) {
+				clicksCount += 2;
+				scalePlus(fps,clicksCount);
+				fpsChartList.empty();
+				screenshotChart();
+			} else {
+				return false;
+			}
+
+			console.log(fpsMain.length);
+			// console.log(clicksCount);
+			
+	    });
+
+	    minus.on('click', function(){
+
+			if (clicksCount == 2) {
+				clicksCount = 0;
+				fpsMain = fps
+				screenshotChart();
+			} else if (clicksCount > 2) {
+				clicksCount -= 2;
+				scalePlus(fps,clicksCount);
+			}
+
+			fpsChartList.empty();
+			screenshotChart();
+
+			
+			// console.log(fpsMain);
+			// console.log(clicksCount);
+			
+	    });
+
+		Array.prototype.max = function() {
+		  return Math.max.apply(null, this);
+		};
+
+		Array.prototype.min = function() {
+		  return Math.min.apply(null, this);
+		};
+
+		
+		$(document).ready(function(){
+			$(".chart").niceScroll({
+				background:"rgba(255,255,255,0.1)",
+				cursoropacitymax: 0.9,
+				cursoropacitymin:0.3,
+				cursorcolor:'#fff',
+				cursorborder: "none"
+			});
+			screenshotChart()
+			
+		});
+	</script>
+</body>
+</html>

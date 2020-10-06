@@ -18,15 +18,21 @@
 .bd-txt{
     font-weight: bold;
     font-size: 15px;
+    text-align: right;
     
 }
 .bd-txt2{
     font-weight: bold;
-    font-size: 10px;
+    font-size: 20px;
     float: right;
 }
+.bd-txt3{
+    font-weight: bold;
+    font-size: 30px;
+    float: right;
+}
+
 .fv{
-    background-color: #FFE3E3;
     margin: 30px;
 }
 .nav-barr{
@@ -42,4 +48,16 @@
 .eee{
     padding: 15px;
     text-align: right;
+}
+.ord-img{
+    height: 110px;
+    width: 110px;
+    margin: 10px;
+}
+.ord-box{
+    background-color: #b4b3b3;
+    margin: 5px;
+}
+.pr-pn{
+    margin: 20px;
 }

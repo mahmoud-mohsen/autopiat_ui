@@ -254,15 +254,19 @@
                         </ul>
                         <div [ngbNavOutlet]="nav"></div>
                     </div>
+                    <div class="5">
+                        <h1>البائع</h1>
+                        <img  src="../../../assets/img/gold.png" alt="img"
+                        class="gol-img">
 
-                    <div class=" pri-box">
+                    </div>
+                    <div class="pri-box">
+                        
+                        
                         <div class="6">
-
-                        </div>
-                        <div class="4">
                             <div class="p-box">
-                                <h5> <span>{{car.price}}</span>سعر السيارة</h5>
-                                <button (click)="reserveCar(car.id)" type="button" class="btn btn-danger">احجز
+                                <h1 class="pprx-tex"> <span>{{car.price}}</span>  سعر السيارة</h1>
+                                <button (click)="reserveCar(car.id)" type="button" class="btn btn-danger bind-bot">احجز
                                     الان</button>
 
                             </div>

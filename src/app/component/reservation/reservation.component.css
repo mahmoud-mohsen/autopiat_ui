@@ -163,7 +163,7 @@
 }
 
 .pr-pn {
-    background-color: red;
+    background-color:  #d30010;
     height: 40px;
     border-radius: 0px 20px 0px 20px;
     margin: 10px;
@@ -172,7 +172,8 @@
 .prrr-txt {
     color: #fff;
     text-align: right;
-    font-size: 20px;
+    font-size: 18px;
+    margin: 2px;
 }
 
 .discr-txt {
@@ -191,13 +192,36 @@
     margin: 20px;
     background-color:  #FFE3E3;
     padding: 30px;
-    height: 400px;
+    height: 270px;
 }
 .tab-tex{
-    color: #fff;
-    background-color: #ec1010;
-    width: 30px;
-    padding: 14px;
-    border-radius: 10px;
-    top: 20px;
+    background-color:#FFE3E3;
+    color: #d30010;
+    border: #FFE3E3 1px solid;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 5px;
+}
+.nav-tex {
+    color: honeydew;
+    font-weight: bold;
+    font-size: 17px;
+    font-weight: bold;
+}
+.nav-tex2 {
+    color: honeydew;
+    font-weight: bold;
+    font-size: 22px;
+}
+.nav-tex3{
+    color: honeydew;
+    font-weight: bold;
+    font-size: 25px;
+}
+.dell-bt{
+    background-color:#FFE3E3;
+    color: #d30010;
+    border: #FFE3E3 1px solid;
+    font-weight: bold;
+    font-size: 20px;
 }

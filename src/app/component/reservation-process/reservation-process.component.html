@@ -84,23 +84,28 @@
 
     <div *ngIf="reservationStatus && reservationStatus.carReservationResponse" class="col-md-6 ord-box">
         <div class="row">
+            <div class="2">
+                <img src="{{reservationStatus.carReservationResponse.image}}" class="ord-img">
+            </div>
             <div class="col-md-1 pr-pn">
                 <h6 class="prrr-txt bd-txt2">السعر {{reservationStatus.carReservationResponse.price}}</h6>
             </div>
             <div class="col-md-3">
-                <h4 class="discr-txt bd-txt2">
+                <h4 class="discr-txt bd-txt3">
                     {{reservationStatus.carReservationResponse.name}}
                 </h4>
+            </div>
                 <h6 class="discr-txt bd-txt2">
                     {{reservationStatus.carReservationResponse.code}} + {{reservationStatus.carReservationResponse.status}} + {{reservationStatus.carReservationResponse.type}} +{{reservationStatus.carReservationResponse.engineCapacity}} + {{reservationStatus.carReservationResponse.design}}
                 </h6>
 
+         
+            
             </div>
-            <div class="2">
-                <img src="{{reservationStatus.carReservationResponse.image}}" class="ord-img">
-            </div>
-
         </div>
+            
+            
+  
         <hr>
         <div *ngIf="step==2 &&reservationStatus.isExist" class="row">
             <div class="col-md-4">
@@ -110,4 +115,3 @@
             </button>
         </div>
     </div>
-</div>

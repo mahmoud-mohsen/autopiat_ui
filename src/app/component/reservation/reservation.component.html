@@ -1,14 +1,14 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-
-            <div class="col-md-9 sdf">
+           
+            <div class="col-md-9 ">
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="tex-ord">طلباتي</h1>
                     </div>
-                    <div *ngFor="let reservation of reservations" lass="col-md-12 ord-box">
-                        <div class="row">
+                    <div *ngFor="let reservation of reservations" class="col-md-12 ord-box sdf">
+                        <div class="row ">
                             <div class="col-md-2 pr-pn">
                                 <h6 class="prrr-txt">السعر {{reservation.price}}</h6>
                             </div>
@@ -17,8 +17,7 @@
                                     {{reservation.name}}
                                 </h4>
                                 <h6 class="discr-txt">
-                                    {{reservation.code}} + {{reservation.status}} + {{reservation.type}}
-                                    +{{reservation.engineCapacity}} + {{reservation.design}}
+                                    {{reservation.code}} + {{reservation.status}} + {{reservation.type}} +{{reservation.engineCapacity}} + {{reservation.design}}
                                 </h6>
 
                             </div>
@@ -34,7 +33,7 @@
                             <div class="col-md-4">
                                 <a [routerLink]="['/reservation',reservation.id]" class="tab-tex">تابع عملية الحجز</a>
                             </div>
-                            <button (click)="deleteReservation(reservation.id)" class="col-md-2 btn btn-secondary">
+                            <button (click)="deleteReservation(reservation.id)" class="col-md-4 btn btn-danger dell-bt">
                                 مسح
                             </button>
                         </div>
@@ -48,25 +47,33 @@
                         <li class="active nav-but1 nav-tex3"><img src="../../../assets/img/fv.PNG" class="faa-im">
                             أختر الفئة
                         </li>
-                        <li class="nav-tex btn "> السيارات الجديدة
+                        <li class="nav-but">
+                            <a routerLink="/" class="nav-tex "> السيارات الجديدة</a>
                         </li>
-                        <li class="nav-tex btn "> السيارات المستعملة
+                        <li class="nav-but" >
+                            <a routerLink="/" class="nav-tex btn "> السيارات المستعملة</a>
+                        </li >
+                        <li  class="nav-but">
+                            <a routerLink="/" class="nav-tex btn ">سيارات متحدي الاعاقة</a>
                         </li>
-                        <li class="nav-tex btn ">سيارات متحدي الاعاقة
+                        <li class="nav-but">
+                            <a routerLink="/" class="nav-tex btn ">شاحنات</a>
                         </li>
-                        <li class="nav-tex btn ">شاحنات
+                        <li class="nav-but"> 
+                            <a routerLink="/" class="nav-tex btn "> اوتوبيسات</a>
                         </li>
-                        <li class="nav-tex btn "> اوتوبيسات
+                        <li class="nav-but">
+                            <a routerLink="/" class="nav-tex btn "> معدات ثقيلة</a>
                         </li>
-                        <li class="nav-tex btn "> معدات ثقيلة
+                        <li class="nav-but">
+                            <a routerLink="/" class="nav-tex btn "> قطع غيار و اكسسوارات</a>
                         </li>
-                        <li class="nav-tex btn "> قطع غيار و اكسسوارات
-                        </li>
-                        <li class="nav-tex btn "> اطارات
+                        <li class="nav-but">
+                            <a routerLink="/" class="nav-tex btn "> اطارات</a>
                         </li>
                     </ul>
                 </div>
-
+        
             </div>
         </div>
 

@@ -243,16 +243,17 @@
     background-color: #d30010;
     height: 300px;
     padding: 0px 40px 0px 40px;
-    
 }
 
 .nv-tb {
     background-color: #494848;
     color: white;
     margin-right: 10px;
-    font-size: 15px;
+    font-size: 16px;
     border-radius: 10px;
-    width: 125px;
+    width: 142px;
+    font-weight: bold;
+    text-align: center;
     
 }
 
@@ -284,6 +285,18 @@
 a{
     color: #fff ;
 }
-.nav-tabs{
+.gol-img{
+    width: 10%;
+}
+.pprx-tex{
+    text-align: right;
+    margin: 10px;
+    color: #d30010;
+    font-weight: bold;
     
+}
+.bind-bot{
+    width: 400px;
+    font-size: 30px;
+    font-weight: bold;
 }

@@ -29,6 +29,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { WaitingExistenceViewComponent } from './component/waiting-existence-view/waiting-existence-view.component';
+import { AgreementViewComponent } from './component/agreement-view/agreement-view.component';
+import { ReservationConfirmationViewComponent } from './component/reservation-confirmation-view/reservation-confirmation-view.component';
 
 
 
@@ -47,6 +50,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RegistrationComponent,
     NewCarComponent,
     NewNewsComponent,
+    WaitingExistenceViewComponent,
+    AgreementViewComponent,
+    ReservationConfirmationViewComponent,
   ],
   imports: [
     BrowserModule,

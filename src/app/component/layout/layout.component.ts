@@ -5,6 +5,7 @@ import { Lookups } from './../../models/Lookups.model';
 import { BackendService } from './../../services/backend.service';
 import { Component, OnInit } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { NgxPermissionsService } from 'ngx-permissions';
 
 
 
@@ -23,9 +24,17 @@ export class LayoutComponent implements OnInit {
 
   localStorageLastSeenCars = Array<{ carId: string, image: string }>();
 
-  constructor(private router: Router, private backendService: BackendService, private authService: AuthService) { }
+  constructor(private router: Router, private permissionsService: NgxPermissionsService, private backendService: BackendService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    let permissions =[''];
+    let roles=this.authService.getRoles();
+    if(roles){
+      permissions = roles;
+    }
+    
+    this.permissionsService.loadPermissions(permissions);
+
     this.getSuggestedCars();
     this.getLookUps();
 
@@ -73,6 +82,11 @@ export class LayoutComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/home']);
+    window.location.href=`home`;
+  }
+
+  openAboutPage(menueNumber) {
+    this.router.navigateByUrl('/about', { state: { menueNumber: menueNumber } });
+
   }
 }

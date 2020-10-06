@@ -2,38 +2,71 @@
 <div class="contaner hid">
     <div class="row">
         <div class="col-md-1">
-            <h6 class="hed-fli">تقريرالفحص</h6>
+            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(1)" routerLink="">
+                <h6 class="fav-tx">تقريرالفحص</h6>
+            </a>
+        </div>
+
+        <div class="col-md-1">
+            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(2)" routerLink="">
+                <h6 class="fav-tx">اجراء سريع</h6>
+            </a>
+        </div>
+
+        <div class="col-md-1">
+            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(3)" routerLink="">
+                <h6 class="fav-tx">خدمة عملاء</h6>
+            </a>
+        </div>
+        <div *ngxPermissionsOnly="['ROLE_USER','']" class="col-md-1">
         </div>
         <div class="col-md-1">
-            <h6 class="hed-fli">اجراء سريع</h6>
+            <h6 *ngxPermissionsOnly="['ROLE_USER','']" class="fav-tx">سلع جديدة</h6>
         </div>
         <div class="col-md-1">
-            <h6 class="hed-fli">خدمة عملاء</h6>
-        </div>
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-1">
-            <h6 class="hed-fli">سلع جديدة</h6>
-        </div>
-        <div class="col-md-1">
-            <h6 class="hed-fli">سلع موجودة</h6>
+            <h6 *ngxPermissionsOnly="['ROLE_USER','']" class="fav-tx">سلع موجودة</h6>
         </div>
         <div class="col-md-1">
         </div>
         <div class="col-md-1">
-            <h6 class="hed-fli">طريقة التقسيط</h6>
+            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(2)" routerLink="">
+                <h6 class="fav-tx">طريقة التقسيط</h6>
+            </a>
+            <a *ngxPermissionsOnly="['ROLE_ADMIN']" [routerLink]="['news/add']">
+                <h6 class="fav-tx">خبر جديد</h6>
+            </a>
         </div>
         <div class="col-md-1">
-            <h6 class="hed-fli">الخصومات</h6>
+            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(2)" routerLink="">
+                <h6 class="fav-tx">الخصومات</h6>
+            </a>
+            <a *ngxPermissionsOnly="['ROLE_ADMIN']" [routerLink]="['cars/add']">
+                <h6 class="fav-tx">اضافة سيارة</h6>
+            </a>
+        </div>
+        <div *ngxPermissionsOnly="['ROLE_ADMIN']" class="col-md-1">
+            <a [routerLink]="['done/list']">
+                <h6 class="fav-tx">قائمة الطلبات المنتهية</h6>
+            </a>
         </div>
         <div class="col-md-1">
-            <h6 class="hed-fli">بيع معنا</h6>
+            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(3)" routerLink="">
+                <h6 class="fav-tx">بيع معنا</h6>
+            </a>
+            <a *ngxPermissionsOnly="['ROLE_ADMIN']" [routerLink]="['agreement/list']">
+                <h6 class="fav-tx">قائمة التعاقدات</h6>
+            </a>
         </div>
         <div class="col-md-1">
-            <h6 class="hed-fli">عملية حجز</h6>
+            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(2)" routerLink="">
+                <h6 class="fav-tx">عملية حجز</h6>
+            </a>
+            <a *ngxPermissionsOnly="['ROLE_ADMIN']" [routerLink]="['waiting/list']">
+                <h6 class="fav-tx">قائمة الانتظار</h6>
+            </a>
         </div>
         <div class="col-md-1">
-            <h6 class="hed-fli">عربي</h6>
+            <h6 class="fav-tx">عربي</h6>
         </div>
 
     </div>
@@ -42,23 +75,25 @@
 <div class="contaner">
     <div class="row log-bar">
         <div class="col-md-1">
-            <h5 class="fav-tx">المفضلة </h5>
+            <h5 hidden class="fav-tx">المفضلة </h5>
         </div>
         <div class="col-md-1">
             <a routerLink="/reservation">
-                <h5 class="fav-tx"><img src="../../../assets/img/sd.PNG" class="cart-img">طلباتى</h5></a>
+                <h5 class="fav-tx"><img src="../../../assets/img/sd.PNG" class="cart-img">طلباتى</h5>
+            </a>
         </div>
         <div class="col-md-2">
             <a *ngIf="!isAuthenticated()" routerLink="/login">
                 <h5 class="fav-tx"><img src="../../../assets/img/ass.PNG" class="cart-img2">التسجيل الان </h5>
             </a>
-            <a *ngIf="isAuthenticated()" routerLink="/login">
-                <button (click)="logout()">تسجيل الخروج </button>
+            <a *ngIf="isAuthenticated()" routerLink="" (click)="logout()">
+                <h5 class="fav-tx">تسجيل الخروج</h5>
             </a>
         </div>
         <div class="col-md-1">
             <button type="submit" (click)="generalCategorySearch()" class="btn btn-danger clsd"><span
-                class="glyphicon glyphicon-search" aria-hidden="true"></span><img src="../../../assets/img/sarsh.PNG" class="cart-img3"></button>
+                    class="glyphicon glyphicon-search" aria-hidden="true"></span><img
+                    src="../../../assets/img/sarsh.PNG" class="cart-img3"></button>
         </div>
         <div class="col-md-3">
             <input [(ngModel)]="generalSearchText" #generalSearchT="ngModel" class="search-bar" type="text" name="generalSearch" id="generalSearch">

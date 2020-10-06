@@ -1,3 +1,6 @@
+import { ReservationConfirmationViewComponent } from './component/reservation-confirmation-view/reservation-confirmation-view.component';
+import { AgreementViewComponent } from './component/agreement-view/agreement-view.component';
+import { WaitingExistenceViewComponent } from './component/waiting-existence-view/waiting-existence-view.component';
 import { NewNewsComponent } from './component/new-news/new-news.component';
 import { NewCarComponent } from './component/new-car/new-car.component';
 import { RegistrationComponent } from './component/registration/registration.component';
@@ -27,8 +30,11 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'about', component: AboutComponent},
   {path: 'registration', component: RegistrationComponent},
-  {path: 'new', component: NewCarComponent},
-  {path: 'news/add', component: NewNewsComponent,canActivate:[AuthGuard]}
+  {path: 'cars/add', component: NewCarComponent,canActivate:[AuthGuard]},
+  {path: 'news/add', component: NewNewsComponent,canActivate:[AuthGuard]},
+  {path: 'waiting/list', component: WaitingExistenceViewComponent,canActivate:[AuthGuard]},
+  {path: 'agreement/list', component: AgreementViewComponent,canActivate:[AuthGuard]},
+  {path: 'done/list', component: ReservationConfirmationViewComponent,canActivate:[AuthGuard]}
 
   
 ];

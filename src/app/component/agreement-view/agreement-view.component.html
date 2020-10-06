@@ -1,0 +1,48 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th scope="col">موعد التعاقد</th>
+            <th scope="col">رقم الهاتف 2</th>
+            <th scope="col">رقم الهاتف 1</th>
+            <th scope="col">العنوان 2</th>
+            <th scope="col">العنوان 1</th>
+            <th scope="col">موعد الحجز</th>
+            <th scope="col">اسم المشتري</th>
+            <th scope="col">اسم السيارة</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of tableAgreementList">
+            <td>
+                <button type="button" class="btn btn-success btn-sm mr-1" (click)="setReservationCompleteFlag(item.id,true)">تم</button>
+            </td>
+            <td>{{ item.agreementDate |date}}</td>
+            <td>{{ item.userphoneNumber2 }}</td>
+            <td>{{ item.userphoneNumber1 }}</td>
+            <td>{{ item.userAddress2 }}</td>
+            <td>{{ item.userAddress1 }}</td>
+            <td>{{ item.reservationDate | date}}</td>
+            <td>{{ item.userName}}</td>
+            <a [routerLink]="['/car',item.carId]">
+                <th scope="row">{{ item.carName }}</th>
+            </a>
+
+        </tr>
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="listSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCountries()">
+    </ngb-pagination>
+
+    <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+        <option [ngValue]="2">2 عناصر فى الصفحة</option>
+        <option [ngValue]="4">4 عناصر فى الصفحة</option>
+        <option [ngValue]="6">6 عناصر فى الصفحة</option>
+        <option [ngValue]="8">8 عناصر فى الصفحة</option>
+        <option [ngValue]="10">10 عناصر فى الصفحة</option>
+
+    </select>
+</div>

@@ -17,8 +17,8 @@ export class BackendService {
   constructor(private http: HttpClient) {
   }
 
-  post(entity: any, url: String) {
-    this.options = { headers: this.httpHeaders };
+  post(entity: any, url: String,param?) {
+    this.options = { headers: this.httpHeaders , params: param };
 
     return this.http.post(this.baseUrl + url, JSON.stringify(entity), this.options);
   }

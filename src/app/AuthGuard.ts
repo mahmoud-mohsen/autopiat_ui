@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     ) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        
+
         if (this.authService.isTokenExist()) {
 
             if (this.authService.isTokenExpired()) {

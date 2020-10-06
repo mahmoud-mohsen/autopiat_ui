@@ -7,6 +7,14 @@ export class AuthService {
 
   constructor() { }
 
+  getRoles() {
+    if (localStorage.getItem('token')) {
+      let jwtData = localStorage.getItem('token').split('.')[1]
+      let decodedJwtJsonData = window.atob(jwtData)
+      let decodedJwtData = JSON.parse(decodedJwtJsonData)
+      return decodedJwtData.authorities;
+    }
+  }
   isTokenExist() {
     const token: string = localStorage.getItem('token');
     if (token) {
@@ -26,12 +34,12 @@ export class AuthService {
 
   isTokenExpired() {
     const token: string = localStorage.getItem('token');
-    if(token){
+    if (token) {
       const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
       return (Math.floor((new Date).getTime() / 1000)) >= expiry;
     }
     return true;
-    
+
   }
 
   logout() {

@@ -77,6 +77,20 @@
                         </div>
                     </div>
 
+                    <div *ngIf="customerServiceMenue && customerServiceMenueItemNumber=='1'">
+                        <div class="col-md-12">
+                            <img src="../../assets/img/calling-center.PNG" class="why-img">
+                        </div>
+                    </div>
+
+                    <div *ngIf="customerServiceMenue && customerServiceMenueItemNumber=='2'">
+                        <div class="col-md-12">
+                            <img src="../../assets/img/team1.PNG" class="why-img">
+                        </div>
+                        <div class="col-md-12">
+                            <img src="../../assets/img/team2.PNG" class="why-img">
+                        </div>
+                    </div>
 
 
                 </div>
@@ -117,6 +131,14 @@
                         </li>
                         <li (click)="changeSellServiceItemNumber(3)" [ngClass]="{ 'nav-but1':sellServiceMenue && sellServiceMenueItemNumber=='3'}" class="nav-but">
                             <h6 class="nav-tex">ضع اعلانا</h6>
+                        </li>
+                    </ul>
+                    <ul *ngIf="customerServiceMenue" class="list-unstyled components mb-5">
+                        <li (click)="changeCustomerServiceItemNumber(1)" [ngClass]="{ 'nav-but1':customerServiceMenue && customerServiceMenueItemNumber=='1'}" class="nav-but">
+                            <h6 class="nav-tex">مركز المساعدة</h6>
+                        </li>
+                        <li (click)="changeCustomerServiceItemNumber(2)" [ngClass]="{ 'nav-but1':customerServiceMenue && customerServiceMenueItemNumber=='2'}" class="nav-but">
+                            <h6 class="nav-tex">فريق اوتوبيات</h6>
                         </li>
                     </ul>
                     <img src="../../assets/img/contac.png" class="con-img">

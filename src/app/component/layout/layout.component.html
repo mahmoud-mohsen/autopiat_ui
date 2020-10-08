@@ -14,7 +14,7 @@
         </div>
 
         <div class="col-md-1">
-            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(3)" routerLink="">
+            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(4)" routerLink="">
                 <h6 class="fav-tx">خدمة عملاء</h6>
             </a>
         </div>
@@ -26,9 +26,8 @@
         <div class="col-md-1">
             <h6 *ngxPermissionsOnly="['ROLE_USER','']" class="fav-tx">سلع موجودة</h6>
         </div>
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-1">
+
+        <div class="col-md-2">
             <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(2)" routerLink="">
                 <h6 class="fav-tx">طريقة التقسيط</h6>
             </a>
@@ -102,7 +101,7 @@
         <div class="col-md-2 bt-ser">
             <div class="row">
                 <div class="col">
-                    <select *ngIf="lookups" [(ngModel)]="generalSearchCategory" #generalSearchCate="ngModel" class="btn btn-outline-danger form-control form-control-lg dropdownBasic1 bix-bil">
+                    <select *ngIf="lookups" [(ngModel)]="generalSearchCategory" #generalSearchCate="ngModel" class="btn btn-outline-danger bix-bil">
                         <option value="all">جميع الفئات</option>
                         <option *ngFor="let category of lookups.categories;" value="{{category}}">{{category}}</option>
                     </select>
@@ -117,7 +116,7 @@
         </div>
     </div>
 </div>
-<div class="main-content " hl-sticky="" >
+<div class="main-content " hl-sticky="">
     <div class="container-fluid ">
         <div class="row">
 

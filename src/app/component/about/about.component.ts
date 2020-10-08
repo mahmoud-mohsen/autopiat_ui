@@ -17,6 +17,9 @@ export class AboutComponent implements OnInit {
   sellServiceMenue: Boolean;
   sellServiceMenueItemNumber: string;
 
+  customerServiceMenue: Boolean;
+  customerServiceMenueItemNumber: string;
+
   constructor(private router: Router) {
     let menueNumber;
     if(this.router.getCurrentNavigation().extras.state){
@@ -30,6 +33,10 @@ export class AboutComponent implements OnInit {
       else if (menueNumber == 3) {
         this.sellServiceMenue = true;
         this.sellServiceMenueItemNumber = '1';
+      }
+      else if (menueNumber == 4) {
+        this.customerServiceMenue = true;
+        this.customerServiceMenueItemNumber = '1';
       }
       else {
         this.whatAutopiatMenue = true;
@@ -52,6 +59,8 @@ export class AboutComponent implements OnInit {
     this.whatAutopiatMenueItemNumber = '1';
     this.howToBuyMenue = false;
     this.sellServiceMenue = false;
+    this.customerServiceMenue = false;
+
   }
   changeWhatAutopiatItemNumber(itemNumber) {
     this.whatAutopiatMenueItemNumber = itemNumber;
@@ -62,6 +71,7 @@ export class AboutComponent implements OnInit {
     this.howToBuyMenue = true;
     this.howToBuyMenueItemNumber = '1';
     this.sellServiceMenue = false;
+    this.customerServiceMenue = false;
   }
   changeHowToBuyItemNumber(itemNumber) {
     this.howToBuyMenueItemNumber = itemNumber;
@@ -72,9 +82,15 @@ export class AboutComponent implements OnInit {
     this.howToBuyMenue = false;
     this.sellServiceMenue = true;
     this.sellServiceMenueItemNumber = '1';
+    this.customerServiceMenue = false;
+
   }
   changeSellServiceItemNumber(itemNumber) {
     this.sellServiceMenueItemNumber = itemNumber;
+  }
+
+  changeCustomerServiceItemNumber(itemNumber) {
+    this.customerServiceMenueItemNumber = itemNumber;
   }
 
 }

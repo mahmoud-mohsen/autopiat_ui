@@ -4,19 +4,16 @@
     </div>
     <div class="row ">
         <div class="col-md-10 but1 ">
-            <div class="row ">
-                <div class="col-md-4 ">
-                    <button (click)="login()" type="submit" class="btn btn-info btn-boll">تسجيل الدخول</button>
-                </div>
-                <div class="col-md-8">
+            <div class="row d-flex d-flex justify-content-end">
+                <div class="col-md-12">
                     <input [(ngModel)]="username" #generalSearchT="ngModel" type="text" class="form-control " placeholder="Username">
                     <input [(ngModel)]="password" #generalSearchT="ngModel" type="password" class="form-control " placeholder="Password">
                 </div>
 
 
-                <div class="col-md-9 ">
-                    <h6 class="paas-word">ليس لديك حساب؟ <a [routerLink]="['/registration']" id="signup">انشاء حساب
-                            جديد</a></h6>
+                <div class="col-md-10 mt-3 d-flex justify-content-end ">
+                    <h5 class="paas-word">ليس لديك حساب؟ <a [routerLink]="['/registration']" id="signup">انشاء حساب
+                            جديد</a></h5>
                 </div>
                 <div hidden class="col-md-1">
                     <input type="checkbox">
@@ -36,8 +33,8 @@
                 </div>
                 <div class="col-md-12">
                     <div class="log-box">
-                        <button (click)="login()" class="log-tet">تسجيل الدخول
-                        </button>
+                        <button (click)="login()" type="submit" class="btn btn-info btn-boll">تسجيل الدخول</button>
+
                     </div>
 
                 </div>

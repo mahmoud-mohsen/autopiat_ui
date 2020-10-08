@@ -16,7 +16,7 @@
     cursor: text;
     height: 2.2rem;
     border: #ec1010 1px solid;
-    color:  #ec1010;
+    color: #ec1010;
 }
 
 .bt-ser {
@@ -180,37 +180,45 @@
     flex-wrap: wrap;
     flex-direction: row-reverse;
 }
-.hed-fli{
+
+.hed-fli {
     font-size: 15px;
     font-size: large;
-
 }
-.fav-tx{
-    font-size: 50px;
+
+.fav-tx {
+    font-size: 40px;
     font-size: large;
-    margin: 10px;
+    margin: 5px;
     font-weight: bold;
     color: #494848;
 }
-.bix-bil{
-    width: 100px;
+
+.bix-bil {
+    width: 60%;
 }
-.box-bor{
-    position: -webkit-sticky; /* Safari */
+
+.box-bor {
+    position: -webkit-sticky;
+    /* Safari */
     position: sticky !important;
     top: 0;
 }
-.cart-img{
+
+.cart-img {
     width: 42%;
 }
-.cart-img2{
+
+.cart-img2 {
     width: 22%;
 }
-.cart-img3{
+
+.cart-img3 {
     width: 70%;
     border-radius: 10px;
 }
-.clsd{
+
+.clsd {
     background-color: #fff;
     border: #fff;
 }

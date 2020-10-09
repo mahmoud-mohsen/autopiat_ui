@@ -6,9 +6,9 @@ export class NewCar {
 	description: String;
 	price: Number;
 	images: any;
-	isGuarantee: boolean;
-	isUnique: boolean;
-	isPartener: boolean;
+	guarantee: boolean;
+	unique: boolean;
+	partener: boolean;
 
 	//Main Description
 	type: String;

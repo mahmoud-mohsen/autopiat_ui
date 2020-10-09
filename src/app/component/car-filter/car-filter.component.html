@@ -119,15 +119,13 @@
                                 <img src="{{car.images.split(',')[1]}}" alt="{{car.name}}" class="col-md-10 px-sid2">
                             </div>
                             <div class="col-md-11 smm-box">
-                                <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid2">
+                                <img src="{{car.images.split(',')[2]}}" alt="{{car.name}}" class="col-md-10 px-sid2">
                             </div>
                         </div>
 
                     </div>
-                    <div class="col-md-2 box-car-im">
-                        <a [routerLink]="['/car',car.id]">
+                    <div (click)="openCarPage(car.id)" class="col-md-2 box-car-im">
                             <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid2">
-                        </a>
                     </div>
                 </div>
             </div>

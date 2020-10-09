@@ -165,5 +165,7 @@ export class HomeComponent implements OnInit {
       
     });
   }
- 
+  sanitizeImageUrl(imageUrl: string): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
+  }
 }

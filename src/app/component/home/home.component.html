@@ -241,8 +241,8 @@
                     <ng-container ngbNavItem>
                         <a ngbNavLink (click)="getLatestCars('all')" class="rid-box">الكل</a>
                         <ng-template ngbNavContent class="">
-                            <div class="row">
-                                <div *ngFor="let car of latestCars" class="col-md-3 rudo-box">
+                            <div class="row rudo-box">
+                                <div *ngFor="let car of latestCars" class="col-md-3">
                                     <a [routerLink]="['/car',car.id]">
                                         <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
                                     </a>
@@ -255,8 +255,8 @@
                     <ng-container *ngFor="let category of lookups.categories;" ngbNavItem>
                         <a ngbNavLink (click)="getLatestCars(category)" class="rid-box">{{category}}</a>
                         <ng-template ngbNavContent class="">
-                            <div class="row">
-                                <div *ngFor="let car of latestCars" class="col-md-3 rudo-box">
+                            <div class="row rudo-box">
+                                <div *ngFor="let car of latestCars" class="col-md-3">
                                     <a [routerLink]="['/car',car.id]">
                                         <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
                                     </a>
@@ -281,8 +281,8 @@
                     <ng-container ngbNavItem>
                         <a ngbNavLink (click)="getHomeSuggestedCars('')" class="rid-box">الكل</a>
                         <ng-template ngbNavContent class="">
-                            <div class="row">
-                                <div *ngFor="let car of homeSuggestedCars" class="col-md-3 rudo-box">
+                            <div class="row rudo-box">
+                                <div *ngFor="let car of homeSuggestedCars" class="col-md-3">
                                     <a [routerLink]="['/car',car.id]">
                                         <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
                                     </a>
@@ -295,8 +295,8 @@
                     <ng-container *ngFor="let category of lookups.categories;" ngbNavItem>
                         <a ngbNavLink (click)="getHomeSuggestedCars(category)" class="rid-box">{{category}}</a>
                         <ng-template ngbNavContent class="">
-                            <div class="row">
-                                <div *ngFor="let car of homeSuggestedCars" class="col-md-3 rudo-box">
+                            <div class="row rudo-box">
+                                <div *ngFor="let car of homeSuggestedCars" class="col-md-3 ">
                                     <a [routerLink]="['/car',car.id]">
                                         <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
                                     </a>
@@ -322,10 +322,9 @@
                     <ng-container ngbNavItem>
                         <a ngbNavLink (click)="getNews('')" class="rid-box">الكل</a>
                         <ng-template ngbNavContent>
-                            <div class="row">
-
+                            <div class="row rudo-box">
                                 <mdb-carousel [animation]="'slide'">
-                                    <mdb-carousel-item *ngFor="let news of newsList" class="rudo-box">
+                                    <mdb-carousel-item *ngFor="let news of newsList" class="">
                                         <div class="col-md-7">
                                             <h1 class="discr-txt">
                                                 {{news.title}}
@@ -346,6 +345,7 @@
                     <ng-container *ngFor="let category of newsCategories;" ngbNavItem>
                         <a ngbNavLink (click)="getNews(category)" class="rid-box">{{category}}</a>
                         <ng-template ngbNavContent>
+                            <div class="row rudo-box">
                             <mdb-carousel [animation]="'slide'">
                                 <mdb-carousel-item *ngFor="let news of newsList" class="rudo-box">
                                     <div class="col-md-7">
@@ -362,6 +362,7 @@
                                     </div>
                                 </mdb-carousel-item>
                             </mdb-carousel>
+                            </div>
                         </ng-template>
                     </ng-container>
                 </nav>

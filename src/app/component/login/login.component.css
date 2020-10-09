@@ -138,8 +138,6 @@
 
 .log-box {
     padding: 1px;
-    /* background-color: lightgray; */
-    /* border: red 1px solid; */
     text-align: center;
     border-radius: 5px;
 }
@@ -212,7 +210,6 @@
     text-align: center;
     border: honeydew 1px solid;
     border-radius: 5px;
-    /* height: 55px; */
     padding: 14px;
 }
 

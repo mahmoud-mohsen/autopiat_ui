@@ -228,4 +228,8 @@ export class CarFilterComponent implements OnInit {
     }
   }
 
+  openCarPage(carId){
+    this.router.navigate(['/car',carId]);
+  }
+
 }

@@ -15,7 +15,7 @@ export class NewCarComponent implements OnInit {
   lookups: Lookups;
 
   imgURL;
-  image
+  image;
 
   selectedFiles: FileList
   currentFileUpload: File
@@ -31,21 +31,15 @@ export class NewCarComponent implements OnInit {
     this.getLookUps();
 
   }
-
   saveCar() {
-    console.log(this.image);
-    
-    // let url = `car`;
-    // this.backendService.pushFileToStorage(url, this.files).subscribe(event => {
-    //   if (event.type === HttpEventType.UploadProgress) {
-    //     this.progress.percentage = Math.round(100 * event.loaded / event.total);
-    //   } else if (event instanceof HttpResponse) {
-    //     console.log('File is completely uploaded!');
-    //   }
-    // })
-    // this.backendService.post(formdata, url).subscribe(() => {
-    //   this.router.navigate([`home`]);
-    // });
+    let url = `car`;
+    this.newCar.images=this.image;
+    console.log(this.newCar.guarantee);
+    console.log(this.newCar.partener);
+    console.log(this.newCar.unique);    
+    this.backendService.post(this.newCar, url).subscribe(() => {
+      this.router.navigate([`home`]);
+    });
   }
 
   getLookUps() {
@@ -55,47 +49,19 @@ export class NewCarComponent implements OnInit {
 
     });
   }
-
-
-  selectFile(event) {
-    console.log(event.target.files.length);
-
-    if (event.target.files.length) {
-      for (let i = 0; i < event.target.files.length; i++) {
-        this.files.push(<File>event.target.files[i]);
-      }
-    }
-  }
-
-  upload() {
-    this.progress.percentage = 0;
-
-    this.currentFileUpload = this.selectedFiles.item(0)
-
-    this.selectedFiles = undefined
-  }
-
   prepareImage(image) {
-    // var file: File = image.target.files[0];
-    console.log(image.target.files);
-    
-    for (let i = 0; i < image.target.files.length; i++) {
-      if (image.target.files[i]) {
-        this.preview(image.target.files[i])
-      }
-      var myReader: FileReader = new FileReader();
-
-      myReader.onloadend = (e) => {
-        console.log(this.image);
-        
-        this.image = myReader.result+",";
-      }
-      myReader.readAsDataURL(image.target.files[i]);
+    var file: File = image.files[0];
+    if (file) {
+      this.preview(file)
     }
+    var myReader: FileReader = new FileReader();
 
+    myReader.onloadend = (e) => {
+      this.image = myReader.result;
+    }
+    myReader.readAsDataURL(file);
 
   }
-
   preview(file) {
     var reader = new FileReader();
     reader.readAsDataURL(file);
@@ -103,5 +69,4 @@ export class NewCarComponent implements OnInit {
       this.imgURL = reader.result;
     }
   }
-
 }

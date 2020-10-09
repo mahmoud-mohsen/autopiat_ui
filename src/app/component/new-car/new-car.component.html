@@ -10,18 +10,16 @@
                     <hr>
                     <div class="col-md-5 ">
                         <form class="md-form ">
-                            <!-- <div class="file-field ">
+                            <div class="file-field ">
                                 <div class="mb-4 ">
-                                    <img [src]="imgURL" class="rounded-circle z-depth-1-half avatar-pic uplo-img"
-                                        alt="example placeholder avatar">
+                                    <img [src]="imgURL" class="rounded-circle z-depth-1-half avatar-pic uplo-img">
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <div class="btn btn-mdb-color btn-rounded float-left">
-                                        <input [(ngModel)]="image" name="image" accept="image/*"
-                                            (change)="prepareImage($event.target)" type="file">
+                                        <input multiple [(ngModel)]="image" name="image" accept="image/*" (change)="prepareImage($event.target)" type="file">
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                         </form>
 
                     </div>
@@ -41,15 +39,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword4">Guarantee</label>
-                                <input [(ngModel)]="newCar.isGuarantee" name="isGuarantee" type="checkbox" id="inputPassword4">
+                                <input [(ngModel)]="newCar.guarantee" name="isGuarantee" type="checkbox" id="inputPassword4" [ngModelOptions]="{standalone: true}">
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword4">Unique</label>
-                                <input [(ngModel)]="newCar.isUnique" name="isUnique" type="checkbox" id="inputPassword4">
+                                <input [(ngModel)]="newCar.unique" name="isUnique" type="checkbox" id="inputPassword4" [ngModelOptions]="{standalone: true}">
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword4">Partener</label>
-                                <input [(ngModel)]="newCar.isPartener" name="isPartener" type="checkbox" id="inputPassword4">
+                                <input [(ngModel)]="newCar.partener" name="isPartener" type="checkbox" id="inputPassword4" [ngModelOptions]="{standalone: true}">
                             </div>
 
 
@@ -230,15 +228,6 @@
                                 <label for="inputCity">EPS</label>
                                 <input [(ngModel)]="newCar.electricPowerSteering" name="electricPowerSteering" class="form-control" id="inputCity">
                             </div>
-
-                            <div *ngIf="currentFileUpload" class="progress">
-                                <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
-                                    {{progress.percentage}}%</div>
-                            </div>
-
-                            <label class="btn btn-default">
-                                <input multiple type="file" (change)="prepareImage($event)">
-                              </label>
 
                             <button (click)="saveCar()" type="submit" class="btn btn-danger">حفظ</button>
                         </form>

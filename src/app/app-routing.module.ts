@@ -14,11 +14,6 @@ import { CarFilterComponent } from './component/car-filter/car-filter.component'
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
-import { TypeViewComponent } from './component/typeView/typeView.component';
-
-
-
-
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -34,8 +29,7 @@ const routes: Routes = [
   {path: 'news/add', component: NewNewsComponent,canActivate:[AuthGuard]},
   {path: 'waiting/list', component: WaitingExistenceViewComponent,canActivate:[AuthGuard]},
   {path: 'agreement/list', component: AgreementViewComponent,canActivate:[AuthGuard]},
-  {path: 'done/list', component: ReservationConfirmationViewComponent,canActivate:[AuthGuard]}
-
+  {path: 'done/list', component: ReservationConfirmationViewComponent,canActivate:[AuthGuard]},
   
 ];
 

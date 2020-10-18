@@ -13,6 +13,8 @@ export class CarViewComponent implements OnInit {
   car: Car;
   carImages: string[];
 
+  mainCarImage;
+
 
   constructor(private activeRouter: ActivatedRoute, private backendService: BackendService) { }
 
@@ -28,7 +30,7 @@ export class CarViewComponent implements OnInit {
     this.backendService.ViewEntities(url).subscribe((response: any) => {
       this.car = response;
       this.carImages = this.car.images.split(',');
-
+      this.mainCarImage=this.carImages[0];
       this.addCarInLastSeen();
 
     });
@@ -72,5 +74,9 @@ export class CarViewComponent implements OnInit {
       lastSeenCars.push(car);
       localStorage.setItem("lastSeenCars", JSON.stringify(lastSeenCars));
     }
+  }
+
+  changeMainCarImage(image){
+    this.mainCarImage=image;
   }
 }

@@ -102,7 +102,6 @@
 }
 
 .px-sid {
-    background-color: honeydew;
     height: 250px;
     margin: 5px;
     width: 400px;
@@ -251,7 +250,6 @@
     margin-right: 10px;
     font-size: 16px;
     border-radius: 10px;
-    width: 142px;
     font-weight: bold;
     text-align: center;
     

@@ -192,7 +192,7 @@
 
 .rid-box {
     background-color: #494848;
-    font-size: 14px;
+    font-size: 12px;
     color: #fff;
     font-weight: bold;
 }
@@ -270,7 +270,7 @@
     background-color: #494848;
     margin: 10px;
     border-radius: 0px 0px 10px 0px;
-    padding: 5px;
+    padding: 0px;
 }
 
 .adv-box {
@@ -311,4 +311,10 @@
 
 .dfdf {
     align-content: center;
+}
+
+.offerH{
+    margin-left: 37%;
+    color: #FFE3E3;
+    font-weight: bolder;
 }

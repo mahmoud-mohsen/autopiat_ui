@@ -168,4 +168,10 @@ export class HomeComponent implements OnInit {
   sanitizeImageUrl(imageUrl: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
   }
+
+  getFirstImage(car:FilterCar){
+    if(car.images){
+      return car.images.split(',')[0];
+    }
+  }
 }

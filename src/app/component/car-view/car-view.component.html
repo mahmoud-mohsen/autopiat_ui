@@ -281,14 +281,17 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="car-im-bg">
-                                <img *ngIf="carImages" src="{{carImages[0]}}" alt="{{car.name}}"
+                                <img *ngIf="carImages" [src]="mainCarImage" alt="{{car.name}}"
                                     class="col-md-10 px-sid img-responsive">
                             </div>
                         </div>
-                        <div class="d-flex">
-                            <div *ngFor="let image of carImages" class="col-md-2 ca-sm-pic">
-                                <img *ngIf="carImages" src="{{image}}" alt="{{car.name}}"
+                        <div class="col-md-12 d-flex d-flex flex-wrap">
+                            <div  *ngFor="let image of carImages" class="col-md-4 ca-sm-pic">
+                                <div (click)="changeMainCarImage(image)">
+                                    <img *ngIf="carImages" src="{{image}}" alt="{{car.name}}"
                                     class="px-sid2 img-responsive">
+
+                                </div>
                             </div>
                         </div>
                     </div>

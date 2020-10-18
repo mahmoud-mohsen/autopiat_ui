@@ -13,7 +13,8 @@
                         <div class="row ">
                             <div class="col-md-11">
                                 <div class="d-inline-block">
-                                    <select [(ngModel)]="fastSearchCategory" *ngIf="lookups" name="category" class="btn mr-5 btn-outline-danger bt-ser-box-head dropdownBasic1">
+                                    <select [(ngModel)]="fastSearchCategory" *ngIf="lookups" name="category"
+                                        class="btn mr-5 btn-outline-danger bt-ser-box-head dropdownBasic1">
                                         <option value=null>الفئة</option>
                                         <option *ngFor="let category of lookups.categories;" value="{{category}}">
                                             {{category}}
@@ -24,7 +25,8 @@
 
                             <div class="col-md-5">
                                 <div class="d-inline-block">
-                                    <select [(ngModel)]="fastSearchModel" *ngIf="lookups" name="model" class="btn btn-outline-danger bt-ser-box">
+                                    <select [(ngModel)]="fastSearchModel" *ngIf="lookups" name="model"
+                                        class="btn btn-outline-danger bt-ser-box">
                                         <option value=null>الموديل</option>
                                         <option *ngFor="let model of lookups.models;" value="{{model}}">
                                             {{model}}
@@ -34,7 +36,8 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="d-inline-block">
-                                    <select [(ngModel)]="fastSearchType" *ngIf="lookups" name="type" class="btn btn-outline-danger bt-ser-box">
+                                    <select [(ngModel)]="fastSearchType" *ngIf="lookups" name="type"
+                                        class="btn btn-outline-danger bt-ser-box">
                                         <option value=null>النوع</option>
                                         <option *ngFor="let type of lookups.types;" value="{{type}}">
                                             {{type}}
@@ -44,7 +47,8 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="d-inline-block">
-                                    <select [(ngModel)]="fastSearchYearFrom" name="yearFrom" class="btn btn-outline-danger bt-ser-box">
+                                    <select [(ngModel)]="fastSearchYearFrom" name="yearFrom"
+                                        class="btn btn-outline-danger bt-ser-box">
                                         <option value=null>السنة من</option>
                                         <option *ngFor='let year of years' value="{{year}}">{{year}}
                                         </option>
@@ -53,7 +57,8 @@
                             </div>
                             <div class="col-md-5">
                                 <div ngbDropdown class="d-inline-block">
-                                    <select [(ngModel)]="fastSearchYearTo" name="yearTo" class="btn btn-outline-danger bt-ser-box">
+                                    <select [(ngModel)]="fastSearchYearTo" name="yearTo"
+                                        class="btn btn-outline-danger bt-ser-box">
                                         <option value=null>السنةالى</option>
                                         <option *ngFor='let year of years' value="{{year}}">{{year}}
                                         </option>
@@ -62,7 +67,8 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="d-inline-block">
-                                    <select [(ngModel)]="fastSearchPriceFrom" name="priceFrom" class="btn btn-outline-danger bt-ser-box">
+                                    <select [(ngModel)]="fastSearchPriceFrom" name="priceFrom"
+                                        class="btn btn-outline-danger bt-ser-box">
                                         <option value=null>السعر من</option>
                                         <option value="5000">5,000</option>
                                         <option value="10000">10,000</option>
@@ -107,7 +113,8 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="d-inline-block">
-                                    <select [(ngModel)]="fastSearchPriceTo" name="priceTo" class="btn btn-outline-danger bt-ser-box">
+                                    <select [(ngModel)]="fastSearchPriceTo" name="priceTo"
+                                        class="btn btn-outline-danger bt-ser-box">
                                         <option value=null>السعر الى</option>
                                         <option value="10000">10,000</option>
                                         <option value="20000">20,000</option>
@@ -150,7 +157,8 @@
                                 </div>
                             </div>
                             <div class="col-md-11">
-                                <button type="submit" (click)="fastSearch()" class="btn mr-5 btn-outline-danger bt-ser-box-head dropdownBasic1">Search</button>
+                                <button type="submit" (click)="fastSearch()"
+                                    class="btn mr-5 btn-outline-danger bt-ser-box-head dropdownBasic1">Search</button>
                             </div>
                         </div>
                     </div>
@@ -244,7 +252,7 @@
                             <div class="row rudo-box">
                                 <div *ngFor="let car of latestCars" class="col-md-3">
                                     <a [routerLink]="['/car',car.id]">
-                                        <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                                        <img [src]="getFirstImage(car)" alt="{{car.name}}" class="col-md-10 px-sid">
                                     </a>
 
                                 </div>
@@ -258,7 +266,8 @@
                             <div class="row rudo-box">
                                 <div *ngFor="let car of latestCars" class="col-md-3">
                                     <a [routerLink]="['/car',car.id]">
-                                        <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                                        <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}"
+                                            class="col-md-10 px-sid">
                                     </a>
 
                                 </div>
@@ -284,7 +293,8 @@
                             <div class="row rudo-box">
                                 <div *ngFor="let car of homeSuggestedCars" class="col-md-3">
                                     <a [routerLink]="['/car',car.id]">
-                                        <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                                        <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}"
+                                            class="col-md-10 px-sid">
                                     </a>
 
                                 </div>
@@ -298,7 +308,8 @@
                             <div class="row rudo-box">
                                 <div *ngFor="let car of homeSuggestedCars" class="col-md-3 ">
                                     <a [routerLink]="['/car',car.id]">
-                                        <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                                        <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}"
+                                            class="col-md-10 px-sid">
                                     </a>
 
                                 </div>
@@ -335,7 +346,8 @@
 
                                         </div>
                                         <div class="2">
-                                            <img [src]="'data:image/jpg;base64,'+news.image" alt="{{news.title}}" class="col-md-10 px-sid">
+                                            <img [src]="'data:image/jpg;base64,'+news.image" alt="{{news.title}}"
+                                                class="col-md-10 px-sid">
                                         </div>
                                     </mdb-carousel-item>
                                 </mdb-carousel>
@@ -346,22 +358,23 @@
                         <a ngbNavLink (click)="getNews(category)" class="rid-box">{{category}}</a>
                         <ng-template ngbNavContent>
                             <div class="row rudo-box">
-                            <mdb-carousel [animation]="'slide'">
-                                <mdb-carousel-item *ngFor="let news of newsList" class="rudo-box">
-                                    <div class="col-md-7">
-                                        <h1 class="discr-txt">
-                                            {{news.title}}
-                                        </h1>
-                                        <h3 class="discr-txt">
-                                            {{news.description}}
-                                        </h3>
+                                <mdb-carousel [animation]="'slide'">
+                                    <mdb-carousel-item *ngFor="let news of newsList" class="rudo-box">
+                                        <div class="col-md-7">
+                                            <h1 class="discr-txt">
+                                                {{news.title}}
+                                            </h1>
+                                            <h3 class="discr-txt">
+                                                {{news.description}}
+                                            </h3>
 
-                                    </div>
-                                    <div class="2">
-                                        <img [src]="'data:image/jpg;base64,'+news.image" alt="{{news.title}}" class="col-md-10 px-sid">
-                                    </div>
-                                </mdb-carousel-item>
-                            </mdb-carousel>
+                                        </div>
+                                        <div class="2">
+                                            <img [src]="'data:image/jpg;base64,'+news.image" alt="{{news.title}}"
+                                                class="col-md-10 px-sid">
+                                        </div>
+                                    </mdb-carousel-item>
+                                </mdb-carousel>
                             </div>
                         </ng-template>
                     </ng-container>
@@ -382,12 +395,14 @@
             <div class="col-md-9">
                 <h1 class="aa-txt">أتوبيات هو</h1><br><br><br>
                 <h1 class="aa-txt2"> منصة لتداول السيارات في مصر</h1><br><br><br>
-                <h2 class="ddds-tx">هي منصة تداول للسيارات والشاحنات والحافلات والمعدات وقطع الغيار وجميع الملحقات الخاصة بها في مصر كسوق حر نقدم أكثر الطرق أمانا وأسرعها لشراء العناصر . من البائعيين المصريين إلى المستهلك مباشرة ً للمتداولين بكافة أطيافهم ،
+                <h2 class="ddds-tx">هي منصة تداول للسيارات والشاحنات والحافلات والمعدات وقطع الغيار وجميع الملحقات
+                    الخاصة بها في مصر كسوق حر نقدم أكثر الطرق أمانا وأسرعها لشراء العناصر . من البائعيين المصريين إلى
+                    المستهلك مباشرة ً للمتداولين بكافة أطيافهم ،
                 </h2>
             </div>
 
 
-            <div class="col-md-12">
+            <div class="col-md-12 ">
                 <div class="row">
 
                     <div class="col-md-2 bin-box">
@@ -416,7 +431,8 @@
 
                         </div><br>
                         <div class="an-dd">
-                            <h3 class=" "> كيف تشترى ..؟ <a (click)="openAboutPage(2)" [routerLink]="">اعرف المزيد</a></h3>
+                            <h3 class=" "> كيف تشترى ..؟ <a (click)="openAboutPage(2)" [routerLink]="">اعرف المزيد</a>
+                            </h3>
 
                         </div>
                     </div>
@@ -425,7 +441,8 @@
                             <img src="../../../assets/img/howw.jpg" class="han-img">
                         </div><br>
                         <div class="an-dd">
-                            <h3 class=" ">ما هو أتوبيات .؟<a (click)="openAboutPage(1)" [routerLink]="">اعرف المزيد</a></h3>
+                            <h3 class=" ">ما هو أتوبيات .؟<a (click)="openAboutPage(1)" [routerLink]="">اعرف المزيد</a>
+                            </h3>
 
                         </div>
                     </div>
@@ -443,8 +460,24 @@
                 <img src="../../../assets/img/dsff.PNG" class="contact-im">
             </div>
             <div class="col-md-5">
-                <a href="#">
-                    <img src="../../../assets/img/dv.PNG" class="contact-im2"></a>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row but1">
+                            <div class="col-4">
+                                <img src="../../../assets/img/howw.jpg" alt="offer" class="col-md-10 px-sid">
+                            </div>
+                            <div class="col-4">
+                                <img src="../../../assets/img/howw.jpg" alt="offer" class="col-md-10 px-sid">
+                            </div>
+                            <div class="col-4">
+                                <img src="../../../assets/img/howw.jpg" alt="offer" class="col-md-10 px-sid">
+                            </div>
+                            <div class="offerH">
+                                <h1>عروض خاصه</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-5">
                 <img src="../../../assets/img/cxcx.PNG" class="contact-im3">

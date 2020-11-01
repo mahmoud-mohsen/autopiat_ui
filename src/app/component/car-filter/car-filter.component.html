@@ -125,7 +125,7 @@
 
                     </div>
                     <div (click)="openCarPage(car.id)" class="col-md-2 box-car-im">
-                            <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid2">
+                            <img [src]="sanitizeImageUrl(car.images.split(',')[0])" alt="{{car.name}}" class="col-md-10 px-sid2">
                     </div>
                 </div>
             </div>

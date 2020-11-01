@@ -34,18 +34,15 @@ export class AgreementViewComponent implements OnInit {
   }
 
   refreshCountries() {
-    console.log(this.tableAgreementList);
         
     this.tableAgreementList = this.agreementList.map((item, i) => ({id: i + 1, ...item})).slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
-    console.log(this.tableAgreementList);
-
   }
 
   setReservationCompleteFlag(reservationId){
     let url = `reservations/${reservationId}/done`;
     let param={'done':true};
     this.backendService.post(null,url,param).subscribe(() => {
-      location.reload();
+      window.location.href=window.location.href;
     });
   }
 }

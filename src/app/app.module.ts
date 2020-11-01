@@ -32,6 +32,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { WaitingExistenceViewComponent } from './component/waiting-existence-view/waiting-existence-view.component';
 import { AgreementViewComponent } from './component/agreement-view/agreement-view.component';
 import { ReservationConfirmationViewComponent } from './component/reservation-confirmation-view/reservation-confirmation-view.component';
+import { NewCarTypeComponent } from './component/new-car-type/new-car-type.component';
 
 
 
@@ -53,6 +54,7 @@ import { ReservationConfirmationViewComponent } from './component/reservation-co
     WaitingExistenceViewComponent,
     AgreementViewComponent,
     ReservationConfirmationViewComponent,
+    NewCarTypeComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { BackendService } from './../../services/backend.service';
 import { NewCar } from './../../models/NewCar.model';
 import { Component, OnInit } from '@angular/core';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { CarTypeList } from 'src/app/models/CarTypeList.model';
 
 @Component({
   selector: 'app-new-car',
@@ -13,6 +13,7 @@ import { HttpEventType, HttpResponse } from '@angular/common/http';
 export class NewCarComponent implements OnInit {
   newCar: NewCar;
   lookups: Lookups;
+  carTypeList: CarTypeList[];
 
   imgURL;
   image;
@@ -22,6 +23,7 @@ export class NewCarComponent implements OnInit {
   files: File[] = [];
   progress: { percentage: number } = { percentage: 0 }
 
+  category: string;
 
   constructor(private backendService: BackendService, private router: Router) {
     this.newCar = new NewCar();
@@ -33,14 +35,32 @@ export class NewCarComponent implements OnInit {
   }
   saveCar() {
     let url = `car`;
-    this.newCar.images=this.image;
-    console.log(this.newCar.guarantee);
-    console.log(this.newCar.partener);
-    console.log(this.newCar.unique);    
-    this.backendService.post(this.newCar, url).subscribe(() => {
+    this.newCar.images = this.image;
+    this.backendService.post(this.newCar, url).subscribe((response: any) => {
+
+      if(this.files.length!=0){
+        this.saveCarImages(response.id);
+      }
       this.router.navigate([`home`]);
     });
   }
+
+  saveCarImages(carId) {
+    let url = `car/${carId}/images`;
+    this.backendService.postWithFile(url, this.files).subscribe(() => {
+      console.log("done");
+
+    });
+  }
+
+  getCarType() {
+    let url = `category/carType`;
+    let param={"category":this.category};
+    this.backendService.ViewEntities(url,param).subscribe((response: any) => {
+      this.carTypeList = response;
+    });
+  }
+
 
   getLookUps() {
     let url = `lookup`;
@@ -49,24 +69,8 @@ export class NewCarComponent implements OnInit {
 
     });
   }
-  prepareImage(image) {
-    var file: File = image.files[0];
-    if (file) {
-      this.preview(file)
-    }
-    var myReader: FileReader = new FileReader();
 
-    myReader.onloadend = (e) => {
-      this.image = myReader.result;
-    }
-    myReader.readAsDataURL(file);
-
-  }
-  preview(file) {
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = (_event) => {
-      this.imgURL = reader.result;
-    }
+  prepareMultiImage(image) {
+    this.files = image.files;
   }
 }

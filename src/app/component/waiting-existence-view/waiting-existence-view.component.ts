@@ -34,15 +34,13 @@ export class WaitingExistenceViewComponent implements OnInit {
 
   refreshCountries() {        
     this.tableWaitingExistenceList = this.waitingExistenceList.map((item, i) => ({id: i + 1, ...item})).slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
-    console.log(this.tableWaitingExistenceList);
-
   }
 
   setIsExistFlag(reservationId,isExist){
     let url = `reservations/${reservationId}/existence`;
     let param={'exist':isExist};
     this.backendService.post(null,url,param).subscribe(() => {
-      location.reload();
+      window.location.href=window.location.href;
     });
   }
 }

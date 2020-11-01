@@ -11,12 +11,10 @@
                     <div class="col-md-5 ">
                         <form class="md-form ">
                             <div class="file-field ">
-                                <div class="mb-4 ">
-                                    <img [src]="imgURL" class="rounded-circle z-depth-1-half avatar-pic uplo-img">
-                                </div>
                                 <div class="d-flex justify-content-center">
                                     <div class="btn btn-mdb-color btn-rounded float-left">
-                                        <input multiple [(ngModel)]="image" name="image" accept="image/*" (change)="prepareImage($event.target)" type="file">
+                                        <input multiple [(ngModel)]="image" name="image" accept="image/*"
+                                            (change)="prepareMultiImage($event.target)" type="file">
                                     </div>
                                 </div>
                             </div>
@@ -27,11 +25,13 @@
                         <form>
                             <div class="form-group">
                                 <label for="inputEmail4">الاسم</label>
-                                <input [(ngModel)]="newCar.name" name="name" type="text" class="form-control" id="inputEmail4">
+                                <input [(ngModel)]="newCar.name" name="name" type="text" class="form-control"
+                                    id="inputEmail4">
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail4">الوصف</label>
-                                <input [(ngModel)]="newCar.description" name="description" class="form-control" id="inputEmail4">
+                                <input [(ngModel)]="newCar.description" name="description" class="form-control"
+                                    id="inputEmail4">
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword4">السعر</label>
@@ -39,28 +39,39 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword4">Guarantee</label>
-                                <input [(ngModel)]="newCar.guarantee" name="isGuarantee" type="checkbox" id="inputPassword4" [ngModelOptions]="{standalone: true}">
+                                <input [(ngModel)]="newCar.guarantee" name="isGuarantee" type="checkbox"
+                                    id="inputPassword4" [ngModelOptions]="{standalone: true}">
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword4">Unique</label>
-                                <input [(ngModel)]="newCar.unique" name="isUnique" type="checkbox" id="inputPassword4" [ngModelOptions]="{standalone: true}">
+                                <input [(ngModel)]="newCar.unique" name="isUnique" type="checkbox" id="inputPassword4"
+                                    [ngModelOptions]="{standalone: true}">
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword4">Partener</label>
-                                <input [(ngModel)]="newCar.partener" name="isPartener" type="checkbox" id="inputPassword4" [ngModelOptions]="{standalone: true}">
+                                <input [(ngModel)]="newCar.partener" name="isPartener" type="checkbox"
+                                    id="inputPassword4" [ngModelOptions]="{standalone: true}">
                             </div>
 
 
                             <h2>وصف السيارة</h2>
 
                             <div class="form-group">
+                                <label for="inputPassword4">الفئة</label>
+                                <select [(ngModel)]="category" (change)="getCarType()" name="model" *ngIf="lookups"
+                                    name="type" class="form-control">
+                                    <option *ngFor="let category of lookups.categories;" value="{{category}}">
+                                        {{category}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="inputPassword4">الماركة</label>
-                                <select [(ngModel)]="newCar.type" name="model" *ngIf="lookups" name="type" class="form-control">
-                                        <option value=null>النوع</option>
-                                        <option *ngFor="let type of lookups.types;" value="{{type}}">
-                                            {{type}}
-                                        </option>
-                                    </select>
+                                <select [(ngModel)]="newCar.typeId" name="model" name="type" class="form-control">
+                                    <option *ngFor="let type of carTypeList;" value="{{type.id}}">
+                                        {{type.name}}
+                                    </option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword4">الموديل</label>
@@ -68,23 +79,28 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword4">الحالة</label>
-                                <input [(ngModel)]="newCar.status" name="model" class="form-control" id="inputPassword4">
+                                <input [(ngModel)]="newCar.status" name="model" class="form-control"
+                                    id="inputPassword4">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress">السنة</label>
-                                <input [(ngModel)]="newCar.year" name="year" class="form-control" id="inputAddress" placeholder="">
+                                <input [(ngModel)]="newCar.year" name="year" class="form-control" id="inputAddress"
+                                    placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress">ناقل الحركة</label>
-                                <input [(ngModel)]="newCar.motionVector" name="motionVector" class="form-control" id="inputAddress" placeholder="">
+                                <input [(ngModel)]="newCar.motionVector" name="motionVector" class="form-control"
+                                    id="inputAddress" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress">سعة المحرك</label>
-                                <input [(ngModel)]="newCar.engineCapacity" name="engineCapacity" class="form-control" id="inputAddress" placeholder="">
+                                <input [(ngModel)]="newCar.engineCapacity" name="engineCapacity" class="form-control"
+                                    id="inputAddress" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress">قراءة العداد</label>
-                                <input [(ngModel)]="newCar.meterReading" name="meterReading" class="form-control" id="inputAddress" placeholder="">
+                                <input [(ngModel)]="newCar.meterReading" name="meterReading" class="form-control"
+                                    id="inputAddress" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress">اللون</label>
@@ -92,80 +108,99 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress">عدد الركاب</label>
-                                <input [(ngModel)]="newCar.numberOfPassengers" name="numberOfPassengers" class="form-control" id="inputAddress">
+                                <input [(ngModel)]="newCar.numberOfPassengers" name="numberOfPassengers"
+                                    class="form-control" id="inputAddress">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">عدد الابواب</label>
-                                <input [(ngModel)]="newCar.numberOfDoors" name="numberOfDoors" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.numberOfDoors" name="numberOfDoors" class="form-control"
+                                    id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">عدد الاسطوانات</label>
-                                <input [(ngModel)]="newCar.numberOfCylinders" name="numberOfCylinders" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.numberOfCylinders" name="numberOfCylinders"
+                                    class="form-control" id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">نوع الوقود</label>
-                                <input [(ngModel)]="newCar.fuelType" name="fuelType" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.fuelType" name="fuelType" class="form-control"
+                                    id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">النوع</label>
-                                <input [(ngModel)]="newCar.design" name="design" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.design" name="design" class="form-control"
+                                    id="inputAddress2">
                             </div>
                             <h2>حالة السيارة</h2>
                             <div class="form-group">
                                 <label for="inputAddress2">حالة السيارة العامة</label>
-                                <input [(ngModel)]="newCar.generalBodyCondition" name="generalBodyCondition" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.generalBodyCondition" name="generalBodyCondition"
+                                    class="form-control" id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">حالة السيارة الخارجية</label>
-                                <input [(ngModel)]="newCar.externalBodyCase" name="externalBodyCase" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.externalBodyCase" name="externalBodyCase"
+                                    class="form-control" id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">حالة السيارة الداخلية</label>
-                                <input [(ngModel)]="newCar.internalBodyCondition" name="internalBodyCondition" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.internalBodyCondition" name="internalBodyCondition"
+                                    class="form-control" id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">المحرك</label>
-                                <input [(ngModel)]="newCar.engineSuit" name="engineSuit" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.engineSuit" name="engineSuit" class="form-control"
+                                    id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">نظام الفرامل</label>
-                                <input [(ngModel)]="newCar.brakeSystem" name="brakeSystem" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.brakeSystem" name="brakeSystem" class="form-control"
+                                    id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">مكيف الهواء</label>
-                                <input [(ngModel)]="newCar.airConditioned" name="airConditioned" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.airConditioned" name="airConditioned" class="form-control"
+                                    id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">الاضواء الخارجية</label>
-                                <input [(ngModel)]="newCar.externalLights" name="externalLights" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.externalLights" name="externalLights" class="form-control"
+                                    id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">النوافز</label>
-                                <input [(ngModel)]="newCar.windows" name="windows" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.windows" name="windows" class="form-control"
+                                    id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">السخانات</label>
-                                <input [(ngModel)]="newCar.heaters" name="heaters" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.heaters" name="heaters" class="form-control"
+                                    id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">الابواب الاربعة</label>
-                                <input [(ngModel)]="newCar.fourDoors" name="fourDoors" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.fourDoors" name="fourDoors" class="form-control"
+                                    id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">التصادم</label>
-                                <input [(ngModel)]="newCar.collision" name="collision" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.collision" name="collision" class="form-control"
+                                    id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">نسبة الصداء</label>
-                                <input [(ngModel)]="newCar.rustRate" name="rustRate" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.rustRate" name="rustRate" class="form-control"
+                                    id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">تقرير الفحص</label>
-                                <input [(ngModel)]="newCar.examinationReport" name="examinationReport" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.examinationReport" name="examinationReport"
+                                    class="form-control" id="inputAddress2">
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress2">ناقل الحركة</label>
-                                <input [(ngModel)]="newCar.motionVectorStatus" name="motionVectorStatus" class="form-control" id="inputAddress2">
+                                <input [(ngModel)]="newCar.motionVectorStatus" name="motionVectorStatus"
+                                    class="form-control" id="inputAddress2">
                             </div>
                             <h2>الكماليات</h2>
                             <div class="form-group">
@@ -174,62 +209,77 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">مفتاح ذكي</label>
-                                <input [(ngModel)]="newCar.smartKey" name="smartKey" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.smartKey" name="smartKey" class="form-control"
+                                    id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">وسائد هوائية للسائق</label>
-                                <input [(ngModel)]="newCar.driverAirbags" name="driverAirbags" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.driverAirbags" name="driverAirbags" class="form-control"
+                                    id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">وسائد هوائية للركاب</label>
-                                <input [(ngModel)]="newCar.passengerAirbags" name="passengerAirbags" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.passengerAirbags" name="passengerAirbags"
+                                    class="form-control" id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">وسائد هوائية جانبية</label>
-                                <input [(ngModel)]="newCar.sideAirbags" name="sideAirbags" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.sideAirbags" name="sideAirbags" class="form-control"
+                                    id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">مستشعر مساعد النقل</label>
-                                <input [(ngModel)]="newCar.parkingAssistantSensor" name="parkingAssistantSensor" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.parkingAssistantSensor" name="parkingAssistantSensor"
+                                    class="form-control" id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">عجلة قيادة متعددة</label>
-                                <input [(ngModel)]="newCar.multipleSteeringWheel" name="multipleSteeringWheel" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.multipleSteeringWheel" name="multipleSteeringWheel"
+                                    class="form-control" id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">عجلة قيادة مرنة</label>
-                                <input [(ngModel)]="newCar.flexibleSteeringWheel" name="flexibleSteeringWheel" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.flexibleSteeringWheel" name="flexibleSteeringWheel"
+                                    class="form-control" id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">تكييف تاتش</label>
-                                <input [(ngModel)]="newCar.touchConditioning" name="touchConditioning" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.touchConditioning" name="touchConditioning"
+                                    class="form-control" id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">مقاعد جلد</label>
-                                <input [(ngModel)]="newCar.leatherSeats" name="leatherSeats" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.leatherSeats" name="leatherSeats" class="form-control"
+                                    id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">كاميرا الرئيةالخلفية</label>
-                                <input [(ngModel)]="newCar.rearViewCamera" name="rearViewCamera" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.rearViewCamera" name="rearViewCamera" class="form-control"
+                                    id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">مرآه قابلة للطي</label>
-                                <input [(ngModel)]="newCar.foldableMirror" name="foldableMirror" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.foldableMirror" name="foldableMirror" class="form-control"
+                                    id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">مشغل اسطوانات</label>
-                                <input [(ngModel)]="newCar.cdPlayer" name="cdPlayer" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.cdPlayer" name="cdPlayer" class="form-control"
+                                    id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">ABS</label>
-                                <input [(ngModel)]="newCar.antiLockBrakeSystem" name="antiLockBrakeSystem" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.antiLockBrakeSystem" name="antiLockBrakeSystem"
+                                    class="form-control" id="inputCity">
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">EPS</label>
-                                <input [(ngModel)]="newCar.electricPowerSteering" name="electricPowerSteering" class="form-control" id="inputCity">
+                                <input [(ngModel)]="newCar.electricPowerSteering" name="electricPowerSteering"
+                                    class="form-control" id="inputCity">
                             </div>
 
                             <button (click)="saveCar()" type="submit" class="btn btn-danger">حفظ</button>
+
                         </form>
 
                     </div>

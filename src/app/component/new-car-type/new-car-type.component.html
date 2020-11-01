@@ -1,0 +1,56 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-11">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="reg-txt">أدخل بيانات الماركةالجديدة</h1>
+                    </div>
+                    <div class="col-md-5 ">
+                        <form class="md-form ">
+                            <div class="file-field ">
+                                <div class="mb-4 ">
+                                    <img [src]="imgURL" class="rounded-circle z-depth-1-half avatar-pic uplo-img">
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="btn btn-mdb-color btn-rounded float-left">
+                                        <input [(ngModel)]="image" name="image" accept="image/*" (change)="prepareImage($event.target)" type="file">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="col-md-7 fo-reg">
+                        <form>
+                            <div class="form-group">
+                                <label for="inputEmail4">الفئة</label>
+                                <select required [(ngModel)]="category" name="category" class="form-control">
+                                    <option *ngFor="let category of lookups.categories;" value="{{category}}">
+                                        {{category}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail4">اسم الماركة</label>
+                                <input required [(ngModel)]="name" name="name" type="email" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputCity">وصف الماركة</label>
+                                <input required [(ngModel)]="description" name="descriptions" type="tel" class="form-control" id="inputCity">
+                            </div>
+
+
+                            <button (click)="addNewCarType()" type="submit" class="btn btn-danger">اضافة</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,6 +1,3 @@
-import { CarStatus } from './CarStatus.model';
-import { CarLuxuries } from './Carluxuries.model';
-import { CarMainDescription } from './CarMainDescripion.model';
 export class NewCar {
 	name: String;
 	description: String;
@@ -11,7 +8,7 @@ export class NewCar {
 	partener: boolean;
 
 	//Main Description
-	type: String;
+	typeId: String;
 	model: String;
 	status: String;
 	year: String;

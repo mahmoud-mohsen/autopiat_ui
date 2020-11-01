@@ -1,66 +1,87 @@
 <script src="https://kit.fontawesome.com/a1a8aa7402.js" crossorigin="anonymous"></script>
 <div class="contaner hid">
-    <div class="row">
+    <div *ngxPermissionsOnly="['ROLE_USER','']" class="row">
         <div class="col-md-1">
-            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(1)" routerLink="">
+            <a (click)="openAboutPage(1)" routerLink="">
                 <h6 class="fav-tx">تقريرالفحص</h6>
             </a>
         </div>
 
         <div class="col-md-1">
-            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(2)" routerLink="">
+            <a  (click)="openAboutPage(2)" routerLink="">
                 <h6 class="fav-tx">اجراء سريع</h6>
             </a>
         </div>
 
         <div class="col-md-1">
-            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(4)" routerLink="">
+            <a (click)="openAboutPage(4)" routerLink="">
                 <h6 class="fav-tx">خدمة عملاء</h6>
             </a>
         </div>
-        <div *ngxPermissionsOnly="['ROLE_USER','']" class="col-md-1">
+        <div class="col-md-1">
         </div>
         <div class="col-md-1">
-            <h6 *ngxPermissionsOnly="['ROLE_USER','']" class="fav-tx">سلع جديدة</h6>
+            <h6 class="fav-tx">سلع جديدة</h6>
         </div>
         <div class="col-md-1">
-            <h6 *ngxPermissionsOnly="['ROLE_USER','']" class="fav-tx">سلع موجودة</h6>
+            <h6 class="fav-tx">سلع موجودة</h6>
         </div>
 
         <div class="col-md-2">
-            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(2)" routerLink="">
+            <a (click)="openAboutPage(2)" routerLink="">
                 <h6 class="fav-tx">طريقة التقسيط</h6>
             </a>
-            <a *ngxPermissionsOnly="['ROLE_ADMIN']" [routerLink]="['news/add']">
+        </div>
+        <div class="col-md-1">
+            <a (click)="openAboutPage(2)" routerLink="">
+                <h6 class="fav-tx">الخصومات</h6>
+            </a>
+        </div>
+        <div class="col-md-1">
+            <a  (click)="openAboutPage(3)" routerLink="">
+                <h6 class="fav-tx">بيع معنا</h6>
+            </a>
+        </div>
+        <div class="col-md-1">
+            <a (click)="openAboutPage(2)" routerLink="">
+                <h6 class="fav-tx">عملية حجز</h6>
+            </a>
+        </div>
+        <div class="col-md-1">
+            <h6 class="fav-tx">عربي</h6>
+        </div>
+
+    </div>
+
+    <div *ngxPermissionsOnly="['ROLE_ADMIN']" class="row">
+
+        <div class="col-md-1">
+            <a [routerLink]="['news/add']">
                 <h6 class="fav-tx">خبر جديد</h6>
             </a>
         </div>
         <div class="col-md-1">
-            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(2)" routerLink="">
-                <h6 class="fav-tx">الخصومات</h6>
+            <a [routerLink]="['carType/add']">
+                <h6 class="fav-tx">اضافة ماركة</h6>
             </a>
-            <a *ngxPermissionsOnly="['ROLE_ADMIN']" [routerLink]="['cars/add']">
+        </div>
+        <div class="col-md-1">
+            <a  [routerLink]="['cars/add']">
                 <h6 class="fav-tx">اضافة سيارة</h6>
             </a>
         </div>
-        <div *ngxPermissionsOnly="['ROLE_ADMIN']" class="col-md-1">
+        <div class="col-md-1">
             <a [routerLink]="['done/list']">
                 <h6 class="fav-tx">قائمة الطلبات المنتهية</h6>
             </a>
         </div>
         <div class="col-md-1">
-            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(3)" routerLink="">
-                <h6 class="fav-tx">بيع معنا</h6>
-            </a>
-            <a *ngxPermissionsOnly="['ROLE_ADMIN']" [routerLink]="['agreement/list']">
+            <a  [routerLink]="['agreement/list']">
                 <h6 class="fav-tx">قائمة التعاقدات</h6>
             </a>
         </div>
         <div class="col-md-1">
-            <a *ngxPermissionsOnly="['ROLE_USER','']" (click)="openAboutPage(2)" routerLink="">
-                <h6 class="fav-tx">عملية حجز</h6>
-            </a>
-            <a *ngxPermissionsOnly="['ROLE_ADMIN']" [routerLink]="['waiting/list']">
+            <a [routerLink]="['waiting/list']">
                 <h6 class="fav-tx">قائمة الانتظار</h6>
             </a>
         </div>

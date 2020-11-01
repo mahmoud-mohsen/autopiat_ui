@@ -50,29 +50,21 @@ export class BackendService {
     return this.http.delete(this.baseUrl + url, this.options);
   }
   ////////////////////////////////////////////
-  postWithFile(url: string, postData: any, files: File[]) {
+  postWithFile(url: string, files: File[]) {
 
-    let headers = new HttpHeaders({
-      'Content-Type': 'multipart/form-data',
-      'Accept': 'multipart/form-data',
-    });
-    let formData: FormData = new FormData();
-    // formData.append('files', files[0], files[0].name);
-    // For multiple files
-    for (let i = 0; i < files.length; i++) {
+    let formData: FormData = new FormData();[]
+    for (let i = 0; i < files.length; i++) {      
       formData.append(`files[]`, files[i], files[i].name);
     }
 
-    console.log(formData);
+    // if (postData !== "" && postData !== undefined && postData !== null) {
+    //   for (var property in postData) {
+    //     if (postData.hasOwnProperty(property)) {
+    //       formData.append(property, postData[property]);
+    //     }
+    //   }
+    // }
 
-    if (postData !== "" && postData !== undefined && postData !== null) {
-      for (var property in postData) {
-        if (postData.hasOwnProperty(property)) {
-          formData.append(property, postData[property]);
-        }
-      }
-    }
-
-    return this.http.post(this.baseUrl + url, formData, { headers: headers });
+    return this.http.post(this.baseUrl + url, formData);
   }
 }

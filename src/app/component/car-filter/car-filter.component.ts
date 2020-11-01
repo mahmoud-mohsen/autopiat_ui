@@ -4,6 +4,7 @@ import { FilterCar } from './../../models/FilterCar.model';
 import { BackendService } from './../../services/backend.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-car-filter',
@@ -38,7 +39,7 @@ export class CarFilterComponent implements OnInit {
   sort;
   sortVariable;
 
-  constructor(private router: Router, private backendService: BackendService, private route: ActivatedRoute) {
+  constructor(private sanitizer: DomSanitizer,private router: Router, private backendService: BackendService, private route: ActivatedRoute) {
 
     this.filterdCars = new FilterCarPaged();
     this.filterValues = new CarFilterValues();
@@ -232,4 +233,7 @@ export class CarFilterComponent implements OnInit {
     this.router.navigate(['/car',carId]);
   }
 
+  sanitizeImageUrl(imageUrl: string): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
+}
 }

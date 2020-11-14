@@ -286,7 +286,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 d-flex d-flex flex-wrap">
-                            <div  *ngFor="let image of carImages" class="col-md-4 ca-sm-pic">
+                            <div  *ngFor="let image of carImages" class="col-md-2 ca-sm-pic">
                                 <div (click)="changeMainCarImage(image)">
                                     <img *ngIf="carImages" src="{{image}}" alt="{{car.name}}"
                                     class="px-sid2 img-responsive">

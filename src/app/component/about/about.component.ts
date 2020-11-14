@@ -20,9 +20,15 @@ export class AboutComponent implements OnInit {
   customerServiceMenue: Boolean;
   customerServiceMenueItemNumber: string;
 
+  beforeBuyMenue: Boolean;
+  beforeBuyMenueItemNumber: string;
+
+  examinationMenue: Boolean;
+  examinationItemNumber: string;
+
   constructor(private router: Router) {
     let menueNumber;
-    if(this.router.getCurrentNavigation().extras.state){
+    if (this.router.getCurrentNavigation().extras.state) {
       menueNumber = this.router.getCurrentNavigation().extras.state.menueNumber;
     }
     if (menueNumber) {
@@ -37,6 +43,14 @@ export class AboutComponent implements OnInit {
       else if (menueNumber == 4) {
         this.customerServiceMenue = true;
         this.customerServiceMenueItemNumber = '1';
+      }
+      else if (menueNumber == 5) {
+        this.beforeBuyMenue = true;
+        this.beforeBuyMenueItemNumber = '1';
+      }
+      else if (menueNumber == 6) {
+        this.examinationMenue = true;
+        this.examinationItemNumber = '1';
       }
       else {
         this.whatAutopiatMenue = true;
@@ -60,7 +74,8 @@ export class AboutComponent implements OnInit {
     this.howToBuyMenue = false;
     this.sellServiceMenue = false;
     this.customerServiceMenue = false;
-
+    this.beforeBuyMenue = false;
+    this.examinationMenue = false;
   }
   changeWhatAutopiatItemNumber(itemNumber) {
     this.whatAutopiatMenueItemNumber = itemNumber;
@@ -72,6 +87,8 @@ export class AboutComponent implements OnInit {
     this.howToBuyMenueItemNumber = '1';
     this.sellServiceMenue = false;
     this.customerServiceMenue = false;
+    this.beforeBuyMenue = false;
+    this.examinationMenue = false;
   }
   changeHowToBuyItemNumber(itemNumber) {
     this.howToBuyMenueItemNumber = itemNumber;
@@ -83,6 +100,8 @@ export class AboutComponent implements OnInit {
     this.sellServiceMenue = true;
     this.sellServiceMenueItemNumber = '1';
     this.customerServiceMenue = false;
+    this.beforeBuyMenue = false;
+    this.examinationMenue = false;
 
   }
   changeSellServiceItemNumber(itemNumber) {
@@ -91,6 +110,12 @@ export class AboutComponent implements OnInit {
 
   changeCustomerServiceItemNumber(itemNumber) {
     this.customerServiceMenueItemNumber = itemNumber;
+  }
+  changeBeforBuyItemNumber(itemNumber) {
+    this.beforeBuyMenueItemNumber = itemNumber;
+  }
+  changeExaminationItemNumber(itemNumber) {
+    this.examinationItemNumber = itemNumber;
   }
 
 }

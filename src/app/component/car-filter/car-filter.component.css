@@ -94,7 +94,19 @@
     border-radius: 5px;
     text-align: center;
 }
+.nav-but8 {
+    padding: 15px;
+    background-color: #d30010;
+    width: 165px;
+    margin: 1px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
 
+}
 .nav-barr {
     color: honeydew;
     font-weight: bold;

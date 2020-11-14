@@ -137,14 +137,11 @@
     <div class="col-md-3">
         <div class="">
             <ul class="list-unstyled components mb-5">
-                <li class="active nav-but1">
-                    <a href="#" class="nav-tex"> اختر الفئة</a>
-                </li>
                 <li class="">
                     <div class="col">
                         <div ngbDropdown class="d-inline-block">
-                            <select (click)="updateFilter()" [(ngModel)]="category" name="category" class="btn btn-outline-secondary">
-                                <option [ngValue]="null">الفئة</option>
+                            <select (click)="updateFilter()" [(ngModel)]="category" name="category" class="btn btn-outline-secondary  nav-but8">
+                                <option [ngValue]="null" >الفئة</option>
                                 <option *ngFor="let category of filterValues.categories" value="{{category}}">
                                     {{category}}</option>
                             </select>

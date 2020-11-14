@@ -284,6 +284,39 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-9 lass-di4">
+                <nav ngbNav #nav="ngbNav" class="nav-tabs">
+
+                    <ng-container ngbNavItem>
+                        <a ngbNavLink (click)="getLatestItems('اطارات')" class="rid-box">الاطارات</a>
+                        <a ngbNavLink (click)="getLatestItems('قطع غيار و اكسسوارات')" class="rid-box">قطع الغيار والاكسسوارات</a>
+                        <ng-template ngbNavContent class="">
+                            <div class="row rudo-box">
+                                <div *ngFor="let car of latestItems" class="col-md-3">
+                                    <a [routerLink]="['/car',car.id]">
+                                        <img [src]="getFirstImage(car)" alt="{{car.name}}" class="col-md-10 px-sid">
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </ng-template>
+                    </ng-container>
+                </nav>
+
+                <div class="mt-2"></div>
+            </div>
+            <div class="col-md-2 new-arr3">
+                <h1 class="n-vtxt">وصل حديثا</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="../../../assets/img/car-sub.jpeg" class="subimg" alt="car">
+            </div>
+
+        </div>
+        <div class="row">
             <div class="col-md-9 lass-di2">
                 <nav ngbNav #nav1="ngbNav" class="nav-tabs">
 
@@ -388,6 +421,7 @@
 
 
         </div>
+
         <div class="row abo-tt">
             <div class="col-md-2">
 
@@ -421,7 +455,8 @@
 
                         </div><br>
                         <div class="an-dd">
-                            <h3 class=" "> دليل شراء <a (click)="openAboutPage(2)" [routerLink]="">اعرف المزيد</a></h3>
+                            <h3 class=" "> معلومات قبل الشراء <a (click)="openAboutPage(2)" [routerLink]="">اعرف
+                                    المزيد</a></h3>
 
                         </div>
                     </div>
@@ -431,7 +466,8 @@
 
                         </div><br>
                         <div class="an-dd">
-                            <h3 class=" "> كيف تشترى ..؟ <a (click)="openAboutPage(2)" [routerLink]="">اعرف المزيد</a>
+                            <h3 class=" "> دليل شراء المركبة<a (click)="openAboutPage(2)" [routerLink]="">اعرف
+                                    المزيد</a>
                             </h3>
 
                         </div>

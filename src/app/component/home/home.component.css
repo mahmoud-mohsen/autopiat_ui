@@ -175,6 +175,11 @@
 .lass-di2 {
     background-color: #494848;
     height: 50px;
+    top: 10px;
+}
+.lass-di4 {
+    background-color: #494848;
+    height: 50px;
     top: 300px;
 }
 
@@ -226,6 +231,15 @@
 }
 
 .new-arr2 {
+    background-color: #d30010;
+    height: 60px;
+    width: 100%;
+    border-radius: 0px 10px 0px 0px;
+    margin-left: 30px;
+    text-align: center;
+    margin-top: 10;
+}
+.new-arr3 {
     background-color: #d30010;
     height: 60px;
     width: 100%;
@@ -317,4 +331,9 @@
     margin-left: 37%;
     color: #FFE3E3;
     font-weight: bolder;
+}
+.subimg{
+    height: 90px;
+    width: 100%;
+    margin-top: 300px;
 }

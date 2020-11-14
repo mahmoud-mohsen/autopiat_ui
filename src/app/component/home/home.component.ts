@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   fastSearchCategory
   
   latestCars:FilterCar[];
+  latestItems:FilterCar[];
 
   lookups: Lookups;
   years: number[] = [];
@@ -155,6 +156,14 @@ export class HomeComponent implements OnInit {
     let url = `category/car/latest`;
     this.backendService.ViewEntities(url,params).subscribe((response: any) => {
       this.latestCars = response;      
+    });
+  }
+
+  getLatestItems(category){
+    let params={"category":category};
+    let url = `category/car/latest`;
+    this.backendService.ViewEntities(url,params).subscribe((response: any) => {
+      this.latestItems = response;      
     });
   }
   getHomeSuggestedCars(category){

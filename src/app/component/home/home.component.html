@@ -260,7 +260,7 @@
 
                         </ng-template>
                     </ng-container>
-                    <ng-container *ngFor="let category of lookups.categories;" ngbNavItem>
+                    <ng-container *ngFor="let category of carCategoryList;" ngbNavItem>
                         <a ngbNavLink (click)="getLatestCars(category)" class="rid-box">{{category}}</a>
                         <ng-template ngbNavContent class="">
                             <div class="row rudo-box">
@@ -287,14 +287,14 @@
             <div class="col-md-9 lass-di4">
                 <nav ngbNav #nav="ngbNav" class="nav-tabs">
 
-                    <ng-container ngbNavItem>
-                        <a ngbNavLink (click)="getLatestItems('اطارات')" class="rid-box">الاطارات</a>
-                        <a ngbNavLink (click)="getLatestItems('قطع غيار و اكسسوارات')" class="rid-box">قطع الغيار والاكسسوارات</a>
+                    <ng-container *ngFor="let category of itemCategoryList;" ngbNavItem>
+                        <a ngbNavLink (click)="getLatestCars(category)" class="rid-box">{{category}}</a>
                         <ng-template ngbNavContent class="">
                             <div class="row rudo-box">
-                                <div *ngFor="let car of latestItems" class="col-md-3">
+                                <div *ngFor="let car of latestCars" class="col-md-3">
                                     <a [routerLink]="['/car',car.id]">
-                                        <img [src]="getFirstImage(car)" alt="{{car.name}}" class="col-md-10 px-sid">
+                                        <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}"
+                                            class="col-md-10 px-sid">
                                     </a>
 
                                 </div>

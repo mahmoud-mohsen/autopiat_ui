@@ -1,7 +1,7 @@
 export class Lookups{
-    categories: [];
-    types: [];
-    models: [];
-    years: [];
-    price: [];
+    categories: string[];
+    types: string[];
+    models: string[];
+    years: string[];
+    price: string[];
 }

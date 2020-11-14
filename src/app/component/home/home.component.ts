@@ -26,17 +26,17 @@ export class HomeComponent implements OnInit {
   fastSearchPriceFrom;
   fastSearchPriceTo;
   fastSearchCategory
-  
-  latestCars:FilterCar[];
-  latestItems:FilterCar[];
+
+  latestCars: FilterCar[];
+  latestItems: FilterCar[];
 
   lookups: Lookups;
   years: number[] = [];
   prices: number[] = [];
 
-  newsList:News[];
+  newsList: News[];
 
-  newsCategories:string[];
+  newsCategories: string[];
 
   @Input()
   generalSearchText: String;
@@ -45,7 +45,10 @@ export class HomeComponent implements OnInit {
 
   categoryId: string;
 
-  constructor(private router: Router, private backendService: BackendService, private authService: AuthService,private sanitizer: DomSanitizer) {
+  carCategoryList: string[];
+  itemCategoryList: string[];
+
+  constructor(private router: Router, private backendService: BackendService, private authService: AuthService, private sanitizer: DomSanitizer) {
     this.categoryId = "0";
     this.fastSearchModel = null;
     this.fastSearchType = null;
@@ -62,7 +65,7 @@ export class HomeComponent implements OnInit {
     this.getSuggestedCars();
     this.getLatestCars('all');
     this.getHomeSuggestedCars('')
-    this.newsCategories=['اهم الاخبار','اهم السياسه العالمية','اهم اخبار الشركات','اهم العروض','اهم المعارض المقامة'];
+    this.newsCategories = ['اهم الاخبار', 'اهم السياسه العالمية', 'اهم اخبار الشركات', 'اهم العروض', 'اهم المعارض المقامة'];
     this.getNews('');
 
   }
@@ -71,7 +74,8 @@ export class HomeComponent implements OnInit {
     let url = `lookup`;
     this.backendService.ViewEntities(url).subscribe((response: any) => {
       this.lookups = response;
-
+      this.carCategoryList = this.lookups.categories.filter(item => item !== 'اطارات' && item !== 'قطع غيار و اكسسوارات');
+      this.itemCategoryList = this.lookups.categories.filter(item => item == 'اطارات' || item == 'قطع غيار و اكسسوارات');
     });
   }
 
@@ -89,7 +93,7 @@ export class HomeComponent implements OnInit {
   getNews(category) {
     let url = `news`;
 
-    let param = { "sort": 'creationDate,desc' ,'size':5,'category':category};
+    let param = { "sort": 'creationDate,desc', 'size': 5, 'category': category };
 
     this.backendService.ViewEntities(url, param).subscribe((response: any) => {
       this.newsList = response.content;
@@ -151,35 +155,35 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/about', { state: { menueNumber: menueNumber } });
 
   }
-  getLatestCars(category){
-    let params={"category":category};
+  getLatestCars(category) {
+    let params = { "category": category };
     let url = `category/car/latest`;
-    this.backendService.ViewEntities(url,params).subscribe((response: any) => {
-      this.latestCars = response;      
+    this.backendService.ViewEntities(url, params).subscribe((response: any) => {
+      this.latestCars = response;
     });
   }
 
-  getLatestItems(category){
-    let params={"category":category};
+  getLatestItems(category) {
+    let params = { "category": category };
     let url = `category/car/latest`;
-    this.backendService.ViewEntities(url,params).subscribe((response: any) => {
-      this.latestItems = response;      
+    this.backendService.ViewEntities(url, params).subscribe((response: any) => {
+      this.latestItems = response;
     });
   }
-  getHomeSuggestedCars(category){
-    let params={"category":category,'count':5};
+  getHomeSuggestedCars(category) {
+    let params = { "category": category, 'count': 5 };
     let url = `suggestedCar`;
-    this.backendService.ViewEntities(url,params).subscribe((response: any) => {
+    this.backendService.ViewEntities(url, params).subscribe((response: any) => {
       this.homeSuggestedCars = response;
-      
+
     });
   }
   sanitizeImageUrl(imageUrl: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
   }
 
-  getFirstImage(car:FilterCar){
-    if(car.images){
+  getFirstImage(car: FilterCar) {
+    if (car.images) {
       return car.images.split(',')[0];
     }
   }

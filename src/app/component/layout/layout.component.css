@@ -111,10 +111,10 @@
 
 .px-sid {
     background-color: honeydew;
-    height: 80px;
+    height: 85px;
     margin: 5px;
     width: 300px;
-    margin-left: 15px;
+    margin-left: 0px;
 }
 
 .bt-ser-box {
@@ -189,9 +189,10 @@
 .fav-tx {
     font-size: 40px;
     font-size: large;
-    margin: 5px;
-    font-weight: bold;
+    margin: 3px;
     color: #494848;
+    padding: 0px;
+
 }
 
 .bix-bil {
@@ -221,4 +222,27 @@
 .clsd {
     background-color: #fff;
     border: #fff;
+}
+.fav-dg-bt{
+    width: 188px;
+    height: 35px;
+    background-color: #d30010;
+    margin: 5px;
+    text-align: center;
+    padding: 7px;
+}
+.hsd-tex{
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.fav-dg-bt2{
+    width: 188px;
+    height: 35px;
+    background-color: #d30010;
+    margin: 5px;
+    text-align: center;
+    padding: 7px;
+    border-radius: 0px 0px 10px 0px;
+    margin-top: 0px;
 }

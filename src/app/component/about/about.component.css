@@ -86,11 +86,26 @@
     font-size: 15px;
 }
 
+.main-nav-tex {
+    color: honeydew;
+    font-weight: bolder;
+    font-size: 17px;
+}
+
 .nav-but1 {
     padding: 15px;
     background-color: #d30010;
     width: 200px;
     margin: 0px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.main-nav-but {
+    padding: 15px;
+    background-color: #d30010;
+    width: 210px;
+    margin: 2px;
     border-radius: 5px;
     text-align: center;
 }

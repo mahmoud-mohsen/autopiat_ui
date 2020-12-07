@@ -151,16 +151,23 @@
 .reg-txt {
     float: right;
     color: #d30010;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 30px;
 }
 
 .reg-txt2 {
     float: right;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .reg-txt3 {
     float: right;
     color: #d30010;
     text-align: right;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .fo-reg {
@@ -170,4 +177,15 @@
 
 .uplo-img {
     width: 60%;
+}
+
+.hdec{
+    height: 1px;
+    width: 960px;
+    background-color: #d30010;
+}
+.nasda{
+    color: #494848;
+    font-size: 20px;
+    font-weight: bold;
 }

@@ -1,6 +1,7 @@
 import { News } from './../../models/News.model';
 import { AuthService } from './../../services/auth-service.service';
 import { CarTypeList } from './../../models/CarTypeList.model';
+import { AdminConfiguration } from './../../models/AdminConfiguration.model';
 import { BackendService } from './../../services/backend.service';
 import { FilterCar } from './../../models/FilterCar.model';
 import { Lookups } from './../../models/Lookups.model';
@@ -38,6 +39,12 @@ export class HomeComponent implements OnInit {
 
   newsCategories: string[];
 
+  homeImage;
+  advImage;
+  offer1Image;
+  offer2Image;
+  offer3Image;
+
   @Input()
   generalSearchText: String;
   @Input()
@@ -48,6 +55,8 @@ export class HomeComponent implements OnInit {
   carCategoryList: string[];
   itemCategoryList: string[];
 
+  configuration: AdminConfiguration;
+
   constructor(private router: Router, private backendService: BackendService, private authService: AuthService, private sanitizer: DomSanitizer) {
     this.categoryId = "0";
     this.fastSearchModel = null;
@@ -57,6 +66,8 @@ export class HomeComponent implements OnInit {
     this.fastSearchPriceFrom = null;
     this.fastSearchPriceTo = null;
     this.fastSearchCategory = null;
+
+    this.configuration=new AdminConfiguration();
   }
 
   ngOnInit(): void {
@@ -67,6 +78,7 @@ export class HomeComponent implements OnInit {
     this.getHomeSuggestedCars('')
     this.newsCategories = ['اهم الاخبار', 'اهم السياسه العالمية', 'اهم اخبار الشركات', 'اهم العروض', 'اهم المعارض المقامة'];
     this.getNews('');
+    this.getConfiguration();
 
   }
 
@@ -74,8 +86,8 @@ export class HomeComponent implements OnInit {
     let url = `lookup`;
     this.backendService.ViewEntities(url).subscribe((response: any) => {
       this.lookups = response;
-      this.carCategoryList = this.lookups.categories.filter(item => item !== 'اطارات' && item !== 'قطع غيار و اكسسوارات');
-      this.itemCategoryList = this.lookups.categories.filter(item => item == 'اطارات' || item == 'قطع غيار و اكسسوارات');
+      this.carCategoryList = this.lookups.categories.filter(item => item !== 'اطارات وبطاريات' && item !== 'قطع غيار و اكسسوارات');
+      this.itemCategoryList = this.lookups.categories.filter(item => item == 'اطارات وبطاريات' || item == 'قطع غيار و اكسسوارات');
     });
   }
 
@@ -171,7 +183,7 @@ export class HomeComponent implements OnInit {
     });
   }
   getHomeSuggestedCars(category) {
-    let params = { "category": category, 'count': 5 };
+    let params = { "category": category, 'count': 7 };
     let url = `suggestedCar`;
     this.backendService.ViewEntities(url, params).subscribe((response: any) => {
       this.homeSuggestedCars = response;
@@ -187,4 +199,92 @@ export class HomeComponent implements OnInit {
       return car.images.split(',')[0];
     }
   }
+
+  prepareHomeImage(image) {
+    var file: File = image.files[0];
+    var myReader: FileReader = new FileReader();
+
+    myReader.onloadend = (e) => {
+      this.homeImage = myReader.result;
+      if (this.homeImage) {        
+        let body = { "homeImage": this.homeImage }
+        this.changeImage(body);
+      }
+    }
+    myReader.readAsDataURL(file);
+
+  }
+
+  prepareAdvImage(image) {
+    var file: File = image.files[0];
+    var myReader: FileReader = new FileReader();
+
+    myReader.onloadend = (e) => {
+      this.advImage = myReader.result;
+      if (this.advImage) {
+        let body = { "advImage": this.advImage }
+        this.changeImage(body);
+      }
+    }
+    myReader.readAsDataURL(file);
+
+  }
+
+  prepareOffer1Image(image) {
+    var file: File = image.files[0];
+    var myReader: FileReader = new FileReader();
+
+    myReader.onloadend = (e) => {
+      this.offer1Image = myReader.result;
+      if (this.offer1Image) {        
+        let body = { "offer1Image": this.offer1Image }
+        this.changeImage(body);
+      }
+    }
+    myReader.readAsDataURL(file);
+
+  }
+  prepareOffer2Image(image) {
+    var file: File = image.files[0];
+    var myReader: FileReader = new FileReader();
+
+    myReader.onloadend = (e) => {
+      this.offer2Image = myReader.result;
+      if (this.offer2Image) {
+        let body = { "offer2Image": this.offer2Image }
+        this.changeImage(body);
+      }
+    }
+    myReader.readAsDataURL(file);
+
+  }
+  prepareOffer3Image(image) {
+    var file: File = image.files[0];
+    var myReader: FileReader = new FileReader();
+
+    myReader.onloadend = (e) => {
+      this.offer3Image = myReader.result;
+      if (this.offer3Image) {
+        let body = { "offer3Image": this.offer3Image }
+        this.changeImage(body);
+      }
+    }
+    myReader.readAsDataURL(file);
+
+  }
+
+  changeImage(body) {
+    let url = `configurations`;
+    this.backendService.post(body, url).subscribe(() => {
+      window.location.href = window.location.href;
+    });
+  }
+
+  getConfiguration() {
+    let url = `configurations`;
+    this.backendService.ViewEntities(url).subscribe((response: any) => {
+      this.configuration = response;
+    });
+  }
+
 }

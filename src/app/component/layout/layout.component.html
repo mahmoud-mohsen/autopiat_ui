@@ -95,7 +95,9 @@
 <div class="contaner">
     <div class="row log-bar">
         <div class="col-md-1">
-            <h5 hidden class="fav-tx">المفضلة </h5>
+            <a routerLink="/favorite">
+                <h5 class="fav-tx"><img src="../../../assets/img/sd.PNG" class="cart-img">المفضلة</h5>
+            </a>
         </div>
         <div class="col-md-1">
             <a routerLink="/reservation">
@@ -150,7 +152,7 @@
                         <div class="row ">
                             <div class="col-md-10 but1 ">
                                 <a *ngFor="let car of localStorageLastSeenCars" [routerLink]="['/car',car.carId]">
-                                    <img src="{{car.image}}" alt="{{car.carId}}" class="col-md-10 px-sid">
+                                    <img src="{{car.image}}" alt="{{car.carId}}" class="col-md-12 px-sid">
                                 </a>
                             </div>
                         </div>
@@ -165,12 +167,25 @@
                         <div class="row ">
                             <div class="col-md-10 but1 ">
                                 <a *ngFor="let car of suggestedCars" [routerLink]="['/car',car.id]">
-                                    <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-10 px-sid">
+                                    <img src="{{car.images.split(',')[0]}}" alt="{{car.name}}" class="col-md-12 px-sid">
                                 </a>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div [routerLink]="['/favorite']" class="fav-dg-bt">
+                            <h6 class="hsd-tex">المفضلة</h6>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div [routerLink]="['/reservation']" class="fav-dg-bt2">
+                            <h6 class="hsd-tex">طلباتي</h6>
+                        </div>
+
+                    </div>
                 </div>
+
             </div>
             <div class="col-md-10 box-gen">
                 <ng-content select=".container-body">

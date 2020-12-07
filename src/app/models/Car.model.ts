@@ -11,9 +11,12 @@ export class Car {
 	viewsNumber: string;
 	code: string;
 	creationDate: string;
-	isGuarantee: string;
-	isUnique: string;
-	isPartener: string;
+	guarantee: string;
+	unique: string;
+	partener: string;
+	number1Seller;
+	number2Seller;
+	number3Seller;
 	type: string;
 	mainDescription: CarMainDescription;
 	carStatus: CarStatus;

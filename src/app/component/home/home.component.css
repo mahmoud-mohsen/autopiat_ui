@@ -59,7 +59,7 @@
 .but1 {
     background-color: #494848;
     padding: 5px;
-    height: 210px;
+    height: 254px;
     margin-left: 20px;
 }
 
@@ -122,22 +122,38 @@
 
 .px-sid {
     height: 110px;
-    margin: 30px;
+    margin: 5px;
     width: 300px;
-    margin-left: 15px;
+    background-color: #d30010;
+    padding: 3px;
+}
+
+.main-px-sid {
+    height: 249px;
+    margin: 0px;
+    width: 300px;
+    background-color: #d30010;
+    padding: 4px;
 }
 
 .bt-ser-box {
-    margin: 5px;
+    margin: 3px;
     background-color: honeydew;
     width: 85px;
     font-size: 15px;
+    color: #d30010;
+    margin-left: 11px;
+
 }
 
 .bt-ser-box-head {
     background-color: honeydew;
-    width: 175px;
+    width: 183px;
     font-size: 15px;
+    color: #d30010;
+    margin: 3px;
+    margin-left: 11px;
+
 }
 
 .btn-boll {
@@ -181,6 +197,7 @@
     background-color: #494848;
     height: 50px;
     top: 300px;
+    
 }
 
 .lass-di3 {
@@ -191,16 +208,32 @@
 
 .rudo-box {
     height: 210px;
-    background-color: #d30010;
+    background-color: #fff;
     margin: 10;
+    float: right;
+    text-align: right;
 }
 
 .rid-box {
     background-color: #494848;
-    font-size: 16px;
+    font-size: 12px;
     color: #fff;
     font-weight: bold;
+    float: right;
+    text-align: right;
+    
 }
+
+.news-rid-box {
+    background-color: #494848;
+    font-size: 19px;
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    text-align: right;
+    
+}
+
 
 .rnd-box {
     height: 140px;
@@ -336,4 +369,31 @@
     height: 90px;
     width: 100%;
     margin-top: 300px;
+}
+nav {direction: rtl;}
+.box-lar-bn{
+    background-color: #d30010;
+    margin-top: 3px;
+    height: 250px;
+}
+
+.homeImage{
+    background-color: #d30010;
+    padding: 8px;
+    margin-top: 28px;
+}
+
+.adv{
+    width: inherit;
+    height: 190px;
+    padding: 10px;
+}
+
+.main-adv{
+    background-color:#d30010;
+    margin: 20px;
+}
+
+.offer-img{
+    margin-top: 40px;
 }

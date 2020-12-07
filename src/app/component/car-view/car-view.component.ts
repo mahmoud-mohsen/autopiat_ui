@@ -79,4 +79,13 @@ export class CarViewComponent implements OnInit {
   changeMainCarImage(image){
     this.mainCarImage=image;
   }
+
+  addTofavorite(carId){
+    let url=`favorites/car/${carId}`;
+
+    this.backendService.post(null,url).subscribe((response: any) => {
+      alert("تم الاضافة للمفضة")
+    });
+    
+  }
 }

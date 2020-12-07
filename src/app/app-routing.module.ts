@@ -15,12 +15,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './component/home/home.component';
 import { NewCarTypeComponent } from './component/new-car-type/new-car-type.component';
+import { FavoriteComponent } from './component/favorite/favorite.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'filter', component: CarFilterComponent },
   { path: 'reservation', component: ReservationComponent, canActivate: [AuthGuard] },
+  { path: 'favorite', component: FavoriteComponent, canActivate: [AuthGuard] },
   { path: 'car/:id', component: CarViewComponent, pathMatch: 'full' },
   { path: 'reservation/:id', component: ReservationProcessComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },

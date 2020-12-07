@@ -34,7 +34,7 @@
                     </div>
                     <div *ngIf="howToBuyMenue && howToBuyMenueItemNumber=='1'">
                         <div class="col-md-12">
-                            <img src="../../../assets/img/buy-Instructions.PNG" class="why-img">
+                            <img src="../../../assets/img/buy-Instructions.png" class="why-img">
                         </div>
                     </div>
                     <div *ngIf="howToBuyMenue && howToBuyMenueItemNumber=='2'">
@@ -207,6 +207,9 @@
                         </li>
                     </ul>
                     <ul *ngIf="beforeBuyMenue" class="list-unstyled components mb-5">
+                        <li (click)="changeBeforBuyItemNumber(1)" class="nav-but main-nav-but">
+                            <h6 class="main-nav-tex">معلومات قبل الشراء</h6>
+                        </li>
                         <li (click)="changeBeforBuyItemNumber(1)"
                             [ngClass]="{ 'nav-but1':beforeBuyMenue && beforeBuyMenueItemNumber=='1'}" class="nav-but">
                             <h6 class="nav-tex">الحالة الفنية للمركبة</h6>
@@ -221,6 +224,9 @@
                         </li>
                     </ul>
                     <ul *ngIf="examinationMenue" class="list-unstyled components mb-5">
+                        <li (click)="changeBeforBuyItemNumber(1)" class="nav-but main-nav-but">
+                            <h6 class="main-nav-tex">خدمة الفحص</h6>
+                        </li>
                         <li (click)="changeExaminationItemNumber(1)"
                             [ngClass]="{ 'nav-but1':examinationMenue && examinationItemNumber=='1'}" class="nav-but">
                             <h6 class="nav-tex">تقرير الفحص</h6>

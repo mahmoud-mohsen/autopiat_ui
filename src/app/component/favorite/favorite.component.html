@@ -1,0 +1,28 @@
+<div *ngIf="filterdCars" class="col-md-12 main-con">
+    <div *ngFor="let car of filterdCars" class="row main-con">
+        <div class="col-md-1 box-ser-res">
+            <h6 class="pp-tx"> السعر {{car.price}} جنيه مصري</h6>
+            <button (click)="deletefavorite(car.id)" type="button" class="btn btn-danger bind-bot2">حذف</button>
+
+        </div>
+        <div class="col-md-7 box-ser-res d-flex flex-column">
+            <h6 class="pp-tx"> الاسم: <span> {{car.name}}</span></h6>
+            <h6 class="pp-tx"> الوصف: <span> {{car.description}}</span></h6>
+            <h6 class="pp-tx"> تاريخ العرض: <span> {{car.creationDate|date}}</span></h6>
+        </div>
+        <div class="col-md-1 ">
+            <div class="row">
+                <div class="col-md-11 smm-box">
+                    <img src="{{car.images.split(',')[1]}}" alt="{{car.name}}" class="col-md-10 px-sid2">
+                </div>
+                <div class="col-md-11 smm-box">
+                    <img src="{{car.images.split(',')[2]}}" alt="{{car.name}}" class="col-md-10 px-sid2">
+                </div>
+            </div>
+
+        </div>
+        <div (click)="openCarPage(car.id)" class="col-md-2 box-car-im">
+                <img [src]="sanitizeImageUrl(car.images.split(',')[0])" alt="{{car.name}}" class="col-md-10 px-sid2">
+        </div>
+    </div>
+</div>

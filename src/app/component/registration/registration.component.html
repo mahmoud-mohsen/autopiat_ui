@@ -8,11 +8,11 @@
                         <h1 class="reg-txt">التسجيل الان</h1>
                     </div>
                     <div class="col-md-12">
-                        <h6 class="reg-txt2">اﻧﻀﻢ ﻣﺠﺎﻧﺎ اﻟﻰ أوﺗﻮﺑﻴﺎ ..! اﻟﺴﻮق ا¡وﻟﻰ ﻟﺘﺠﺎرة اﻟﺴﻴﺎرات ﻓﻰ ﻣﺼر </h6>
+                        <h6 class="reg-txt2">اﻧﻀﻢ ﻣﺠﺎﻧﺎ اﻟﻰ أوﺗﻮﺑﻴﺎ ..! اﻟﺴﻮق الاوﻟﻰ ﻟﺘﺠﺎرة اﻟﺴﻴﺎرات ﻓﻰ ﻣﺼر </h6>
                     </div>
-                    <hr>
+                    <hr class="hdec">
                     <div class="col-md-12">
-                        <h6 class="reg-txt3"> اﻟﺮﺟﺎء إﺿﺎﻓﺔ ﺻﻮرﺗﻚ وﻣﻘﺪﻣﺔ ﺻﻐﻴﺮة وﻣﻌﻠﻮﻣﺎت اﻟﺘﻮاﺻﻞ ﻟﻠﺤﺼﻮل ﻋﻠﻰ اﻟﻤﺰﻳﺪ ﻣﻦ اﻟﻤﻌﻠﻮﻣﺎت اﻟﻤﻔﻴﺪة اﻟﺘﻲ ﺗﺤﺘﺎج إﻟﻴﻬﺎ.
+                        <h6 class="reg-txt3"> اﻟﺮﺟﺎء إﺿﺎﻓﺔ ﺻﻮرﺗﻚ وﻣﻘﺪﻣﺔ ﺻﻐﻴﺮة وﻣﻌﻠﻮﻣﺎت اﻟﺘﻮاﺻﻞ ﻟﻠﺤﺼﻮل ﻋﻠﻰ اﻟﻤﺰﻳﺪ ﻣﻦ اﻟﻤﻌﻠﻮﻣﺎت اﻟﻤﻔﻴﺪة اﻟﺘﻲ ﺗﺤﺘﺎج إﻟﻴﻬﺎ
                         </h6>
                     </div>
                     <div class="col-md-5 ">
@@ -33,36 +33,36 @@
                     <div class="col-md-7 fo-reg">
                         <form>
                             <div class="form-group">
-                                <label for="inputEmail4">البريد الالكترونى</label>
-                                <input required [(ngModel)]="username" name="username" type="email" class="form-control" id="inputEmail4">
+                                <label for="inputEmail4" class="nasda">البريد الالكترونى</label>
+                                <input required [(ngModel)]="username" name="username" type="email" class="form-control border border-danger" id="inputEmail4">
                             </div>
                             <div class="form-group">
-                                <label for="inputPassword4">كلمة السر</label>
-                                <input required [(ngModel)]="password" name="password" type="password" class="form-control" id="inputPassword4">
+                                <label for="inputPassword4" class="nasda">كلمة السر</label>
+                                <input required [(ngModel)]="password" name="password" type="password" class="form-control border border-danger" id="inputPassword4">
                             </div>
                             <div class="form-group">
-                                <label for="inputPassword4">تأكيد كلمة السر</label>
-                                <input required [(ngModel)]="confirmPassword" name="confirmPassword" type="password" class="form-control" id="inputPassword4">
+                                <label for="inputPassword4" class="nasda">تأكيد كلمة السر</label>
+                                <input required [(ngModel)]="confirmPassword" name="confirmPassword" type="password " class="form-control border border-danger" id="inputPassword4">
                             </div>
                             <div class="form-group">
-                                <label for="inputAddress">الاسم ثلاثى</label>
-                                <input required [(ngModel)]="fullName" name="fullName" type="text" class="form-control" id="inputAddress" placeholder="">
+                                <label for="inputAddress" class="nasda">الاسم ثلاثى</label>
+                                <input required [(ngModel)]="fullName" name="fullName" type="text" class="form-control border border-danger" id="inputAddress" placeholder="">
                             </div>
                             <div class="form-group">
-                                <label for="inputAddress">العنوان 1</label>
-                                <input required [(ngModel)]="address1" name="address2" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                <label for="inputAddress" class="nasda">العنوان 1</label>
+                                <input required [(ngModel)]="address1" name="address2" type="text" class="form-control border border-danger" id="inputAddress" placeholder="1234 Main St">
                             </div>
                             <div class="form-group">
-                                <label for="inputAddress2">العنوان 2</label>
-                                <input [(ngModel)]="address2" name="address2" type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                <label for="inputAddress2" class="nasda">العنوان 2</label>
+                                <input [(ngModel)]="address2" name="address2" type="text" class="form-control border border-danger" id="inputAddress2" placeholder="Apartment, studio, or floor">
                             </div>
                             <div class="form-group">
-                                <label for="inputCity">رقم الهاتف 1</label>
-                                <input required [(ngModel)]="phone1" name="phone1" type="tel" class="form-control" id="inputCity">
+                                <label for="inputCity" class="nasda">رقم الهاتف 1</label>
+                                <input required [(ngModel)]="phone1" name="phone1" type="tel" class="form-control border border-danger" id="inputCity">
                             </div>
                             <div class="form-group">
-                                <label for="inputCity">رقم الهاتف 2</label>
-                                <input [(ngModel)]="phone2" name="phone2" type="tel" class="form-control" id="inputCity">
+                                <label for="inputCity" class="nasda">رقم الهاتف 2</label>
+                                <input [(ngModel)]="phone2" name="phone2" type="tel" class="form-control border border-danger" id="inputCity">
                             </div>
 
                             <div class="form-group">

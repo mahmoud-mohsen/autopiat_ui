@@ -24,7 +24,9 @@ export class LayoutComponent implements OnInit {
 
   localStorageLastSeenCars = Array<{ carId: string, image: string }>();
 
-  constructor(private router: Router, private permissionsService: NgxPermissionsService, private backendService: BackendService, private authService: AuthService) { }
+  constructor(private router: Router, private permissionsService: NgxPermissionsService, private backendService: BackendService, private authService: AuthService) {
+    this.generalSearchCategory='all';
+   }
 
   ngOnInit(): void {
     let permissions =[''];

@@ -33,6 +33,7 @@ import { WaitingExistenceViewComponent } from './component/waiting-existence-vie
 import { AgreementViewComponent } from './component/agreement-view/agreement-view.component';
 import { ReservationConfirmationViewComponent } from './component/reservation-confirmation-view/reservation-confirmation-view.component';
 import { NewCarTypeComponent } from './component/new-car-type/new-car-type.component';
+import { FavoriteComponent } from './component/favorite/favorite.component';
 
 
 
@@ -55,6 +56,7 @@ import { NewCarTypeComponent } from './component/new-car-type/new-car-type.compo
     AgreementViewComponent,
     ReservationConfirmationViewComponent,
     NewCarTypeComponent,
+    FavoriteComponent,
   ],
   imports: [
     BrowserModule,

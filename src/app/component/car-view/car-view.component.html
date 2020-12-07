@@ -4,17 +4,17 @@
         <div class="col-md-12">
             <div *ngIf="car" class="row">
                 <div class="col-md-12 d-flex justify-content-end dox-box">
-                    <div class="col-md-12">
-                        <h6 class="dar-der"> {{car.category}}>{{car.type}}>{{car.mainDescription.model}}</h6>
+                    <div class="col-md-6">
+                        <h6 class="dar-der"> {{car.category}} > {{car.type}} > {{car.mainDescription.model}}</h6>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="dar-der"> ( <span>{{car.viewsNumber}}</span> ) عدد المشاهدات</h6>
                     </div>
                     <div class="col-md-2">
-                        <h6 class="dar-der"> <span>{{car.viewsNumber}}</span>عدد المشاهدات</h6>
-                    </div>
-                    <div class="col-md-2">
-                        <h6 class="dar-der"> <span>{{car.code}}</span>كود السيارة</h6>
+                        <h6 class="dar-der">( <span>{{car.code}}</span> )كود السيارة</h6>
                     </div>
                     <div class="col-md-3">
-                        <h6 class="dar-der"> <span>{{car.creationDate|date}}</span>تاريخ العرض</h6>
+                        <h6 class="dar-der">( <span>{{car.creationDate|date}} )</span> تاريخ العرض</h6>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -24,9 +24,9 @@
                     <h4 class="dar-der2"> <span class="pri-col">{{car.price}}</span> السعر</h4>
 
                 </div>
-                <div class="col-md-10">
-                    <h4 class="dar-der2"> وصف السيارة</h4>
-
+                <div class=" col-md-10">
+                    <h4 class="row dar-der2"> :وصف السيارة</h4>
+                    <p class="row par-dar-der">{{car.description}}</p>
                 </div>
 
                 <div class="col-md-12">
@@ -256,21 +256,60 @@
                     </div>
                     <div class="5">
                         <h1>البائع</h1>
-                        <img  src="../../../assets/img/gold.png" alt="img"
-                        class="gol-img">
-
+                        <div>
+                            <img *ngIf="car.guarantee" src="../../../assets/img/mdmon.png" alt="img" class="gol-img">
+                        </div>
+                        <div>
+                            <img *ngIf="car.partener" src="../../../assets/img/shareek.png" alt="img" class="gol-img">
+                        </div>
+                        <div>
+                            <img *ngIf="car.unique" src="../../../assets/img/fareed.png" alt="img" class="gol-img">
+                        </div>
+                        <div>
+                            <img *ngIf="car.number1Seller" src="../../../assets/img/number1Seller.png" alt="img"
+                                class="gol-img">
+                        </div>
+                        <div>
+                            <img *ngIf="car.number2Seller" src="../../../assets/img/number2Seller.png" alt="img"
+                                class="gol-img">
+                        </div>
+                        <div>
+                            <img *ngIf="car.number3Seller" src="../../../assets/img/number3Seller.png" alt="img"
+                                class="gol-img">
+                        </div>
                     </div>
                     <div class="pri-box">
-                        
-                        
-                        <div class="6">
-                            <div class="p-box">
-                                <h1 class="pprx-tex"> <span>{{car.price}}</span>  سعر السيارة</h1>
-                                <button (click)="reserveCar(car.id)" type="button" class="btn btn-danger bind-bot">احجز
-                                    الان</button>
+                        <div class="p-box row">
 
+                            <div class="col-md-7 ber-box">
+                                <h1 class="pprx-tex"> <span>{{car.price}}</span> سعر السيارة</h1>
+                                <button (click)="addTofavorite(car.id)" type="button"
+                                    class="btn btn-danger bind-bot2">اضف للمفضلة</button>
                             </div>
-
+                            <div class="row col-md-5">
+                                <div class="col-md-5 bsboz">
+                                    <h6>{{car.price}}</h6>
+                                </div>
+                                <div class="col-md-6 bsboz">
+                                    <h6>تكلفة العنصر </h6>
+                                </div>
+                                <div class="col-md-5 bsboz">
+                                    <h6>-</h6>
+                                </div>
+                                <div class="col-md-6 bsboz">
+                                    <h6>تقرير الفحص </h6>
+                                </div>
+                                <div class="col-md-5 bsboz">
+                                    <h6>-</h6>
+                                </div>
+                                <div class="col-md-6 bsboz">
+                                    <h6> تسجيل الوثائق</h6>
+                                </div>
+                            </div>
+                            الحجز
+                            <!-- <h1 class="pprx-tex"> <span>{{car.price}}</span>  سعر السيارة</h1> -->
+                            <button (click)="reserveCar(car.id)" type="button" class="btn btn-danger bind-bot">احجز
+                                الان</button>
 
                         </div>
 
@@ -282,14 +321,18 @@
                         <div class="col-md-12">
                             <div class="car-im-bg">
                                 <img *ngIf="carImages" [src]="mainCarImage" alt="{{car.name}}"
-                                    class="col-md-10 px-sid img-responsive">
+                                    class="col-md-13 px-sid img-responsive">
+                                <div class="col-md-13">
+                                    <h4 class="row img-dar-der2"> :كود السيارة</h4>
+                                    <h5 class="row img-par-dar-der">{{car.code}}</h5>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12 d-flex d-flex flex-wrap">
-                            <div  *ngFor="let image of carImages" class="col-md-2 ca-sm-pic">
+                            <div *ngFor="let image of carImages" class="col-md-2 ca-sm-pic">
                                 <div (click)="changeMainCarImage(image)">
                                     <img *ngIf="carImages" src="{{image}}" alt="{{car.name}}"
-                                    class="px-sid2 img-responsive">
+                                        class="px-sid2 img-responsive">
 
                                 </div>
                             </div>

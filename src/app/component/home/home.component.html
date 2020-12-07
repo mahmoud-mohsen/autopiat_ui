@@ -46,16 +46,6 @@
                                 </div>
                             </div>
                             <div class="col-md-5">
-                                <div class="d-inline-block">
-                                    <select [(ngModel)]="fastSearchYearFrom" name="yearFrom"
-                                        class="btn btn-outline-danger bt-ser-box">
-                                        <option value=null>السنة من</option>
-                                        <option *ngFor='let year of years' value="{{year}}">{{year}}
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
                                 <div ngbDropdown class="d-inline-block">
                                     <select [(ngModel)]="fastSearchYearTo" name="yearTo"
                                         class="btn btn-outline-danger bt-ser-box">
@@ -67,10 +57,19 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="d-inline-block">
-                                    <select [(ngModel)]="fastSearchPriceFrom" name="priceFrom"
+                                    <select [(ngModel)]="fastSearchYearFrom" name="yearFrom"
                                         class="btn btn-outline-danger bt-ser-box">
-                                        <option value=null>السعر من</option>
-                                        <option value="5000">5,000</option>
+                                        <option value=null>السنة من</option>
+                                        <option *ngFor='let year of years' value="{{year}}">{{year}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="d-inline-block">
+                                    <select [(ngModel)]="fastSearchPriceTo" name="priceTo"
+                                        class="btn btn-outline-danger bt-ser-box">
+                                        <option value=null>السعر الى</option>
                                         <option value="10000">10,000</option>
                                         <option value="20000">20,000</option>
                                         <option value="30000">30,000</option>
@@ -113,9 +112,10 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="d-inline-block">
-                                    <select [(ngModel)]="fastSearchPriceTo" name="priceTo"
+                                    <select [(ngModel)]="fastSearchPriceFrom" name="priceFrom"
                                         class="btn btn-outline-danger bt-ser-box">
-                                        <option value=null>السعر الى</option>
+                                        <option value=null>السعر من</option>
+                                        <option value="5000">5,000</option>
                                         <option value="10000">10,000</option>
                                         <option value="20000">20,000</option>
                                         <option value="30000">30,000</option>
@@ -176,11 +176,17 @@
 
             </div>
             <div (click)="openAboutPage(1)" class="col-md-4 but">
-                <h6 class="nav-barr">ما هوا اوتوبايت..؟</h6>
+                <h6 class="nav-barr">ما هوا اتوبيا..؟</h6>
             </div>
 
         </div>
 
+        <div *ngIf="categoryId=='0'" class="homeImage">
+            <input *ngxPermissionsOnly="['ROLE_ADMIN']" [(ngModel)]="homeImage" name="image" accept="image/*"
+                (change)="prepareHomeImage($event.target)" type="file">
+            <img *ngIf="this.configuration.homeImage" [src]="'data:image/jpg;base64,'+this.configuration.homeImage"
+                alt="homeImage" class="col-md-12">
+        </div>
         <div *ngIf="categoryId=='1'">
             <typeView-newcar class="row" [categoryId]=categoryId></typeView-newcar>
         </div>
@@ -226,7 +232,7 @@
                     <a (click)="getCarTyps(4) " class="nav-tex btn ">شاحنات</a>
                 </li>
                 <li [ngClass]="{ 'active nav-but1':categoryId=='5' , 'nav-but':categoryId!='5' } ">
-                    <a (click)="getCarTyps(5) " class="nav-tex btn "> اوتوبيسات</a>
+                    <a (click)="getCarTyps(5) " class="nav-tex btn "> الحافلات</a>
                 </li>
                 <li [ngClass]="{ 'active nav-but1':categoryId=='6' , 'nav-but':categoryId!='6' } ">
                     <a (click)="getCarTyps(6) " class="nav-tex btn "> معدات ثقيلة</a>
@@ -235,7 +241,7 @@
                     <a (click)="getCarTyps(7) " class="nav-tex btn "> قطع غيار و اكسسوارات</a>
                 </li>
                 <li [ngClass]="{ 'active nav-but1':categoryId=='8' , 'nav-but':categoryId!='8' } ">
-                    <a (click)="getCarTyps(8) " class="nav-tex btn "> اطارات</a>
+                    <a (click)="getCarTyps(8) " class="nav-tex btn "> اطارات و بطاريات</a>
                 </li>
             </ul>
         </div>
@@ -244,18 +250,25 @@
     <div class="container-fluid didi-bill">
         <div class="row">
             <div class="col-md-9 lass-di">
-                <nav ngbNav #nav="ngbNav" class="nav-tabs">
+                <nav ngbNav #nav="ngbNav" class="nav-tabs ta-na-te">
 
                     <ng-container ngbNavItem>
                         <a ngbNavLink (click)="getLatestCars('all')" class="rid-box">الكل</a>
                         <ng-template ngbNavContent class="">
                             <div class="row rudo-box">
-                                <div *ngFor="let car of latestCars" class="col-md-3">
-                                    <a [routerLink]="['/car',car.id]">
-                                        <img [src]="getFirstImage(car)" alt="{{car.name}}" class="col-md-10 px-sid">
-                                    </a>
-
-                                </div>
+                                <ng-container *ngFor="let car of latestCars">
+                                    <div *ngIf="latestCars.indexOf(car)==0" class="col-md-4 box-lar-bn">
+                                        <a *ngIf="latestCars &&latestCars[0]" [routerLink]="['/car',latestCars[0].id]">
+                                            <img [src]="getFirstImage(latestCars[0])" alt="{{latestCars[0].name}}"
+                                                class="col-md-12 main-px-sid">
+                                        </a>
+                                    </div>
+                                    <div *ngIf="latestCars.indexOf(car)!=0" class="col-md-2">
+                                        <a [routerLink]="['/car',car.id]">
+                                            <img [src]="getFirstImage(car)" alt="{{car.name}}" class="col-md-12 px-sid">
+                                        </a>
+                                    </div>
+                                </ng-container>
                             </div>
 
                         </ng-template>
@@ -285,10 +298,10 @@
         </div>
         <div class="row">
             <div class="col-md-9 lass-di4">
-                <nav ngbNav #nav="ngbNav" class="nav-tabs">
+                <nav ngbNav #nav="ngbNav" class="nav-tabs ">
 
                     <ng-container *ngFor="let category of itemCategoryList;" ngbNavItem>
-                        <a ngbNavLink (click)="getLatestCars(category)" class="rid-box">{{category}}</a>
+                        <a ngbNavLink (click)="getLatestItems(category)" class="rid-box">{{category}}</a>
                         <ng-template ngbNavContent class="">
                             <div class="row rudo-box">
                                 <div *ngFor="let car of latestCars" class="col-md-3">
@@ -318,7 +331,7 @@
         </div>
         <div class="row">
             <div class="col-md-9 lass-di2">
-                <nav ngbNav #nav1="ngbNav" class="nav-tabs">
+                <nav ngbNav #nav1="ngbNav" class="nav-tabs navbar-expand-lg navbar-light bg-light">
 
                     <ng-container ngbNavItem>
                         <a ngbNavLink (click)="getHomeSuggestedCars('')" class="rid-box">الكل</a>
@@ -364,50 +377,40 @@
                 <nav ngbNav #nav2="ngbNav" class="nav-tabs">
 
                     <ng-container ngbNavItem>
-                        <a ngbNavLink (click)="getNews('')" class="rid-box">الكل</a>
+                        <a ngbNavLink (click)="getNews('')" class="news-rid-box">الكل</a>
                         <ng-template ngbNavContent>
                             <div class="row rudo-box">
-                                <mdb-carousel [animation]="'slide'">
-                                    <mdb-carousel-item *ngFor="let news of newsList" class="">
-                                        <div class="col-md-7">
-                                            <h1 class="discr-txt">
-                                                {{news.title}}
-                                            </h1>
-                                            <h3 class="discr-txt">
-                                                {{news.description}}
-                                            </h3>
-
-                                        </div>
-                                        <div class="2">
+                                <ng-container *ngFor="let news of newsList">
+                                    <div *ngIf="newsList.indexOf(news)==0" class="col-md-4 box-lar-bn">
+                                        <div *ngIf="newsList &&news">
                                             <img [src]="'data:image/jpg;base64,'+news.image" alt="{{news.title}}"
-                                                class="col-md-10 px-sid">
+                                                class="col-md-12 main-px-sid">
                                         </div>
-                                    </mdb-carousel-item>
-                                </mdb-carousel>
+                                    </div>
+                                    <div *ngIf="newsList.indexOf(news)!=0" class="col-md-2">
+                                        <div>
+                                            <img [src]="'data:image/jpg;base64,'+news.image" alt="{{news.title}}"
+                                                class="col-md-12 px-sid">
+                                        </div>
+                                    </div>
+                                </ng-container>
                             </div>
                         </ng-template>
                     </ng-container>
                     <ng-container *ngFor="let category of newsCategories;" ngbNavItem>
-                        <a ngbNavLink (click)="getNews(category)" class="rid-box">{{category}}</a>
+                        <a ngbNavLink (click)="getNews(category)" class="news-rid-box">{{category}}</a>
                         <ng-template ngbNavContent>
                             <div class="row rudo-box">
-                                <mdb-carousel [animation]="'slide'">
-                                    <mdb-carousel-item *ngFor="let news of newsList" class="rudo-box">
-                                        <div class="col-md-7">
-                                            <h1 class="discr-txt">
-                                                {{news.title}}
-                                            </h1>
-                                            <h3 class="discr-txt">
-                                                {{news.description}}
-                                            </h3>
-
-                                        </div>
-                                        <div class="2">
-                                            <img [src]="'data:image/jpg;base64,'+news.image" alt="{{news.title}}"
-                                                class="col-md-10 px-sid">
-                                        </div>
-                                    </mdb-carousel-item>
-                                </mdb-carousel>
+                                <div *ngFor="let news of newsList" class="rudo-box">
+                                    <div *ngIf="newsList.indexOf(news)==0" class="col-md-4 box-lar-bn">
+                                        <img [src]="'data:image/jpg;base64,'+news.image" alt="{{news.title}}"
+                                            class="col-md-12 main-px-sid">
+                                    </div>
+                                    <div *ngIf="newsList.indexOf(news)!=0" class="col-md-2">
+                                        <img [src]="'data:image/jpg;base64,'+news.image" alt="{{news.title}}"
+                                            class="col-md-12 px-sid">
+                                    </div>
+                                </div>
                             </div>
                         </ng-template>
                     </ng-container>
@@ -416,18 +419,26 @@
                 <div [ngbNavOutlet]="nav2" class="mt-2"></div>
             </div>
             <div class="col-md-2 new-arr dfd">
-                <h1 class="n-vtxt">اخبار اوتوبيات</h1>
+                <h1 class="n-vtxt">اخبار اوتوبيا</h1>
             </div>
 
 
         </div>
-
+        
+        </div>
         <div class="row abo-tt">
+            <div class="row">
+                <div class="col-md-12 main-adv">
+                    <input *ngxPermissionsOnly="['ROLE_ADMIN']" [(ngModel)]="advImage" name="image" accept="image/*"
+                (change)="prepareAdvImage($event.target)" type="file">
+                <img *ngIf="this.configuration.advImage" [src]="'data:image/jpg;base64,'+this.configuration.advImage"
+                alt="homeImage" class="adv">
+            </div>
             <div class="col-md-2">
 
             </div>
             <div class="col-md-9">
-                <h1 class="aa-txt">أتوبيات هو</h1><br><br><br>
+                <h1 class="aa-txt">أتوبيا هو</h1><br><br><br>
                 <h1 class="aa-txt2"> منصة لتداول السيارات في مصر</h1><br><br><br>
                 <h2 class="ddds-tx">هي منصة تداول للسيارات والشاحنات والحافلات والمعدات وقطع الغيار وجميع الملحقات
                     الخاصة بها في مصر كسوق حر نقدم أكثر الطرق أمانا وأسرعها لشراء العناصر . من البائعيين المصريين إلى
@@ -445,7 +456,7 @@
 
                         </div><br>
                         <div class="an-dd">
-                            <h3 class=" "> خدمة الفحص <a (click)="openAboutPage(1)" [routerLink]="">اعرف المزيد</a></h3>
+                            <h3 class=" "> خدمة الفحص <a (click)="openAboutPage(6)" [routerLink]="">اعرف المزيد</a></h3>
 
                         </div>
                     </div>
@@ -455,7 +466,7 @@
 
                         </div><br>
                         <div class="an-dd">
-                            <h3 class=" "> معلومات قبل الشراء <a (click)="openAboutPage(2)" [routerLink]="">اعرف
+                            <h3 class=" "> معلومات قبل الشراء <a (click)="openAboutPage(5)" [routerLink]="">اعرف
                                     المزيد</a></h3>
 
                         </div>
@@ -493,20 +504,32 @@
         </div>
         <div class="row">
             <div class="col-md-2">
-                <img src="../../../assets/img/dsff.PNG" class="contact-im">
+                <a (click)="openAboutPage(4)" [routerLink]="">
+                    <img src="../../../assets/img/dsff.PNG" class="contact-im">
+                </a>
             </div>
             <div class="col-md-5">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row but1">
-                            <div class="col-4">
-                                <img src="../../../assets/img/howw.jpg" alt="offer" class="col-md-10 px-sid">
+                            <div class="col-4 offer-img">
+                                    <input *ngxPermissionsOnly="['ROLE_ADMIN']" [(ngModel)]="offer1Image" name="image" accept="image/*"
+                                (change)="prepareOffer1Image($event.target)" type="file">
+                                <img *ngIf="this.configuration.offer1Image" [src]="'data:image/jpg;base64,'+this.configuration.offer1Image" alt="offer" class="col-md-10 px-sid">
+                                <img *ngIf="!this.configuration.offer1Image" src="../../../assets/img/howw.jpg" alt="offer" class="col-md-10 px-sid">
                             </div>
-                            <div class="col-4">
-                                <img src="../../../assets/img/howw.jpg" alt="offer" class="col-md-10 px-sid">
+                            <div class="col-4 offer-img">
+                                    <input *ngxPermissionsOnly="['ROLE_ADMIN']" [(ngModel)]="offer2Image" name="image" accept="image/*"
+                                (change)="prepareOffer2Image($event.target)" type="file">
+                                <img *ngIf="this.configuration.offer2Image" [src]="'data:image/jpg;base64,'+this.configuration.offer2Image" alt="offer" class="col-md-10 px-sid">
+                                <img *ngIf="!this.configuration.offer2Image" src="../../../assets/img/howw.jpg" alt="offer" class="col-md-10 px-sid">
+
                             </div>
-                            <div class="col-4">
-                                <img src="../../../assets/img/howw.jpg" alt="offer" class="col-md-10 px-sid">
+                            <div class="col-4 offer-img">
+                                    <input *ngxPermissionsOnly="['ROLE_ADMIN']" [(ngModel)]="offer3Image" name="image" accept="image/*"
+                                (change)="prepareOffer3Image($event.target)" type="file">
+                                <img *ngIf="this.configuration.offer3Image" [src]="'data:image/jpg;base64,'+this.configuration.offer3Image" alt="offer" class="col-md-10 px-sid">
+                                <img *ngIf="!this.configuration.offer3Image" src="../../../assets/img/howw.jpg" alt="offer" class="col-md-10 px-sid">
                             </div>
                             <div class="offerH">
                                 <h1>عروض خاصه</h1>
@@ -516,8 +539,9 @@
                 </div>
             </div>
             <div class="col-md-5">
-                <img src="../../../assets/img/cxcx.PNG" class="contact-im3">
-
+                <a (click)="openAboutPage(3)" [routerLink]="">
+                    <img src="../../../assets/img/cxcx.PNG" class="contact-im3">
+                </a>
             </div>
         </div>
     </div>
